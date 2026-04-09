@@ -30,7 +30,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={ classNames(cls.Navbar, {}, [className]) }>
+            <header className={ classNames(cls.Navbar, {}, [className]) }>
                 <div className={cls.links}>
                     <Button
                         className={cls.loginBtn}
@@ -40,12 +40,12 @@ export const Navbar = ({ className }: NavbarProps) => {
                         {t('Navbar.logout')}
                     </Button>
                 </div>
-            </div>
+            </header>
         );
     };
 
     return (
-        <div className={ classNames(cls.Navbar, {}, [className]) }>
+        <header className={ classNames(cls.Navbar, {}, [className]) }>
             <div className={cls.links}>
                 <Button
                     className={cls.loginBtn}
@@ -65,6 +65,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                 }
 
             </div>
-        </div>
+        </header>
     );
 };

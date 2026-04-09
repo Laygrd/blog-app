@@ -2,7 +2,6 @@ import { memo, useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import cls from './ProfilePage.module.scss';
 
 import { 
     getProfileError, 
@@ -15,15 +14,16 @@ import {
     profileActions,
     ValidateProfileDataError,
 } from "entities/Profile";
-
-import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { getProfileForm } from "entities/Profile";
+import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Page } from "shared/ui/Page/Page";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
+import cls from './ProfilePage.module.scss';
 
 
 const reducers: ReducersList = {
@@ -93,7 +93,7 @@ const ProfilePage = () => {
             reducers={reducers}
             removeAfterUnmount
         >
-            <div className={cls.ProfilePage}>
+            <Page className={cls.ProfilePage}>
                 <ProfilePageHeader />
 
                 <div className={cls.errors}>
@@ -123,7 +123,7 @@ const ProfilePage = () => {
                     onChangeCity={onChangeCity}
                     onChangeCurrency={onChangeCurrency}
                 />
-            </div>
+            </Page>
         </DynamicReducerLoader>
     )
 

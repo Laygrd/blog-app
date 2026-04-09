@@ -22,7 +22,7 @@ export const ArticleList = (props: ArticleListProps) => {
     } = props;
     //const { t } = useTranslation('article')
 
-    const renderArticleCard = useCallback((articleData?: Article) => {
+    const renderArticleCard = useCallback((articleData?: Article, isLoading?: boolean) => {
         return (
             <ArticleListItem
                 key={articleData?.id}
@@ -31,22 +31,27 @@ export const ArticleList = (props: ArticleListProps) => {
                 isLoading={isLoading}
             />
         )
-    }, [view, isLoading]);
+    }, [view]);
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className])}>
-                {
-                    new Array( view === ArticleListView.LIST ? 3 : 12).fill(0).map(() => renderArticleCard())
-                }
-            </div>
-        )
-    };
+    // if (isLoading) {
+    //     return (
+    //         <div className={classNames(cls.ArticleList, {}, [className])}>
+    //             {
+    //                 new Array( view === ArticleListView.LIST ? 3 : 12).fill(0).map(() => renderArticleCard())
+    //             }
+    //         </div>
+    //     )
+    // };
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className])}>
-            {
-                articles.map((articleData) => renderArticleCard(articleData))
+            {   
+                articles.length > 0
+                    ? articles.map((articleData) => renderArticleCard(articleData))
+                    : null
+            }
+            {   isLoading && 
+                new Array( view === ArticleListView.LIST ? 3 : 12).fill(0).map(() => renderArticleCard(undefined, true))
             }
         </div>
     );

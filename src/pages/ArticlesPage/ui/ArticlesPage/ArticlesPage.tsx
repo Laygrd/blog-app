@@ -7,10 +7,14 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { Text } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Page } from 'shared/ui/Page/Page';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import { fetchArticlesNextPart } from '../../model/services/fetchArticlesNextPart/fetchArticlesNextPart';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
 import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
+import { getArticlesPageNumber } from '../../model/selectors/getArticlesPageNumber/getArticlesPageNumber';
+import { getArticlesPageHasMore } from '../../model/selectors/getArticlesPageHasMore/getArticlesPageHasMore';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
 
@@ -29,6 +33,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
+    const page = useSelector(getArticlesPageNumber);
+    const hasMore = useSelector(getArticlesPageHasMore);
     const articles = useSelector(getArticles.selectAll);
     //const { t } = useTranslation()
 
@@ -36,14 +42,21 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(articlesPageActions.setView(newView))
     }, [dispatch]);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchArticlesNextPart());
+    }, [dispatch]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticles());
         dispatch(articlesPageActions.initView());
+        dispatch(fetchArticles({page: 1}));
     });
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticlesPage, {}, [className])}>
+            <Page
+                className={classNames(cls.ArticlesPage, {}, [className])}
+                onScrollEnd={onLoadNextPart}
+            >
                 <ArticleViewSelector
                     view={view}
                     onViewChange={onViewChange}
@@ -57,7 +70,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     articles={articles}
                     view={view}
                 />
-            </div>
+            </Page>
         </DynamicReducerLoader>
     );
 };

@@ -1,12 +1,13 @@
-import { memo, useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { useSelector } from "react-redux";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
+import { classNames } from "shared/lib/classNames/classNames";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems/getSidebarItems";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
-import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Sidebar.module.scss";
-import { useSelector } from "react-redux";
+
 
 interface SidebarProps {
     className?: string;
@@ -17,21 +18,25 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const onToggle = () => setCollapsed(prev => !prev);
     const sidebarItemsList = useSelector(getSidebarItems);
 
+    const itemsList = useMemo(() => sidebarItemsList.map((item) => 
+        (
+            <SidebarItem 
+                itemData={item}
+                key={item.path}
+                collapsed={collapsed}
+            />
+        )
+    ), [collapsed, sidebarItemsList]);
+
+    // mb navbar in <aside />?
+
     return (
-        <div
+        <aside
             data-testid='sidebar'
             className={ classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className]) }
         >
             <div className={cls.links}>
-                {
-                    sidebarItemsList.map((item) => (
-                        <SidebarItem 
-                            itemData={item}
-                            key={item.path}
-                            collapsed={collapsed}
-                        />
-                    ))
-                }
+                { itemsList }
             </div>
 
             <div className={cls.switchers}>
@@ -48,6 +53,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? '>>>' : '<<<'}
             </Button>
-        </div>
+        </aside>
     );
 });

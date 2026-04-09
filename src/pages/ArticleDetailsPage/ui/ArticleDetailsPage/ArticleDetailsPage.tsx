@@ -9,6 +9,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Page } from "shared/ui/Page/Page";
 import { RouterPaths } from 'shared/config/router/routerVars';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -52,24 +53,24 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if ( __PROJECT__ === 'storybook') {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <ArticleDetails id={"1"}/>
-            </div>
+            </Page>
         );
     }
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 {t('errors.INCORRECT_ARTICLE_ID')}
-            </div>
+            </Page>
         )
     }
 
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <AppLink
                     className={cls.backLink}
                     to={RouterPaths.articles}
@@ -94,7 +95,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                         />
                     </>
                 }
-            </div>
+            </Page>
         </DynamicReducerLoader>
     );
 }

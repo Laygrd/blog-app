@@ -37,9 +37,19 @@ describe('articlesPageSlice.test', () => {
         ).toEqual({ view: ArticleListView.TILE })
     });
 
+    test('should setPage work', () => {
+        const state: DeepPartial<ArticlesPageSchema> = {
+            page: 2,
+        };
+        expect(
+            articlesPageReducer(state as ArticlesPageSchema, articlesPageActions.setPage(2))
+        ).toEqual({ page: 2 })
+    });
+
     test('should initView work', () => {
         const state: DeepPartial<ArticlesPageSchema> = {
             view: undefined,
+            limit: undefined,
         };
 
         // mocking localStorage
@@ -54,7 +64,7 @@ describe('articlesPageSlice.test', () => {
 
         expect(
             articlesPageReducer(state as ArticlesPageSchema, articlesPageActions.initView())
-        ).toEqual({ view: ArticleListView.LIST })
+        ).toEqual({ view: ArticleListView.LIST, limit: 4 })
     });
 
     //extra reducers (btw it tested in fetchArticles.test.ts)

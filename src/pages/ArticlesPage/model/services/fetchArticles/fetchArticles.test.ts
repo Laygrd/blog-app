@@ -31,10 +31,15 @@ const article = {
 describe('fetchArticles.test', () => {
 
     test('success fetch', async () => {
-        const thunk = new TestAsyncThunk(fetchArticles);
+        const thunk = new TestAsyncThunk(
+            fetchArticles,
+            {
+                articlesPage: {limit: 9}
+            },
+        );
         thunk.api.get.mockReturnValue(Promise.resolve({data: [article]}));
 
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk({page: 1});
 
         expect( thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -42,10 +47,15 @@ describe('fetchArticles.test', () => {
     });
 
     test('error fetch', async () => {
-        const thunk = new TestAsyncThunk(fetchArticles);
+        const thunk = new TestAsyncThunk(
+            fetchArticles,
+            {
+                articlesPage: {limit: 9}
+            },
+        );
         thunk.api.get.mockReturnValue(Promise.resolve({status: 404}));
 
-        const result = await thunk.callThunk()
+        const result = await thunk.callThunk({page: 1})
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
