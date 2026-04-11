@@ -33,8 +33,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
-    const page = useSelector(getArticlesPageNumber);
-    const hasMore = useSelector(getArticlesPageHasMore);
     const articles = useSelector(getArticles.selectAll);
     //const { t } = useTranslation()
 

@@ -2,40 +2,16 @@
   "comments": [
     {
       "id": "1",
-      "text": "some comment",
+      "text": "Great article! It's good practice to occasionally remember the basics.",
       "articleId": "1",
       "userId": "1"
     },
     {
       "id": "2",
-      "text": "some comment 2",
+      "text": "The part about real-world use was especially helpful",
       "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "articleId": "1",
-      "userId": 2,
-      "text": "новый комментарий ",
-      "id": "sZ1vN7h"
-    },
-    {
-      "articleId": "1",
-      "userId": 2,
-      "text": "новый комментарий2",
-      "id": "1JPbQS-"
-    },
-    {
-      "articleId": "1",
-      "userId": 2,
-      "text": "новый комментарий3",
-      "id": "XziwVOg"
-    }
+      "userId": "2"
+    }    
   ],
   "users": [
     {
@@ -50,7 +26,7 @@
       "username": "laygord",
       "password": "laygord",
       "role": "ADMIN",
-      "avatarUrl": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg"
+      "avatarUrl": "https://static.vecteezy.com/system/resources/thumbnails/011/961/865/small/programmer-icon-line-color-illustration-vector.jpg"
     }
   ],
   "profiles": [
@@ -67,7 +43,7 @@
     },
     {
       "id": "2",
-      "avatar": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg",
+      "avatar": "https://static.vecteezy.com/system/resources/thumbnails/011/961/865/small/programmer-icon-line-color-illustration-vector.jpg",
       "username": "laygord",
       "firstname": "LayGord",
       "lastname": "1337",
@@ -80,11 +56,11 @@
   "articles": [
     {
       "id": "1",
-      "title": "Test article Test article Test article Test article Test article",
-      "subtitle": "Test article Test article Test article",
+      "title": "Understanding Closures in JavaScript",
+      "subtitle": "All you need to know abount closures in JS",
       "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
+      "views": 346,
+      "createdAt": "08.08.2025",
       "userId": "1",
       "type": [
         "IT"
@@ -93,76 +69,214 @@
         {
           "id": "1",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Begining",
           "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
+            "Closures are a powerful but often misunderstood feature in JavaScript. At their core, a closure is when an inner function has access to variables from its outer (enclosing) function, even after the outer function has finished executing. This happens because functions in JS 'remember' their lexical scope."
           ]
         },
         {
           "id": "2",
-          "type": "CODE",
-          "code": "content = (\n  <>\n      <div className={cls.avatarWrapper}>\n          <Avatar\n              size={200}\n              theme={AvatarTheme.ROUNDED}\n              src={data?.img}\n          />\n      </div>\n      <Text \n          title={data?.title}\n          text={data?.subtitle}\n      />\n  </>\n)\n"
+          "type": "TEXT",
+          "title": "Why Do Closures Matter?",
+          "paragraphs": [
+            "Closures let you create private variables, maintain state without global pollution, and build modular code. They're key for patterns like modules, event handlers, and callbacks."
+          ]
         },
         {
           "id": "3",
-          "type": "IMAGE",
-          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAuTbyKJ_Qk8CM9t_gRWoidIfYkhLqyiR1-A&s",
-          "title": "gato"
+          "type": "TEXT",
+          "title": "Simple Example",
+          "paragraphs": [
+            "Consider this classic counter:"
+          ]
         },
         {
           "id": "4",
-          "type": "TEXT",
-          "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
-          ]
+          "type": "CODE",
+          "code": "function createCounter() {\n  let count = 0;  // Private variable\n\n  return function() {\n    count++;      // Inner function accesses 'count'\n    return count;\n  };\n}\n\nconst myCounter = createCounter();\nconsole.log(myCounter()); // 1\nconsole.log(myCounter()); // 2\nconsole.log(myCounter()); // 3"
         },
         {
           "id": "5",
           "type": "TEXT",
           "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
+            "Here, createCounter returns an inner function. Even after createCounter finishes, the inner function 'closes over' count, keeping it alive and private. Trying to access count from outside fails—true encapsulation!"
           ]
         },
         {
           "id": "6",
-          "type": "IMAGE",
-          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAuTbyKJ_Qk8CM9t_gRWoidIfYkhLqyiR1-A&s",
-          "title": "gato"
-        },
-        {
-          "id": "6",
-          "type": "CODE",
-          "code": "content = (\n  <>\n      <div className={cls.avatarWrapper}>\n          <Avatar\n              size={200}\n              theme={AvatarTheme.ROUNDED}\n              src={data?.img}\n          />\n      </div>\n      <Text \n          title={data?.title}\n          text={data?.subtitle}\n      />\n  </>\n)\n"
+          "type": "TEXT",
+          "title": "Real-World Use: Event Listeners",
+          "paragraphs": [
+            "Closures shine in loops with events:"
+          ]
         },
         {
           "id": "7",
-          "type": "TEXT",
-          "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
-          ]
+          "type": "CODE",
+          "code": "function setupButtons() {\n  for (let i = 0; i < 3; i++) {\n    const button = document.createElement('button');\n    button.textContent = `Button ${i}`;\n    button.addEventListener('click', function() {\n      alert(`You clicked button ${i}`);  // 'i' is closed over correctly\n    });\n    document.body.appendChild(button);\n  }\n}"
         },
         {
           "id": "8",
           "type": "TEXT",
           "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
+            "Using let (block-scoped) creates a new i for each iteration, avoiding the classic var bug where all buttons alert 'Button 3'."
+          ]
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "title": "Common Pitfall",
+          "paragraphs": [
+            "Memory leaks! Closures hold references, so remove event listeners in long-lived apps to free memory.",
+            "Closures make JS functional and flexible—master them, and your code will feel more elegant."
           ]
         }
       ]
     },
     {
       "id": "2",
-      "title": "Test article Test article",
-      "subtitle": "Test article ",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
+      "title": "Docker Fundamentals: Containerize Your Apps",
+      "subtitle": "From images to orchestration – everything you need to get started",
+      "img": "https://1000logos.net/wp-content/uploads/2021/11/Docker-Logo.png",
+      "views": 512,
+      "createdAt": "10.04.2026",
+      "userId": "1",
+      "type": [
+        "IT",
+        "DevOps"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "What is Docker?",
+          "paragraphs": [
+            "Docker is a platform that uses OS-level virtualization to deliver software in packages called containers. Containers bundle your app with its dependencies, ensuring it runs identically anywhere – from dev laptop to production cloud."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "TEXT",
+          "title": "Why Docker Revolutionized Development?",
+          "paragraphs": [
+            "Solves 'it works on my machine' issues. Lightweight (vs VMs), fast startup, portable across Linux/Mac/Windows. Enables microservices, CI/CD, and consistent environments."
+          ]
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Core Concepts",
+          "paragraphs": [
+            "Image: Read-only template (like a snapshot). Container: Running instance of an image. Dockerfile: Script to build images. Registry: Storage for images (Docker Hub is public default)."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "TEXT",
+          "title": "Install and Run Your First Container",
+          "paragraphs": [
+            "Install Docker Desktop (docker.com). Pull and run Nginx:"
+          ]
+        },
+        {
+          "id": "5",
+          "type": "CODE",
+          "code": "docker pull nginx\n\ndocker run -d -p 8080:80 --name my-nginx nginx\n\n# Visit localhost:8080 → Nginx welcome page!\n\n# Stop and remove\ndocker stop my-nginx\ndocker rm my-nginx"
+        },
+        {
+          "id": "6",
+          "type": "TEXT",
+          "paragraphs": [
+            "`-d` runs detached, `-p` maps ports, `--name` labels it. Boom – web server in seconds!"
+          ]
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "title": "Build Your Own Image with Dockerfile",
+          "paragraphs": [
+            "Create a simple Node.js app container:"
+          ]
+        },
+        {
+          "id": "8",
+          "type": "CODE",
+          "code": "# Dockerfile\nFROM node:18-alpine\n\nWORKDIR /app\nCOPY package*.json ./\nRUN npm install\n\nCOPY . .\nEXPOSE 3000\n\nCMD [\"node\", \"server.js\"]\n\n# server.js example:\nconst http = require('http');\nhttp.createServer((req, res) => {\n  res.writeHead(200);\n  res.end('Hello Docker!');\n}).listen(3000);\n\n# Build & run\nmkdir myapp && cd myapp\n# (add files)\ndocker build -t myapp .\ndocker run -p 3000:3000 myapp"
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "paragraphs": [
+            "`FROM` base image, `RUN` executes commands, `CMD` default run. Build creates layers for efficiency."
+          ]
+        },
+        {
+          "id": "10",
+          "type": "TEXT",
+          "title": "Volumes for Persistent Data",
+          "paragraphs": [
+            "Containers are ephemeral – use volumes for data:"
+          ]
+        },
+        {
+          "id": "11",
+          "type": "CODE",
+          "code": "docker run -d -p 5432:5432 -v pgdata:/var/lib/postgresql/data --name db postgres\n\n# Named volume 'pgdata' persists outside container"
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "paragraphs": [
+            "List: `docker volume ls`. Great for databases."
+          ]
+        },
+        {
+          "id": "13",
+          "type": "TEXT",
+          "title": "Docker Compose for Multi-Container Apps",
+          "paragraphs": [
+            "Orchestrate services with docker-compose.yml:"
+          ]
+        },
+        {
+          "id": "14",
+          "type": "CODE",
+          "code": "version: '3.8'\nservices:\n  web:\n    build: .\n    ports:\n      - \"3000:3000\"\n    depends_on:\n      - db\n  db:\n    image: postgres:15\n    environment:\n      POSTGRES_PASSWORD: example\n    volumes:\n      - pgdata:/var/lib/postgresql/data\nvolumes:\n  pgdata:\n\n# Run: docker-compose up"
+        },
+        {
+          "id": "15",
+          "type": "TEXT",
+          "paragraphs": [
+            "Defines networks, scaling, env vars. Perfect for full-stack apps."
+          ]
+        },
+        {
+          "id": "16",
+          "type": "TEXT",
+          "title": "Essential Commands and Best Practices",
+          "paragraphs": [
+            "Key commands: `docker ps/a` (list), `docker logs <name>`, `docker exec -it <name> /bin/sh` (shell).",
+            "Tips: Use `.dockerignore`, multi-stage builds for smaller images, non-root users, scan with Trivy."
+          ]
+        },
+        {
+          "id": "17",
+          "type": "TEXT",
+          "title": "Next Steps",
+          "paragraphs": [
+            "Explore Kubernetes for orchestration, Docker Swarm for built-in clustering. Docker makes deployment reliable – start small, scale big!",
+            "Practice on Docker Hub or Katacoda playgrounds."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Mastering Asynchronous Programming in Python",
+      "subtitle": "Handling concurrency with async/await and asyncio",
+      "img": "https://cdn.stepik.net/media/cache/images/courses/243047/cover_rCfxEpu/2e8d2143ec15d2a79ba310f8883f8a6f.png",
+      "views": 289,
+      "createdAt": "10.04.2026",
       "userId": "1",
       "type": [
         "IT"
@@ -171,65 +285,66 @@
         {
           "id": "1",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "What is Asynchronous Programming?",
           "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
+            "Python's async programming lets your code handle I/O-bound tasks efficiently without blocking the main thread. Introduced in Python 3.5 via asyncio, it uses coroutines, event loops, and async/await syntax to run tasks concurrently."
           ]
         },
         {
           "id": "2",
-          "type": "CODE",
-          "code": "content = (\n  <>\n      <div className={cls.avatarWrapper}>\n          <Avatar\n              size={200}\n              theme={AvatarTheme.ROUNDED}\n              src={data?.img}\n          />\n      </div>\n      <Text \n          title={data?.title}\n          text={data?.subtitle}\n      />\n  </>\n)\n"
+          "type": "TEXT",
+          "title": "Why Use Async in Python?",
+          "paragraphs": [
+            "Perfect for web servers, API calls, file I/O, or database queries. It scales better than threads for I/O-heavy apps, avoiding GIL limitations while keeping code readable."
+          ]
         },
         {
           "id": "3",
-          "type": "IMAGE",
-          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAuTbyKJ_Qk8CM9t_gRWoidIfYkhLqyiR1-A&s",
-          "title": "gato"
+          "type": "TEXT",
+          "title": "Basic async/await Example",
+          "paragraphs": [
+            "Start with a simple coroutine that simulates network delays:"
+          ]
         },
         {
           "id": "4",
-          "type": "TEXT",
-          "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
-          ]
+          "type": "CODE",
+          "code": "import asyncio\nimport time\n\nasync def fetch_data(delay, name):\n    print(f'Starting {name}...')\n    await asyncio.sleep(delay)  # Non-blocking sleep\n    print(f'{name} done!')\n    return f'Result from {name}'\n\nasync def main():\n    # Run tasks concurrently\n    tasks = [\n        fetch_data(2, 'API1'),\n        fetch_data(1, 'API2'),\n        fetch_data(3, 'API3')\n    ]\n    results = await asyncio.gather(*tasks)\n    print(results)\n\nasyncio.run(main())"
         },
         {
           "id": "5",
           "type": "TEXT",
           "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
+            "This runs all fetches concurrently—total time is ~3s (max delay), not 6s sequentially. `asyncio.gather` awaits all without blocking."
           ]
         },
         {
           "id": "6",
-          "type": "IMAGE",
-          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAuTbyKJ_Qk8CM9t_gRWoidIfYkhLqyiR1-A&s",
-          "title": "gato"
-        },
-        {
-          "id": "6",
-          "type": "CODE",
-          "code": "content = (\n  <>\n      <div className={cls.avatarWrapper}>\n          <Avatar\n              size={200}\n              theme={AvatarTheme.ROUNDED}\n              src={data?.img}\n          />\n      </div>\n      <Text \n          title={data?.title}\n          text={data?.subtitle}\n      />\n  </>\n)\n"
+          "type": "TEXT",
+          "title": "Real-World: HTTP Requests",
+          "paragraphs": [
+            "Use aiohttp for async HTTP. Fetch multiple URLs in parallel:"
+          ]
         },
         {
           "id": "7",
-          "type": "TEXT",
-          "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
-          ]
+          "type": "CODE",
+          "code": "import aiohttp\nimport asyncio\n\nasync def fetch_url(session, url):\n    async with session.get(url) as response:\n        return await response.text()\n\nasync def main():\n    urls = [\n        'https://api.github.com',\n        'https://jsonplaceholder.typicode.com/posts/1'\n    ]\n    async with aiohttp.ClientSession() as session:\n        tasks = [fetch_url(session, url) for url in urls]\n        results = await asyncio.gather(*tasks)\n        print([len(r) for r in results])\n\nasyncio.run(main())"
         },
         {
           "id": "8",
           "type": "TEXT",
           "paragraphs": [
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at.",
-            "     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget. Nullam imperdiet ipsum quis lacus posuere sodales. Cras non malesuada sapien. Phasellus consectetur luctus sem, gravida elementum leo tempor ut. Nullam nec suscipit nulla, vitae porta neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas varius lorem vitae leo placerat placerat. Sed eu molestie est, vitae efficitur justo. Nulla fermentum metus lorem, in sagittis lorem pharetra at."
+            "aiohttp handles connections efficiently. Install with `pip install aiohttp`."
+          ]
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "title": "Key Tips and Pitfalls",
+          "paragraphs": [
+            "Always `await` coroutines—don't call them like regular functions. Use `asyncio.run()` for top-level entry. Avoid mixing sync (e.g., `time.sleep`) with async; it blocks the event loop.",
+            "Async shines for I/O, not CPU-bound tasks (use multiprocessing for those). Frameworks like FastAPI build on this for high-performance APIs."
           ]
         }
       ]

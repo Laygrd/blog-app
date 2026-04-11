@@ -69,7 +69,7 @@ PrimaryList.decorators = [];
 export const PrimaryTile = Template.bind({});
 PrimaryTile.args = {
     articles: articles_list,
-    view: ArticleListView.LIST,
+    view: ArticleListView.TILE,
     isLoading: false
 };
 PrimaryTile.decorators = [];
@@ -85,14 +85,14 @@ DarkList.decorators = [ThemeDecorator(Theme.DARK)];
 export const DarkTile = Template.bind({});
 DarkTile.args = {
     articles: articles_list,
-    view: ArticleListView.LIST,
+    view: ArticleListView.TILE,
     isLoading: false
 };
 DarkTile.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const PrimaryListIsLoading = Template.bind({});
 PrimaryListIsLoading.args = {
-    articles: articles_list,
+    articles: [],
     view: ArticleListView.LIST,
     isLoading: true
 };
@@ -100,15 +100,15 @@ PrimaryListIsLoading.decorators = [];
 
 export const PrimaryTileIsLoading = Template.bind({});
 PrimaryTileIsLoading.args = {
-    articles: articles_list,
-    view: ArticleListView.LIST,
+    articles: [],
+    view: ArticleListView.TILE,
     isLoading: true
 };
 PrimaryTileIsLoading.decorators = [];
 
 export const DarkListIsLoading = Template.bind({});
 DarkListIsLoading.args = {
-    articles: articles_list,
+    articles: [],
     view: ArticleListView.LIST,
     isLoading: true
 };
@@ -116,8 +116,8 @@ DarkListIsLoading.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const DarkTileIsLoading = Template.bind({});
 DarkTileIsLoading.args = {
-    articles: articles_list,
-    view: ArticleListView.LIST,
+    articles: [],
+    view: ArticleListView.TILE,
     isLoading: true
 };
 DarkTileIsLoading.decorators = [ThemeDecorator(Theme.DARK)];

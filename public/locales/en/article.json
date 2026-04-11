@@ -1,5 +1,5 @@
 {
-    "read": "Read full...",
+    "read": "Read more...",
     "errors": {
         "ARTICLE_NOT_FOUND": "Article not found...(",
         "FAILED_TO_FETCH_ARTICLES": "Failed to fetch articles...("

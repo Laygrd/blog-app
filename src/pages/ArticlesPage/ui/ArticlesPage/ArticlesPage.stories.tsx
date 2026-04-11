@@ -74,13 +74,13 @@ PrimaryTile.decorators = [StoreDecorator({
 export const PrimaryListIsLoading = Template.bind({});
 PrimaryListIsLoading.args = {};
 PrimaryListIsLoading.decorators = [StoreDecorator({
-    articlesPage: {entities: articles_entities, ids: articles_id, isLoading: true, view: ArticleListView.LIST}
+    articlesPage: {entities: {}, ids: [], isLoading: true, view: ArticleListView.LIST}
 })];
 
 export const PrimaryTileIsLoading = Template.bind({});
 PrimaryTileIsLoading.args = {};
 PrimaryTileIsLoading.decorators = [StoreDecorator({
-    articlesPage: {entities: articles_entities, ids: articles_id, isLoading: true, view: ArticleListView.TILE}
+    articlesPage: {entities: {}, ids: [], isLoading: true, view: ArticleListView.TILE}
 })];
 
 export const DarkList = Template.bind({});
@@ -98,11 +98,11 @@ DarkTile.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
 export const DarkListIsLoading = Template.bind({});
 DarkListIsLoading.args = {};
 DarkListIsLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    articlesPage: {entities: articles_entities, ids: articles_id, isLoading: true, view: ArticleListView.LIST}
+    articlesPage: {entities: {}, ids: [], isLoading: true, view: ArticleListView.LIST}
 })];
 
 export const DarkTileIsLoading = Template.bind({});
 DarkTileIsLoading.args = {};
 DarkTileIsLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    articlesPage: {entities: articles_entities, ids: articles_id, isLoading: true, view: ArticleListView.TILE}
+    articlesPage: {entities: {}, ids: [], isLoading: true, view: ArticleListView.TILE}
 })];

@@ -1,6 +1,7 @@
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchArticles } from "./fetchArticles"
-import { Article } from "entities/Article";
+import { Article, ArticleListView } from "entities/Article";
+
 
 const article = {
     "id": "1",
@@ -34,14 +35,23 @@ describe('fetchArticles.test', () => {
         const thunk = new TestAsyncThunk(
             fetchArticles,
             {
-                articlesPage: {limit: 9}
+                articlesPage: {
+                    limit: 4,
+                    page: 2,
+                    hasMore: true,
+                    ids: [],
+                    entities: {},
+                    isLoading: false,
+                    error: undefined,
+                    view: ArticleListView.LIST,
+                }
             },
         );
         thunk.api.get.mockReturnValue(Promise.resolve({data: [article]}));
 
-        const result = await thunk.callThunk({page: 1});
+        const result = await thunk.callThunk({page: 2});
 
-        expect( thunk.api.get).toHaveBeenCalled();
+        expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
         expect(result.payload).toEqual([article]);
     });
@@ -50,7 +60,16 @@ describe('fetchArticles.test', () => {
         const thunk = new TestAsyncThunk(
             fetchArticles,
             {
-                articlesPage: {limit: 9}
+                articlesPage: {
+                    limit: 4,
+                    page: 2,
+                    hasMore: true,
+                    ids: [],
+                    entities: {},
+                    isLoading: false,
+                    error: undefined,
+                    view: ArticleListView.LIST,
+                }
             },
         );
         thunk.api.get.mockReturnValue(Promise.resolve({status: 404}));

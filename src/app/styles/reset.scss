@@ -142,7 +142,7 @@ body {
 a,
 a:visited,
 a:hover,
-a:active :where([class]) {
+a:active {
     display: inline-flex;
     text-decoration: none;
 }
