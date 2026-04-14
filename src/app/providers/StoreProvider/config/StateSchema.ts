@@ -6,6 +6,7 @@ import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { AddCommentFormSchema } from "features/addCommentForm";
 import { LoginSchema } from "features/AuthByUsername";
+import { UISchema } from "features/UI";
 import { ArticleDetailsCommentsSchema } from "pages/ArticleDetailsPage";
 import { ArticlesPageSchema } from "pages/ArticlesPage";
 import { To, NavigateOptions } from "react-router-dom";
@@ -15,6 +16,7 @@ import { CombinedState } from 'redux';
 export interface StateSchema {
     counter: CounterSchema; 
     user: UserSchema;
+    ui: UISchema;
 
     // async reducers
     loginForm?: LoginSchema;

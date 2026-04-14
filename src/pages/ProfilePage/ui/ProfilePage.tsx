@@ -17,10 +17,10 @@ import {
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { getProfileForm } from "entities/Profile";
+import { Page } from "widgets/Page";
 import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Text, TextTheme } from "shared/ui/Text/Text";
-import { Page } from "shared/ui/Page/Page";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import cls from './ProfilePage.module.scss';

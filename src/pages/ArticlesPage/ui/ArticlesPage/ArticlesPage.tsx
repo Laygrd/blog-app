@@ -2,13 +2,12 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { ArticleList, ArticleListView, ArticleViewSelector } from 'entities/Article';
+import { Page } from 'widgets/Page';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { Text } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Page } from 'shared/ui/Page/Page';
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPart } from '../../model/services/fetchArticlesNextPart/fetchArticlesNextPart';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
@@ -52,6 +51,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             <Page
                 className={classNames(cls.ArticlesPage, {}, [className])}
                 onScrollEnd={onLoadNextPart}
+                restoreScroll
             >
                 <ArticleViewSelector
                     view={view}
