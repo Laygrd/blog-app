@@ -9,12 +9,11 @@ import { Text } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Page } from 'shared/ui/Page/Page';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPart } from '../../model/services/fetchArticlesNextPart/fetchArticlesNextPart';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
 import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
-import { getArticlesPageNumber } from '../../model/selectors/getArticlesPageNumber/getArticlesPageNumber';
-import { getArticlesPageHasMore } from '../../model/selectors/getArticlesPageHasMore/getArticlesPageHasMore';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
 
@@ -45,12 +44,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initView());
-        dispatch(fetchArticles({page: 1}));
+        dispatch(initArticlesPage())
     });
 
     return (
-        <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
+        <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames(cls.ArticlesPage, {}, [className])}
                 onScrollEnd={onLoadNextPart}

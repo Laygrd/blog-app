@@ -21,11 +21,19 @@ export const DynamicReducerLoader: FC<DynamicReducerLoaderProps> = (props) =>{
 
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
+    const mountedReducers = store.reducerManager.getReducerMap();
 
     useEffect(() => {
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager.add(name as StateSchemaKey, reducer);
-            dispatch({type: `@INIT ${name} reducer`})
+            const mounted = mountedReducers[name as StateSchemaKey];
+
+            if (!mounted) {
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+                dispatch({type: `@INIT ${name} reducer`});
+            } 
+            // else {
+            //     console.log(`already mounted ${name} reducer found. skip mounting`)
+            // }
         })
         return () => {
             if (removeAfterUnmount) {
