@@ -5,6 +5,7 @@ import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
+import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
@@ -21,6 +22,8 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 import cls from './ArticleDetails.module.scss';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RouterPaths } from 'shared/config/router/routerVars';
 
 
 interface ArticleDetailsProps {
@@ -58,11 +61,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         dispatch(fetchArticleById(id));
     })
 
-    // useEffect(() => {
-    //     if (__PROJECT__ != 'storybook') {
-    //         dispatch(fetchArticleById(id)); 
-    //     }
-    // }, [dispatch, id]);
 
     let content;
 
@@ -84,20 +82,39 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         src={data?.img}
                     />
                 </div>
+
+                <div className={cls.header}>
+                    <AppLink
+                        className={cls.user}
+                        to={`${RouterPaths.profiles}${data?.user.id}`}
+                    >
+                        <Avatar
+                            size={24}
+                            border={false}
+                            theme={AvatarTheme.ROUNDED}
+                            src={data?.user.avatarUrl}
+                        />
+                        <Text text={data?.user.username}/>
+                    </AppLink>
+
+                    <div className={cls.info}>
+                        <EyeIcon className={cls.icon}/>
+                        <Text text={String(data?.views)}/>
+                    </div>
+
+                    <div className={cls.info}>
+                        <CalendarIcon className={cls.icon}/>
+                        <Text text={String(data?.createdAt)}/>
+                    </div>
+                </div>
+
                 <Text
                     className={cls.title}
                     title={data?.title}
                     text={data?.subtitle}
                     size={TextSize.L}
                 />
-                <div className={cls.info}>
-                    <EyeIcon className={cls.icon}/>
-                    <Text text={String(data?.views)}/>
-                </div>
-                <div className={cls.info}>
-                    <CalendarIcon className={cls.icon}/>
-                    <Text text={String(data?.createdAt)}/>
-                </div>
+                <div className={cls.subtitle}/>  
                 {
                     data?.blocks.map(renderBlock)
                 }

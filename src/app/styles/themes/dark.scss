@@ -2,12 +2,12 @@ body.dark {
     /* Font */
     --primary-color: #f7f7f8;
     --secondary-color: #2e2d33;
-    --inverted-primary-color: #2e2d33;
+    --inverted-primary-color: #f7f7f8; // #2e2d33;
     --inverted-secondary-color: #f7f7f8;
 
     /* Background */
     --bg-color: #2e2d33;
-    --inverted-bg-color: #f7f7f8;
+    --inverted-bg-color: #414048; // #f7f7f8;
     --code-bg-color: #3d3d44;
 
     /* Error */
@@ -23,5 +23,5 @@ body.dark {
     --scrollbar-color: #6b6b6e;
 
     /* Card */
-    --card-color: #414048;
+    --card-color: #3d3d44;
 }

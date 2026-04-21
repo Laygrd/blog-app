@@ -1,5 +1,6 @@
 {
     "read": "Read more...",
+    "retryBtn": "Retry",
     "errors": {
         "ARTICLE_NOT_FOUND": "Article not found...(",
         "FAILED_TO_FETCH_ARTICLES": "Failed to fetch articles...("

@@ -280,7 +280,7 @@
       "id": "3",
       "title": "Mastering Asynchronous Programming in Python",
       "subtitle": "Handling concurrency with async/await and asyncio",
-      "img": "https://cdn.stepik.net/media/cache/images/courses/243047/cover_rCfxEpu/2e8d2143ec15d2a79ba310f8883f8a6f.png",
+      "img": "https://wallpapercg.com/media/ts_orig/22914.webp",
       "views": 289,
       "createdAt": "10.04.2026",
       "userId": "1",
@@ -355,6 +355,7 @@
         }
       ]
     },
+    
     {
       "id": "4",
       "title": "Test article",
@@ -374,316 +375,208 @@
           "paragraphs": [
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
           ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "testing code block"
         }
       ]
     },
     {
       "id": "5",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
+      "title": "Top 5 SQL Tips and Hidden Hacks for Pros",
+      "subtitle": "Unlock performance, readability, and clever tricks every developer should know",
+      "img": "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SQL_2019_Webpage_illustration_RE4r3wO:VP1-539x440?resMode=sharp2&op_usm=1.5,0.65,15,0&wid=1600&hei=600&qlt=100",
+      "views": 5678,
+      "createdAt": "19.04.2026",
       "userId": "1",
       "type": [
-        "IT"
+        "IT", "Economics"
       ],
       "blocks": [
         {
           "id": "1",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Why SQL Mastery Still Matters in 2026",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "In 2026, with ORMs like Prisma, Drizzle, and TypeORM dominating frontend stacks, plus NoSQL databases everywhere, you might think SQL is dying. Wrong. SQL powers 80% of business-critical systems worldwide.",
+            "The problem? Most developers learned basic CRUD queries in bootcamps and never progressed. They write `SELECT *` queries that timeout in production, miss indexes by miles, and create technical debt that haunts teams for years.",
+            "This article delivers 5 battle-tested tips + 5 hidden hacks that separate junior SQL users from senior data engineers. These aren't textbook examples—they're techniques extracted from high-traffic production systems handling millions of rows daily."
           ]
-        }
-      ]
-    },
-    {
-      "id": "6",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "2",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "What You'll Learn (And Why It Matters)",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Expect PostgreSQL, MySQL, and SQL Server compatible syntax with notes on database-specific optimizations. Every code example is production-ready—you can copy, paste, and immediately see 2-10x performance gains.",
+            "We'll cover index sorcery, window function magic that eliminates self-joins, CTE patterns for complex reporting, and query patterns that make your codebases maintainable for years.",
+            "Real-world context: These tips come from optimizing SaaS platforms with 10M+ users, e-commerce sites processing $1B+ annually, and fintech systems handling real-time fraud detection."
           ]
-        }
-      ]
-    },
-    {
-      "id": "7",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "3",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Tip #1: Stop Writing SELECT * Forever",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "The humble `SELECT *` seems innocent but creates three massive problems: 1) Network bloat from transferring unneeded columns, 2) CPU waste parsing unnecessary data, 3) Code breakage when tables evolve (new columns break JSON serializers, ORMs crash).",
+            "Explicit column selection forces you to think about data needs, creates self-documenting queries, and lets the query planner choose perfect indexes. In production, this single change drops query times from 500ms to 50ms.",
+            "Pro teams enforce this via linters and pre-commit hooks. Your future self (and your DBA) will thank you."
           ]
-        }
-      ]
-    },
-    {
-      "id": "8",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "4",
+          "type": "CODE",
+          "code": "-- BAD: Fragile, slow, bandwidth killer\nSELECT * FROM users WHERE active = true;\n\n-- GOOD: Explicit, indexed, bandwidth-efficient\nSELECT id, email, name, created_at \nFROM users \nWHERE active = true \n  AND deleted_at IS NULL\n  AND created_at > '2025-01-01';"
+        },
+        {
+          "id": "5",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Hack: Table Aliases + Qualifying All Columns",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Aliases aren't cosmetic—they solve the 'which table does this column come from?' nightmare in complex JOINs. Modern IDEs provide instant autocomplete and refactoring safety.",
+            "Rule: Every column gets its table prefix. No exceptions. This catches bugs at write time instead of runtime.",
+            "Bonus: When you need to add JOINs later, you won't break existing column references."
           ]
-        }
-      ]
-    },
-    {
-      "id": "9",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "6",
+          "type": "CODE",
+          "code": "SELECT \n  u.id,\n  u.email,\n  u.name,\n  o.total,\n  o.order_date\nFROM users u\nJOIN orders o ON u.id = o.user_id\nWHERE u.active = true\n  AND o.status = 'completed'\n  AND o.order_date >= CURRENT_DATE - INTERVAL '90 days';"
+        },
+        {
+          "id": "7",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Tip #2: EXISTS Beats IN (Especially on Large Tables)",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "IN subqueries sound logical but create temporary result sets that get materialized entirely before filtering. On 10M+ row tables, this means gigabytes of temp data and full table scans.",
+            "EXISTS implements short-circuit logic: for each outer row, it stops searching after the first match. Result? Semi-join performance that's often 10-50x faster on existence checks.",
+            "Use case: Checking if users have orders, products have inventory, accounts have transactions. If you're just testing existence, EXISTS wins every time."
           ]
-        }
-      ]
-    },
-    {
-      "id": "10",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "8",
+          "type": "CODE",
+          "code": "-- SLOW: Materializes entire subquery result\nSELECT * FROM orders o \nWHERE o.user_id IN (\n  SELECT u.id FROM users u WHERE u.active = true\n);\n\n-- FAST: Short-circuits on first match\nSELECT * FROM orders o\nWHERE EXISTS (\n  SELECT 1 FROM users u \n  WHERE u.id = o.user_id AND u.active = true\n);"
+        },
+        {
+          "id": "9",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Advanced: EXISTS + LIMIT 1 Optimization",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Some databases (PostgreSQL especially) optimize EXISTS beautifully when you add LIMIT 1. It tells the planner 'I only need proof of existence, not the full result set.'",
+            "Benchmark this on your production data—gains compound across your entire codebase.",
+            "Anti-pattern alert: Never use COUNT(*) > 0. It's slower than EXISTS and returns misleading row counts."
           ]
-        }
-      ]
-    },
-    {
-      "id": "11",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "10",
+          "type": "CODE",
+          "code": "SELECT o.* FROM orders o\nWHERE EXISTS (\n  SELECT 1 FROM users u \n  WHERE u.id = o.user_id \n    AND u.active = true\n  LIMIT 1\n);"
+        },
+        {
+          "id": "11",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Tip #3: Window Functions Eliminate Self-Joins",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Self-joins for ranking, running totals, and moving averages create cartesian explosion risks and N+1 query hell. Window functions scan data once, computing all analytics in parallel.",
+            "Modern SQL (SQL:2011+) supports 20+ window functions. ROW_NUMBER(), RANK(), SUM() OVER(), LAG()/LEAD() cover 90% of analytics needs.",
+            "Business impact: Dashboard queries drop from 5 seconds to 200ms. ETL jobs complete 3x faster."
           ]
-        }
-      ]
-    },
-    {
-      "id": "12",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "12",
+          "type": "CODE",
+          "code": "SELECT \n  user_id,\n  order_date,\n  amount,\n  -- Running total per customer\n  SUM(amount) OVER (PARTITION BY user_id ORDER BY order_date) as running_total,\n  -- Percent of total revenue\n  amount * 100.0 / SUM(amount) OVER (PARTITION BY DATE_TRUNC('month', order_date)) as monthly_revenue_pct,\n  -- Monthly rank\n  RANK() OVER (PARTITION BY DATE_TRUNC('month', order_date) ORDER BY amount DESC) as monthly_rank\nFROM orders\nWHERE order_date >= CURRENT_DATE - INTERVAL '1 year'\nORDER BY user_id, order_date;"
+        },
+        {
+          "id": "13",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Game-Changer: LAG/LEAD for Sequential Analysis",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Compare current values against previous/next periods without painful self-joins. Perfect for cohort analysis, A/B testing results, and anomaly detection.",
+            "No more 'how do I get yesterday's value?' confusion. One query gives you current, previous, and delta.",
+            "Dashboard teams: This eliminates 80% of your multi-query reporting nightmares."
           ]
-        }
-      ]
-    },
-    {
-      "id": "13",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "14",
+          "type": "CODE",
+          "code": "SELECT \n  report_date,\n  revenue,\n  -- Previous day\n  LAG(revenue) OVER (ORDER BY report_date) as prev_day_revenue,\n  -- Day-over-day growth\n  (revenue - LAG(revenue) OVER (ORDER BY report_date)) * 100.0 / LAG(revenue) OVER (ORDER BY report_date) as dod_growth_pct,\n  -- 7-day average\n  AVG(revenue) OVER (ORDER BY report_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) as ma7\nFROM daily_revenue\nORDER BY report_date DESC;"
+        },
+        {
+          "id": "15",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Tip #4: CTEs Transform Monster Queries",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Common Table Expressions break 200-line query monsters into readable, testable, reusable pieces. Each CTE becomes a mini-function with a name describing its purpose.",
+            "Parameterize with session variables for dynamic reporting. Debug by running CTEs individually.",
+            "Team bonus: Junior devs can understand complex logic. Senior devs can extend without breaking existing patterns."
           ]
-        }
-      ]
-    },
-    {
-      "id": "14",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "16",
+          "type": "CODE",
+          "code": "WITH \nactive_users AS (\n  SELECT id, email\n  FROM users \n  WHERE active = true AND deleted_at IS NULL\n),\nrecent_orders AS (\n  SELECT \n    user_id, \n    COUNT(*) as order_count,\n    SUM(total) as revenue\n  FROM orders \n  WHERE order_date > CURRENT_DATE - INTERVAL '30 days'\n    AND status = 'completed'\n  GROUP BY user_id\n),\nuser_segments AS (\n  SELECT \n    au.id,\n    au.email,\n    ro.order_count,\n    CASE \n      WHEN ro.order_count >= 5 THEN 'VIP'\n      WHEN ro.order_count >= 2 THEN 'Active'\n      ELSE 'Inactive'\n    END as segment\n  FROM active_users au\n  LEFT JOIN recent_orders ro ON au.id = ro.user_id\n)\nSELECT * FROM user_segments\nORDER BY revenue DESC NULLS LAST;"
+        },
+        {
+          "id": "17",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Power Move: WITH RECURSIVE for Hierarchies",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Employee-manager trees, product categories, org charts—recursive CTEs handle unlimited depth in one query. No stored procedures, no application logic.",
+            "Two parts: ANCHOR (starting point) + RECURSIVE (children). PostgreSQL/MySQL shine here; SQL Server calls it CTE recursion.",
+            "E-commerce win: Build complete product breadcrumbs and category trees for SEO and navigation."
           ]
-        }
-      ]
-    },
-    {
-      "id": "15",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "18",
+          "type": "CODE",
+          "code": "WITH RECURSIVE category_tree AS (\n  -- Anchor: root categories\n  SELECT \n    id, \n    name, \n    parent_id, \n    0 as level,\n    ARRAY[id] as path\n  FROM categories \n  WHERE parent_id IS NULL\n  \n  UNION ALL\n  \n  -- Recursive: all descendants\n  SELECT \n    c.id, \n    c.name, \n    c.parent_id, \n    ct.level + 1,\n    ct.path || c.id\n  FROM categories c\n  JOIN category_tree ct ON c.parent_id = ct.id\n  WHERE ct.level < 10  -- Prevent infinite loops\n)\nSELECT \n  name, \n  level, \n  path,\n  string_agg(name, ' > ') OVER (PARTITION BY id ORDER BY level) as breadcrumb\nFROM category_tree\nORDER BY path;"
+        },
+        {
+          "id": "19",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Tip #5: Covering Indexes = Query Rocket Fuel",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Regular indexes point to table rows—the database still reads the full row. Covering indexes store all SELECT columns directly in the index structure.",
+            "Result: Index-only scans that bypass heap access entirely. 5-20x faster for common read patterns.",
+            "Pattern: WHERE columns first, then ORDER BY, then INCLUDE (selected columns). PostgreSQL: INCLUDE clause. MySQL 8+: same syntax."
           ]
-        }
-      ]
-    },
-    {
-      "id": "16",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
+          "id": "20",
+          "type": "CODE",
+          "code": "-- Regular: Still reads table heap\nCREATE INDEX idx_users_active_date ON users(active, created_at);\n\n-- Covering: Index-only scan magic\nCREATE INDEX idx_users_covering ON users(active, created_at) \nINCLUDE (id, email, name);"
+        },
+        {
+          "id": "21",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Killer Hack: Partial Indexes for Sparse Conditions",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Why index 100M rows when only 500K match your WHERE clause? Partial indexes store only qualifying rows, using 90% less space.",
+            "Perfect for: premium users (1-5% of base), soft-deleted records, recent data, high-cardinality flags.",
+            "PostgreSQL syntax shown; MySQL uses generated columns as workaround."
           ]
-        }
-      ]
-    },
-    {
-      "id": "17",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+        },
         {
-          "id": "1",
-          "type": "TEXT",
-          "title": "testing text block",
-          "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
-          ]
-        }
-      ]
-    },
-    {
-      "id": "18",
-      "title": "Test article",
-      "subtitle": "Test article",
-      "img": "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
-      "views": 1234,
-      "createdAt": "01.01.0001",
-      "userId": "1",
-      "type": [
-        "IT"
-      ],
-      "blocks": [
+          "id": "22",
+          "type": "CODE",
+          "code": "-- Premium users = 3% of 10M table → tiny index\nCREATE INDEX CONCURRENTLY idx_premium_active \nON users(email, name) \nWHERE premium = true AND active = true;\n\n-- Yesterday's orders only\nCREATE INDEX idx_recent_orders \nON orders(customer_id, total) \nWHERE order_date >= CURRENT_DATE - INTERVAL '1 day';"
+        },
         {
-          "id": "1",
+          "id": "23",
           "type": "TEXT",
-          "title": "testing text block",
+          "title": "Transform Your SQL Game Today",
           "paragraphs": [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros metus, aliquet a nisi at, rutrum aliquam lectus. Integer ornare ictum libero, a auctor dui bibendum eget."
+            "Implement one tip per week: Week 1 ban SELECT *, Week 2 rewrite IN to EXISTS, Week 3 window functions, and so on. Your query times will plummet, code reviews will speed up, and DBAs will invite you to lunch.",
+            "Measure success with EXPLAIN ANALYZE before/after. Share your biggest wins in comments—did any tip give you 10x speedup?",
+            "Bookmark this. You'll reference these patterns for years. Happy querying!"
           ]
         }
       ]
     }
+
   ]
 }

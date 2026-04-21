@@ -1,4 +1,4 @@
-//import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { ArticleList, ArticleListView, ArticleViewSelector } from 'entities/Article';
@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { Text } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPart } from '../../model/services/fetchArticlesNextPart/fetchArticlesNextPart';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
@@ -32,7 +33,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     const articles = useSelector(getArticles.selectAll);
-    //const { t } = useTranslation()
+    const { t } = useTranslation('article');
 
     const onViewChange = useCallback((newView: ArticleListView) => {
         dispatch(articlesPageActions.setView(newView))
@@ -50,7 +51,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames(cls.ArticlesPage, {}, [className])}
-                onScrollEnd={onLoadNextPart}
+                onScrollEnd={!error ? onLoadNextPart : undefined}
                 restoreScroll
             >
                 <ArticleViewSelector
@@ -58,10 +59,20 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     onViewChange={onViewChange}
                 />
 
-                {error && <Text title={error}/>}
+                {error && 
+                    <div className={cls.errorBlock}>
+                        <Text title={t(error)}/>
+                        <Button
+                            theme={ButtonTheme.OUTLINE}
+                            onClick={onLoadNextPart}
+                        >
+                            {t('retryBtn')}
+                        </Button>
+                    </div>
+                }
 
                 <ArticleList 
-                    className={cls.articlesList}
+                    //className={cls.articlesList}
                     isLoading={isLoading}
                     articles={articles}
                     view={view}

@@ -18,10 +18,12 @@
             "saveBtn": "Apply"
         }
     },
-    "NO_DATA": "No profile data given",
-    "SERVER_ERROR": "Server error occured",
-    "INCORRECT_USERNAME": "Incorrect username",
-    "INCORRECT_USER_DATA": "Incorrect firstname or lastname",
-    "INCORRECT_AGE": "Incorrect age",
-    "INCORRECT_REGIONAL_DATA": "Incorrect optional data"
+    "errors": {
+        "NO_DATA": "No profile data given",
+        "SERVER_ERROR": "Server error occured",
+        "INCORRECT_USERNAME": "Incorrect username",
+        "INCORRECT_USER_DATA": "Incorrect firstname or lastname",
+        "INCORRECT_AGE": "Incorrect age",
+        "INCORRECT_REGIONAL_DATA": "Incorrect optional data"
+    }
 }

@@ -1,7 +1,8 @@
 {
     "read": "Читать далее...",
+    "retryBtn": "Повторить",
     "errors": {
         "ARTICLE_NOT_FOUND": "Статья не найдена...(",
-        "FAILED_TO_FETCH_ARTICLES": "Не удалось получить список статей...("
+        "FAILED_TO_FETCH_ARTICLES": "Не удалось загрузить статьи...("
     }
 }

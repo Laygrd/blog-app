@@ -62,7 +62,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
     if (isLoading) {
         content = ( <ProfileCardSkeleton />)
     } else if (error) {
-        content = (<Text title={t('ProfileCard.SERVER_ERROR')}/>)
+        content = (<Text title={t('errors.SERVER_ERROR')}/>)
     } else {
         content = (
             <>

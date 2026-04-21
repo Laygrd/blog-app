@@ -42,12 +42,12 @@ const ProfilePage = () => {
     const profileValidateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorsMapping = {
-        [ValidateProfileDataError.INCORRECT_USERNAME]: t('INCORRECT_USERNAME'),
-        [ValidateProfileDataError.INCORRECT_USER_DATA]: t('INCORRECT_USER_DATA'),
-        [ValidateProfileDataError.INCORRECT_AGE]: t('INCORRECT_AGE'),
-        [ValidateProfileDataError.INCORRECT_REGIONAL_DATA]: t('INCORRECT_REGIONAL_DATA'),
-        [ValidateProfileDataError.NO_DATA]: t('NO_DATA'),
-        [ValidateProfileDataError.SERVER_ERROR]: t('SERVER_ERROR'),
+        [ValidateProfileDataError.INCORRECT_USERNAME]: t('erros.INCORRECT_USERNAME'),
+        [ValidateProfileDataError.INCORRECT_USER_DATA]: t('errors.INCORRECT_USER_DATA'),
+        [ValidateProfileDataError.INCORRECT_AGE]: t('errors.INCORRECT_AGE'),
+        [ValidateProfileDataError.INCORRECT_REGIONAL_DATA]: t('errors.INCORRECT_REGIONAL_DATA'),
+        [ValidateProfileDataError.NO_DATA]: t('errors.NO_DATA'),
+        [ValidateProfileDataError.SERVER_ERROR]: t('errors.SERVER_ERROR'),
     }
 
     useInitialEffect(() => {
