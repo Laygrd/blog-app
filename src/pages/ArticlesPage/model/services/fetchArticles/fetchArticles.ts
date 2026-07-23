@@ -1,11 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
-import { Article } from "entities/Article";
+import { Article, ArticleType } from "entities/Article";
 import { getArticlesPageLimit } from "../../selectors/getArticlesPageLimit/getArticlesPageLimit";
+import { getArticlesPageNumber } from "../../selectors/getArticlesPageNumber/getArticlesPageNumber";
+import { getArticlesPageSort } from "../../selectors/getArticlesPageSort/getArticlesPageSort";
+import { getArticlesPageOrder } from "../../selectors/getArticlesPageOrder/getArticlesPageOrder";
+import { getArticlesPageSearch } from "../../selectors/getArticlesPageSearch/getArticlesPageSearch";
+import { addQueryParams } from "shared/url/addQueryParams/addQueryParams";
+import { getArticlesPageType } from "../../selectors/getArticlesPageType/getArticlesPageType";
 
 
 interface FetchArticlesOptions {
-    page: number
+    replace?: boolean
 }
 
 export const fetchArticles = 
@@ -17,16 +23,32 @@ createAsyncThunk<
     'articlesPage/fetchArticles',
     async (props, ThunkAPI) => {
         const { extra, rejectWithValue, getState} = ThunkAPI;
+
         const limit = getArticlesPageLimit(getState());
-        const { page = 1 } = props;
+        const page = getArticlesPageNumber(getState());
+        const sort = getArticlesPageSort(getState());
+        const order = getArticlesPageOrder(getState());
+        const search = getArticlesPageSearch(getState());
+        const type = getArticlesPageType(getState());
 
         try {
+
+            addQueryParams({
+                sort,
+                order,
+                search,
+                type,
+            });
 
             const response = await extra.api?.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
                     _page: page,
                     _limit: limit,
+                    _sort: sort,
+                    _order: order,
+                    type: type === ArticleType.ALL ? undefined : type,
+                    q: search
                 }
             });
 

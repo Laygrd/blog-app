@@ -58,7 +58,10 @@ export const Page = (props: PageProps) => {
             onScroll={restoreScroll? onScroll : undefined}
         >
             {children}
-            <div ref={triggerRef} />
+            <div 
+                ref={triggerRef}
+                className={classNames(cls.trigger)} 
+            />
         </section>
     );
 }

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { Select, SelectOptions, SelectTheme } from "shared/ui/Select/Select";
+import { Select, SelectOption, SelectTheme } from "shared/ui/Select/Select";
 import { Currency } from "../../model/types/currency";
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -13,7 +13,7 @@ interface CurrencySelectProps {
     theme?: SelectTheme;
 }
 
-const options: SelectOptions[] = [
+const options: SelectOption<Currency>[] = [
     {value: Currency.EUR, content: Currency.EUR},
     {value: Currency.RUB, content: Currency.RUB},
     {value: Currency.USD, content: Currency.USD},

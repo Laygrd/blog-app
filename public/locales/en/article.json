@@ -4,5 +4,31 @@
     "errors": {
         "ARTICLE_NOT_FOUND": "Article not found...(",
         "FAILED_TO_FETCH_ARTICLES": "Failed to fetch articles...("
+    },
+
+    "ArticleSortSelector": {
+        "orderLabel": "by",
+        "sortLabel": "Sort by",
+        "orderOptions": {
+            "asc": "ascend",
+            "desc": "descend"
+        },
+        "articleSortOptions": {
+            "title": "title",
+            "views": "views",
+            "created": "created at"
+        }
+    },
+    "ArticlesPageFilters": {
+        "searchPlaceholder": "Search"
+    },
+    "ArticleTypeTabs": {
+        "all": "All",
+        "it": "IT",
+        "economics": "Economics",
+        "science": "Science"
+    },
+    "ArticleList": {
+        "emptyArticlesList": "Can`t find articles with this options..."
     }
 }

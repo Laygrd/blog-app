@@ -4,5 +4,31 @@
     "errors": {
         "ARTICLE_NOT_FOUND": "Статья не найдена...(",
         "FAILED_TO_FETCH_ARTICLES": "Не удалось загрузить статьи...("
+    },
+
+    "ArticleSortSelector": {
+        "orderLabel": "по",
+        "sortLabel": "Сортировать по",
+        "orderOptions": {
+            "asc": "возрастанию",
+            "desc": "убыванию"
+        },
+        "articleSortOptions": {
+            "title": "названию",
+            "views": "просмотрам",
+            "created": "дате создания"
+        }
+    },
+    "ArticlesPageFilters": {
+        "searchPlaceholder": "Поиск"
+    },
+    "ArticleTypeTabs": {
+        "all": "Все",
+        "it": "IT",
+        "economics": "Экономика",
+        "science": "Наука"
+    },
+    "ArticleList": {
+        "emptyArticlesList": "Не удалось найти статьи соответствующие данным условиям..."
     }
 }

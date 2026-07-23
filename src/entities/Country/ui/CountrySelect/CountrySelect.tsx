@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { Select, SelectOptions, SelectTheme } from "shared/ui/Select/Select";
+import { Select, SelectOption, SelectTheme } from "shared/ui/Select/Select";
 import { Country } from "../../model/types/country";
 import { classNames } from "shared/lib/classNames/classNames";
 
@@ -13,7 +13,7 @@ interface CountrySelectProps {
     theme?: SelectTheme;
 }
 
-const options: SelectOptions[] = [
+const options: SelectOption<Country>[] = [
     {value: Country.Armenia, content: Country.Armenia},
     {value: Country.Belarus, content: Country.Belarus},
     {value: Country.Georgia, content: Country.Georgia},

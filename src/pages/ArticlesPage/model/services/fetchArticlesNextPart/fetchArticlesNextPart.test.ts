@@ -27,7 +27,7 @@ describe('fetchArticlesNextPart.test', () => {
         
         const result = await thunk.callThunk();
 
-        expect( fetchArticles ).toHaveBeenCalledWith({page: 3});
+        expect( fetchArticles ).toHaveBeenCalled();
         expect( thunk.dispatch ).toHaveBeenCalledTimes(4);
         expect(result.meta.requestStatus).toBe('fulfilled');
     });

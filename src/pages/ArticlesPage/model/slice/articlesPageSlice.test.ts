@@ -64,7 +64,7 @@ describe('articlesPageSlice.test', () => {
 
         expect(
             articlesPageReducer(state as ArticlesPageSchema, articlesPageActions.initView())
-        ).toEqual({ view: ArticleListView.LIST, limit: 4 })
+        ).toEqual({ view: ArticleListView.LIST, limit: 4, _inited: true })
     });
 
     //extra reducers (btw it tested in fetchArticles.test.ts)
