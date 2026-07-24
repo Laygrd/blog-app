@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { AddCommentForm } from 'features/addCommentForm';
-import { ArticleDetails, getArticleDetailsError } from 'entities/Article';
+import { ArticleDetails, ArticleList, getArticleDetailsError } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { Page } from "widgets/Page";
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -12,36 +12,48 @@ import { Text, TextSize } from 'shared/ui/Text/Text';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RouterPaths } from 'shared/config/router/routerVars';
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
-    DynamicReducerLoader,
-    ReducersList,
-} from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import {
-    articleDetailsCommentsReducer,
-    getArticleDetailsComments,
-} from '../../model/slice/articleDetailsCommentsSlice';
+import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { getArticleDetailsComments } from '../../model/slice/articleDetailsCommentsSlice';
+import {  getArticleDetailsRecommendations } from '../../model/slice/ArticleDetailsRecommendationsSlice';
+
 import {
     getArticleDetailsCommentsIsLoading,
 } from '../../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import cls from './ArticleDetailsPage.module.scss';
+import { getArticleDetailsRecommendationsIsLoading } from 
+    '../../model/selectors/getArticleDetailsRecommendationsIsLoading/getArticleDetailsRecommendationsIsLoading';
+import { getArticleDetailsRecommendationsError } from 
+    '../../model/selectors/getArticleDetailsRecommendationsError/getArticleDetailsRecommendationsError';
+import { fetchArticleRecommendations } 
+    from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../../model/slice';
 
 
 interface ArticleDetailsPageProps {
    className?: string;
 }
 
-const reducers: ReducersList = {articleDetailsComments: articleDetailsCommentsReducer}
+const reducers: ReducersList = {
+    articleDetailsPage: articleDetailsPageReducer
+}   
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('article_details');
-    const { id } = useParams<{ id: string }>();
-    const comments = useSelector(getArticleDetailsComments.selectAll);
-    const articleLoadingError = useSelector(getArticleDetailsError);
-    const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
     const dispatch = useAppDispatch();
+
+    const { id } = useParams<{ id: string }>();
+
+    const articleLoadingError = useSelector(getArticleDetailsError);
+
+    const comments = useSelector(getArticleDetailsComments.selectAll);
+    const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+
+    const recommendations = useSelector(getArticleDetailsRecommendations.selectAll);
+    const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading)
+    const recommendationsError = useSelector(getArticleDetailsRecommendationsError);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text))
@@ -49,6 +61,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticleRecommendations());
     })
 
     if ( __PROJECT__ === 'storybook') {
@@ -80,6 +93,17 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <ArticleDetails id={id}/>
                 { !articleLoadingError && 
                     <>
+                        <Text
+                            size={TextSize.L}
+                            className={cls.comments}
+                            title={t('recommendationsBlock')}
+                        />
+                        <ArticleList 
+                            className={cls.recommendations}
+                            articles={recommendations}
+                            isLoading={recommendationsIsLoading}
+                            target={'_blank'}
+                        />
                         <Text
                             size={TextSize.L}
                             className={cls.comments}

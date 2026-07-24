@@ -6,8 +6,10 @@ describe('getArticleDetailsCommentsIsLoading.test', () => {
 
     test('should return getArticleDetailsComments isLoading', () => {
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments: {
-                isLoading: true
+            articleDetailsPage: {
+                comments: {
+                    isLoading: true
+                }
             }
         };
         expect(getArticleDetailsCommentsIsLoading(state as StateSchema)).toBe(true)
@@ -15,7 +17,7 @@ describe('getArticleDetailsCommentsIsLoading.test', () => {
 
     test('empty articleDetailsComments state', () => {
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments: {}
+            articleDetailsPage: {}
         };
         expect(getArticleDetailsCommentsIsLoading(state as StateSchema)).toBe(undefined)
     })

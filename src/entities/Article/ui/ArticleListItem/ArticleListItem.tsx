@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from 'shared/ui/Card/Card';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
@@ -15,6 +15,7 @@ import {
 } from '../../model/types/Article';
 import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
 import cls from './ArticleListItem.module.scss';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 
 interface ArticleListItemProps {
@@ -22,6 +23,7 @@ interface ArticleListItemProps {
    article?: Article;
    view?: ArticleListView;
    isLoading?: boolean;
+   target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -30,6 +32,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         article,
         view = ArticleListView.LIST,
         isLoading = false,
+        target,
     } = props;
     const { t } = useTranslation('article');
 
@@ -68,40 +71,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     );
 
 
-    let content;
+    if (view == ArticleListView.LIST) {
+        const articleText = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT
+        ) as ArticleTextBlock;
 
-    if (view == ArticleListView.TILE) {
-        content = (
-            <>
-                <AppLink to={articleDetailsPath} >
-                    <Card>
-                        <div className={cls.imageWrapper}>
-                            <img 
-                                className={cls.articleImage}
-                                src={article.img}
-                            />
-                            <Text
-                                className={cls.created}
-                                text={article.createdAt}
-                            />
-                        </div>
-                        <div className={cls.info}>
-                            {typeBlock}
-                            {viewsBlock}
-                        </div>
-                        <Text
-                            className={cls.title}
-                            text={article.title}
-                        />
-                    </Card>
-                </AppLink>
-            </>
-        )
-    } else if (view == ArticleListView.LIST) {
-        const articleText = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
-
-        content = (
-            <>  
+        return (
+            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card>
                     <div className={cls.header}>
                         <div className={cls.user}>
@@ -133,19 +109,47 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         text={(articleText).paragraphs[0] || ''}
                     />
                     <div className={cls.footer}>
-                        <AppLink to={articleDetailsPath}>
-                            {t('read')}
+                        <AppLink
+                            to={articleDetailsPath}
+                            target={target}
+                        >
+                            <Button theme={ButtonTheme.OUTLINE}>
+                                {t('read')}
+                            </Button>
                         </AppLink>
                         {viewsBlock}
                     </div>
                 </Card>
-            </>
-        )
+            </div>
+        );
     }
-
+    // 
     return (
-        <div className={classNames(cls[view], {}, [className])}>
-            {content}
-        </div>
-    );
+        <AppLink
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            to={articleDetailsPath}
+            target={target}
+        >
+            <Card>
+                <div className={cls.imageWrapper}>
+                    <img 
+                        className={cls.articleImage}
+                        src={article.img}
+                    />
+                    <Text
+                        className={cls.created}
+                        text={article.createdAt}
+                    />
+                </div>
+                <div className={cls.info}>
+                    {typeBlock}
+                    {viewsBlock}
+                </div>
+                <Text
+                    className={cls.title}
+                    text={article.title}
+                />
+            </Card>
+        </AppLink>
+    )
 })

@@ -17,6 +17,18 @@
       "userId": 1,
       "text": "123",
       "id": "r2A_LYC"
+    },
+    {
+      "articleId": "2",
+      "userId": 1,
+      "text": "so cool",
+      "id": "T5Z4IaX"
+    },
+    {
+      "articleId": "2",
+      "userId": 1,
+      "text": "123",
+      "id": "1vTas4G"
     }
   ],
   "users": [
@@ -25,7 +37,7 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatarUrl": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg"
+      "avatarUrl": "https://s0.rbk.ru/v6_top_pics/media/img/0/01/754598856071010.jpeg"
     },
     {
       "id": 2,
@@ -38,7 +50,7 @@
   "profiles": [
     {
       "id": "1",
-      "avatar": "https://avatar-archives.vercel.app/avatars/psychopath-hacker/avatar.jpeg",
+      "avatar": "https://s0.rbk.ru/v6_top_pics/media/img/0/01/754598856071010.jpeg",
       "username": "admin",
       "firstname": "admin",
       "lastname": "admin",
@@ -364,7 +376,8 @@
       "createdAt": "19.04.2026",
       "userId": "1",
       "type": [
-        "IT", "Economics"
+        "IT",
+        "Economics"
       ],
       "blocks": [
         {
@@ -1035,6 +1048,5 @@
         }
       ]
     }
-
   ]
 }

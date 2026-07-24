@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -12,6 +12,7 @@ interface ArticleListProps {
    articles: Article[];
    isLoading?: boolean;
    view?: ArticleListView;
+   target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = (props: ArticleListProps) => {
@@ -20,6 +21,7 @@ export const ArticleList = (props: ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleListView.TILE,
+        target,
     } = props;
 
     const { t } = useTranslation('article', {keyPrefix: 'ArticleList'});
@@ -31,9 +33,10 @@ export const ArticleList = (props: ArticleListProps) => {
                 article={articleData}
                 view={view}
                 isLoading={isLoading}
+                target={target}
             />
         )
-    }, [view]);
+    }, [view, target]);
 
     if (!isLoading && articles.length === 0) {
         return (

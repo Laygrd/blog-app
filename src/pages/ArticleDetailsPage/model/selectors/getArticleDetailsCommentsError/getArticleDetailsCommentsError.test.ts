@@ -6,8 +6,10 @@ describe('getArticleDetailsCommentsError.test', () => {
 
     test('should return articleDetailsComments error', () => {
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments: {
-                error: 'some_error'
+            articleDetailsPage: {
+                comments:{
+                    error: 'some_error',
+                }
             }
         };
         expect(getArticleDetailsCommentsError(state as StateSchema)).toBe('some_error')
@@ -15,7 +17,7 @@ describe('getArticleDetailsCommentsError.test', () => {
 
     test('empty articleDetailsComments state', () => {
         const state: DeepPartial<StateSchema> = {
-            articleDetailsComments: {}
+            articleDetailsPage: {}
         };
         expect(getArticleDetailsCommentsError(state as StateSchema)).toBe(undefined)
     })

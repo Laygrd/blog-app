@@ -10,6 +10,13 @@
     top: 10px;
 }
 
+.recommendations {
+    margin-top: 20px;
+    flex-wrap: nowrap !important;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
 .comments {
     margin-top: 40px;
 }
