@@ -16,6 +16,7 @@
 
 .collapsed {
     .link {
+        pointer-events: none;
         opacity: 0;
         transition: 0.2s opacity;
         width: 0;

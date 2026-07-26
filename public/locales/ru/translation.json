@@ -7,7 +7,9 @@
     "main_page": "Главная",
     "about_page": "О нас",
     "login": "Войти",
-    "logout": "Выйти"
+    "logout": "Выйти",
+    "appName": "Blog App",
+    "createNewArticleLink": "Новая статья"
   },
   "Sidebar": {
     "main_page": "Главная",

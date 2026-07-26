@@ -2,33 +2,38 @@ import { useParams } from 'react-router-dom';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Page } from "widgets/Page";
 import { AddCommentForm } from 'features/addCommentForm';
 import { ArticleDetails, ArticleList, getArticleDetailsError } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { Page } from "widgets/Page";
+
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RouterPaths } from 'shared/config/router/routerVars';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { getArticleDetailsComments } from '../../model/slice/articleDetailsCommentsSlice';
-import {  getArticleDetailsRecommendations } from '../../model/slice/ArticleDetailsRecommendationsSlice';
 
+import { getArticleDetailsComments } from '../../model/slice/articleDetailsCommentsSlice';
 import {
     getArticleDetailsCommentsIsLoading,
-} from '../../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
+} from '../../model/selectors/comments/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
+
+import {  getArticleDetailsRecommendations } from '../../model/slice/ArticleDetailsRecommendationsSlice';
+import { getArticleDetailsRecommendationsIsLoading } from 
+    '../../model/selectors/recommendations/getArticleDetailsRecommendationsIsLoading/getArticleDetailsRecommendationsIsLoading';
+import { getArticleDetailsRecommendationsError } from 
+    '../../model/selectors/recommendations/getArticleDetailsRecommendationsError/getArticleDetailsRecommendationsError';
+
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import cls from './ArticleDetailsPage.module.scss';
-import { getArticleDetailsRecommendationsIsLoading } from 
-    '../../model/selectors/getArticleDetailsRecommendationsIsLoading/getArticleDetailsRecommendationsIsLoading';
-import { getArticleDetailsRecommendationsError } from 
-    '../../model/selectors/getArticleDetailsRecommendationsError/getArticleDetailsRecommendationsError';
-import { fetchArticleRecommendations } 
-    from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+
 import { articleDetailsPageReducer } from '../../model/slice';
+import cls from './ArticleDetailsPage.module.scss';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+
+
+
 
 
 interface ArticleDetailsPageProps {
@@ -84,12 +89,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <AppLink
-                    className={cls.backLink}
-                    to={RouterPaths.articles}
-                >
-                    {t('backLink')}
-                </AppLink>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id}/>
                 { !articleLoadingError && 
                     <>

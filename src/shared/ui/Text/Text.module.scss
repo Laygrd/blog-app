@@ -15,6 +15,18 @@
     }
 }
 
+.inverted {
+    .titleBlock {
+        font: var(--font-l);
+        color: var(--inveted-primary-color);
+    }
+
+    .textBlock {
+        font: var(--font-m);
+        color: var(--inverted-secondary-color);
+    }
+}
+
 .error {
     .titleBlock {
         color: var(--error-light);

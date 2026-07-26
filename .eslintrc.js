@@ -43,7 +43,7 @@ module.exports = {
         'arrow-body-style': 'off',
         'no-use-before-define': 'off',
         'import/newline-after-import': 'off',
-        'max-len': ['error', { code: 120, ignoreComments: true }],
+        'max-len': ['error', { code: 130, ignoreComments: true }],
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks

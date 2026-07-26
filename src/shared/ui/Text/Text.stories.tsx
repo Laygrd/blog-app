@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Text, TextAlign, TextSize } from './Text';
+import { Text, TextAlign, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -49,6 +49,52 @@ WithOnlyTextDark.args = {
     text: 'text',
 };
 WithOnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+
+export const ErrorWithTitleAndText = Template.bind({});
+ErrorWithTitleAndText.args = {
+    theme: TextTheme.ERROR,
+    title: 'title',
+    text: 'text',
+};
+ErrorWithTitleAndText.decorators = [];
+
+export const ErrorWithOnlyTitle = Template.bind({});
+ErrorWithOnlyTitle.args = {
+    theme: TextTheme.ERROR,
+    title: 'title',
+};
+ErrorWithOnlyTitle.decorators = [];
+
+export const ErrorWithOnlyText = Template.bind({});
+ErrorWithOnlyText.args = {
+    theme: TextTheme.ERROR,
+    text: 'text',
+};
+ErrorWithOnlyText.decorators = [];
+
+
+export const InvertedWithTitleAndText = Template.bind({});
+InvertedWithTitleAndText.args = {
+    theme: TextTheme.INVERTED,
+    title: 'title',
+    text: 'text',
+};
+InvertedWithTitleAndText.decorators = [];
+
+export const InvertedWithOnlyTitle = Template.bind({});
+InvertedWithOnlyTitle.args = {
+    theme: TextTheme.INVERTED,
+    title: 'title',
+};
+InvertedWithOnlyTitle.decorators = [];
+
+export const InvertedWithOnlyText = Template.bind({});
+InvertedWithOnlyText.args = {
+    theme: TextTheme.INVERTED,
+    text: 'text',
+};
+InvertedWithOnlyText.decorators = [];
 
 // align
 

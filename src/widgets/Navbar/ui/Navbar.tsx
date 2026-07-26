@@ -7,6 +7,9 @@ import { getUserAuthData, userActions } from "entities/User";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
+import { Text, TextTheme } from "shared/ui/Text/Text";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
+import { RouterPaths } from "shared/config/router/routerVars";
 
 
 interface NavbarProps {
@@ -31,6 +34,18 @@ export const Navbar = ({ className }: NavbarProps) => {
     if (authData) {
         return (
             <header className={ classNames(cls.Navbar, {}, [className]) }>
+                <Text
+                    className={cls.appName}
+                    title={t('Navbar.appName')}
+                    theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                    className={cls.createNewLink}
+                    to={RouterPaths.articles_create}
+                    theme={AppLinkTheme.INVERTED}
+                >
+                    {t('Navbar.createNewArticleLink')}
+                </AppLink>
                 <div className={cls.links}>
                     <Button
                         className={cls.loginBtn}
