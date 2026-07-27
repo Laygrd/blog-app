@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
+import CopyPlugin from 'copy-webpack-plugin';
 
 export function buildPlugins(buildOptions: BuildOptions): webpack.WebpackPluginInstance[] {
     const { paths, isDev, apiUrl, project } = buildOptions;
@@ -22,6 +23,14 @@ export function buildPlugins(buildOptions: BuildOptions): webpack.WebpackPluginI
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: paths.locales,
+                    to: paths.buildLocales,
+                }
+            ]
+        })
     ];
 
     // only on devserver
