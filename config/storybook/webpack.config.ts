@@ -11,6 +11,8 @@ export default ({config}: {config: webpack.Configuration}) => {
         entry: '',
         html: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
+        locales: '',
+        buildLocales: ''
     };
 
     // absolute imports fix
