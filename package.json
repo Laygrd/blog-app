@@ -1,5 +1,5 @@
 {
-  "name": "production_project_dev",
+  "name": "blog_app_dev",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -98,7 +98,8 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "react-virtuoso": "^4.18.11"
   },
   "loki": {
     "fetchFailIgnore": ".*",
