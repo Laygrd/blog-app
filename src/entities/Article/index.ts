@@ -19,6 +19,7 @@ export { getArticleDetailsError } from './model/selectors/getArticleDetailsError
 //export { getArticleDetailsIsLoading } from './model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
+export { ArticleListVirtualized } from './ui/ArticleList/ArticleListVirtualized';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';

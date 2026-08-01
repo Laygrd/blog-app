@@ -93,10 +93,6 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
                     onViewChange={onViewChange}
                 />
             </div>
-            <ArticleTypeTabs 
-                value={type}
-                onChangeType={onTypeChange}
-            />
             <Card>
                 <Input
                     id={'articlesPageSearchInput'}
@@ -105,6 +101,10 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
                     onChange={onSearchChange}
                 />
             </Card>
+            <ArticleTypeTabs 
+                value={type}
+                onChangeType={onTypeChange}
+            />
         </div>
     );
 }

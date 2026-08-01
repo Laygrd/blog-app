@@ -1,14 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { ArticleList} from 'entities/Article';
+import { useSearchParams } from 'react-router-dom';
+import { ArticleListVirtualized, ArticleListView} from 'entities/Article';
 import { Page } from 'widgets/Page';
+
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { Text } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPart } from '../../model/services/fetchArticlesNextPart/fetchArticlesNextPart';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
@@ -16,8 +17,9 @@ import { getArticlesPageError } from '../../model/selectors/getArticlesPageError
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
 import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text } from 'shared/ui/Text/Text';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
-import { useSearchParams } from 'react-router-dom';
 
 
 interface ArticlesPageProps {
@@ -38,9 +40,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     const articles = useSelector(getArticles.selectAll);
-    
-
-    
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchArticlesNextPart());
@@ -54,10 +53,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames(cls.ArticlesPage, {}, [className])}
-                onScrollEnd={!error ? onLoadNextPart : undefined}
-                restoreScroll
+                //onScrollEnd={!error ? onLoadNextPart : undefined}
+                //restoreScroll
             >
-                <ArticlesPageFilters />
                 
                 {error && 
                     <div className={cls.errorBlock}>
@@ -71,11 +69,12 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     </div>
                 }
 
-                <ArticleList 
+                <ArticleListVirtualized
                     //className={cls.articlesList}
                     isLoading={isLoading}
                     articles={articles}
                     view={view}
+                    onScrollEnd={onLoadNextPart}
                 />
             </Page>
         </DynamicReducerLoader>

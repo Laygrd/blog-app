@@ -6,6 +6,7 @@ import { Article, ArticleListView } from '../../model/types/Article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 
+// old variant. Require <Page /> with onScrollEnd prop 
 
 interface ArticleListProps {
    className?: string;
