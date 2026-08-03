@@ -4,13 +4,13 @@ import { Article, ArticleListView } from 'entities/Article';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
 import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
-import { ArticleList } from './ArticleList';
+import { ArticleList } from './ArticleListOld';
 
 
 
 
 export default {
-    title: 'entities/Article/ArticleList',
+    title: 'entities/Article/ArticleList(Old)',
     component: ArticleList,
     argTypes: {
         backgroundColor: { control: 'color' },

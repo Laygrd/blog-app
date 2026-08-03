@@ -28,7 +28,7 @@ const articlesPageSlice = createSlice({
         isLoading: false,
 
         page: 1,
-        limit: 9,
+        limit: 8,
         hasMore: true,
 
         view: ArticleListView.LIST,
@@ -50,7 +50,7 @@ const articlesPageSlice = createSlice({
         initView: (state) => {
             const view = localStorage.getItem(ARTICLE_LIST_VIEW_LOCALSTORAGE_KEY) as ArticleListView;
             state.view = view;
-            state.limit = view === ArticleListView.LIST ? 4 : 9;
+            state.limit = view === ArticleListView.LIST ? 4 : 8;
             state._inited = true;
         },
         setOrder: (state, action: PayloadAction<SortOrder>) => {

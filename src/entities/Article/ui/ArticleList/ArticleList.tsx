@@ -1,12 +1,16 @@
-import { HTMLAttributeAnchorTarget, useCallback } from 'react';
+/* eslint-disable react/prop-types */
+import { HTMLAttributeAnchorTarget, memo, useCallback, FC, useRef, useMemo } from 'react';
+import { GridComponents, Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
+
+import { ArticlesPageFilters } from 'pages/ArticlesPage';
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { Article, ArticleListView } from '../../model/types/Article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 
-// old variant. Require <Page /> with onScrollEnd prop 
 
 interface ArticleListProps {
    className?: string;
@@ -14,7 +18,14 @@ interface ArticleListProps {
    isLoading?: boolean;
    view?: ArticleListView;
    target?: HTMLAttributeAnchorTarget;
+   onScrollEnd?: () => void;
 }
+
+const INITIAL_TILE_SKELETONS_COUNT = 8;
+const LIST_SKELETONS_COUNT = 3;
+const TILE_SKELETONS_COUNT = 8;
+const TILES_PER_ROW = 4;
+const TILE_SKELETONS_GAP = 30;
 
 export const ArticleList = (props: ArticleListProps) => {
     const {
@@ -23,28 +34,143 @@ export const ArticleList = (props: ArticleListProps) => {
         isLoading,
         view = ArticleListView.TILE,
         target,
+        onScrollEnd,
     } = props;
 
     const { t } = useTranslation('article', {keyPrefix: 'ArticleList'});
+    const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
 
-    const renderArticleCard = useCallback((articleData: Article, isLoading?: boolean) => {
+
+    const renderArticleCard = useCallback((index, articleData: Article) => {
         return (
             <ArticleListItem
                 key={articleData.id}
                 article={articleData}
                 view={view}
-                isLoading={isLoading}
+                isLoading={false}
                 target={target}
             />
         )
     }, [view, target]);
 
+    const renderArticleCardSkeleton = useCallback((index: number) => {
+        return (
+            <ArticleListItem
+                key={`${index}_skeleton`}
+                article={{id: `${index}_skeleton`} as Article}
+                view={view}
+                isLoading={true}
+            />
+        )
+    }, [view]);
+
+    // virtuoso components
+
+    const Header = memo(() => <ArticlesPageFilters />);
+    Header.displayName = 'Header';
+
+    const Footer = memo(() => {
+        if (!isLoading) return null;
+
+        return (
+            <div className={view === ArticleListView.TILE ? cls.tileSkeletonsFooter : ''}>
+                {
+                    new Array(view === ArticleListView.LIST ? LIST_SKELETONS_COUNT : TILE_SKELETONS_COUNT).fill(0)
+                        .map((_, index) => 
+                            (
+                                <div 
+                                    key={`${index}_skeleton_wrapper`}
+                                    className={view === ArticleListView.TILE ? cls.tileSkeletonWrapper : ''}
+                                >
+                                    {renderArticleCardSkeleton(index)}
+                                </div>
+                            )
+                        )
+                }
+            </div>
+        )
+    });
+    Footer.displayName = 'Footer';
+
+    // VirtuosoGrid logic
+    const ScrollSeekPlaceholder: FC<{index: number}> = useCallback(({index}) => {
+        return (
+            <div className={cls.tileSkeletonWrapper}>
+                { renderArticleCardSkeleton(index) }
+            </div>
+        );
+    }, [renderArticleCardSkeleton]);
+    ScrollSeekPlaceholder.displayName = 'ScrollSeekPlaceholder';
+
+    const GridComponents = useMemo<GridComponents>(() => ({
+        Header,
+        Footer,
+        ScrollSeekPlaceholder,
+        Item: ({children, ...props}) => (
+            <div
+                className={cls.gridListItem}
+                style={{
+                    width: `calc(${100 / TILES_PER_ROW}% - ${TILE_SKELETONS_GAP}px)`,
+                    height: '300px'
+                }}
+                {...props}
+            >
+                { children }
+            </div>
+        ),
+    }), [Footer, Header, ScrollSeekPlaceholder]);
+
+    const showInitialTileSkeletons = isLoading && articles.length === 0;
+
+    const tileDisplayData = useMemo(() => {
+        if (showInitialTileSkeletons) {
+            return [];
+        }
+        return articles;
+    }, [articles, showInitialTileSkeletons]);
+
+    const tileTotalCount = useMemo(() => {
+        if (showInitialTileSkeletons) {
+            return INITIAL_TILE_SKELETONS_COUNT;
+        }
+        return articles.length;
+    }, [showInitialTileSkeletons, articles.length]);
+
+    const tileItemContent = useCallback((index: number) => {
+        const article = articles[index];
+        if (showInitialTileSkeletons || !article) {
+            return renderArticleCardSkeleton(index);
+        }
+
+        return renderArticleCard(index, article)
+    }, [articles, showInitialTileSkeletons, renderArticleCard, renderArticleCardSkeleton]);
+    // render options
+
     if (!isLoading && articles.length === 0) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className])}>
+                <ArticlesPageFilters />
                 <Text
                     className={cls.emptyArticles}
                     title={t('emptyArticlesList')}
+                />
+            </div>
+        )
+    };
+
+    if (view === ArticleListView.LIST) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className])}>
+                <Virtuoso
+                    style={{height: '100%', width: '100%'}}
+                    data={articles}
+                    totalCount={articles.length}
+                    itemContent={renderArticleCard}
+                    endReached={onScrollEnd}
+                    components={{
+                        Header,
+                        Footer
+                    }}
                 />
             </div>
         )
@@ -52,14 +178,24 @@ export const ArticleList = (props: ArticleListProps) => {
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className])}>
-            {   
-                articles.length > 0 &&
-                articles.map((articleData) => renderArticleCard(articleData))
-            }
-            {   isLoading && 
-                new Array( view === ArticleListView.LIST ? 3 : 12).fill(0)
-                    .map((_, index) => renderArticleCard({id: String(index + articles.length + 1)} as Article, true))
-            }
+            <VirtuosoGrid 
+                className={cls.tileList}
+                ref={virtuosoGridRef}
+                style={{width: '100%', height: '100%'}}
+                totalCount={tileTotalCount}
+                data={tileDisplayData}
+                itemContent={tileItemContent}
+                endReached={onScrollEnd}
+                components={GridComponents}
+                listClassName={cls.itemsWrapper}
+                scrollSeekConfiguration={{
+                    enter: (velocity) => Math.abs(velocity) > 200,
+                    exit: (velocity) => Math.abs(velocity) < 30,
+                }}
+                useWindowScroll={false}
+            />
         </div>
-    );
+    )
 }
+
+

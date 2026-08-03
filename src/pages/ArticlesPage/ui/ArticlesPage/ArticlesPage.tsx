@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { ArticleListVirtualized, ArticleListView} from 'entities/Article';
+import { ArticleList, ArticleListView} from 'entities/Article';
 import { Page } from 'widgets/Page';
 
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -69,7 +69,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     </div>
                 }
 
-                <ArticleListVirtualized
+                <ArticleList
                     //className={cls.articlesList}
                     isLoading={isLoading}
                     articles={articles}
