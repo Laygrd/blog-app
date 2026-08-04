@@ -9,17 +9,19 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text } from 'shared/ui/Text/Text';
 
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPart } from '../../model/services/fetchArticlesNextPart/fetchArticlesNextPart';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
 import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
+import { getArticlesPageLastVisitedIndex } 
+    from '../../model/selectors/getArticlesPageLastVisitedIndex/getArticlesPageLastVisitedIndex';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
-import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Text } from 'shared/ui/Text/Text';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+
 
 
 interface ArticlesPageProps {
@@ -40,10 +42,15 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     const articles = useSelector(getArticles.selectAll);
+    const scrollToIndex = useSelector(getArticlesPageLastVisitedIndex);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchArticlesNextPart());
     }, [dispatch]);
+
+    const onSaveLastVisitedArticle = useCallback((index: number) => {
+        dispatch(articlesPageActions.setLastVisitedIndex(index))
+    }, [dispatch])
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams))
@@ -75,6 +82,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     articles={articles}
                     view={view}
                     onScrollEnd={onLoadNextPart}
+                    onOpenArticle={onSaveLastVisitedArticle}
+                    scrollToIndex={scrollToIndex}
                 />
             </Page>
         </DynamicReducerLoader>

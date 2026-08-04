@@ -8,6 +8,7 @@ export interface ArticlesPageSchema extends EntityState<Article> {
     isLoading?: boolean;
     error?: string;
 
+    lastVisitedIndex: number; // used for scroll restortion in Virtuoso
     view?: ArticleListView;
     // pagination
     page: number;

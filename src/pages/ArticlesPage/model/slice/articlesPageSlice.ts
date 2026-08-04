@@ -31,11 +31,13 @@ const articlesPageSlice = createSlice({
         limit: 8,
         hasMore: true,
 
+        lastVisitedIndex: 0,
         view: ArticleListView.LIST,
         sort: ArticleSortField.TITLE,
         order: 'asc',
         search: '',
         type: ArticleType.ALL,
+
 
         _inited: false,
     }),
@@ -64,6 +66,9 @@ const articlesPageSlice = createSlice({
         },
         setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload;
+        },
+        setLastVisitedIndex: (state, action: PayloadAction<number>) => {
+            state.lastVisitedIndex = action.payload;
         }
     },
     extraReducers: (builder) => {

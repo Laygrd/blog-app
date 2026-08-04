@@ -32,7 +32,13 @@ createAsyncThunk<
         const type = getArticlesPageType(getState());
 
         try {
-
+            /* --- ToDo ---
+            *   Problem: when you go to ArticlesPage from ArticeDetailsPage
+            *   search params doesnt set to search string.
+            *   
+            *   mb move addQuerryParams call to a separate async thunk will fix it
+            * 
+            * --- ---- --- */
             addQueryParams({
                 sort,
                 order,

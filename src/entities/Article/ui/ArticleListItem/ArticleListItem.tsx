@@ -19,11 +19,12 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 
 interface ArticleListItemProps {
-   className?: string;
-   article?: Article;
-   view?: ArticleListView;
-   isLoading?: boolean;
-   target?: HTMLAttributeAnchorTarget;
+    className?: string;
+    article?: Article;
+    view?: ArticleListView;
+    isLoading?: boolean;
+    target?: HTMLAttributeAnchorTarget;
+    onOpenCb?: () => void;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -33,6 +34,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         view = ArticleListView.LIST,
         isLoading = false,
         target,
+        onOpenCb
     } = props;
     const { t } = useTranslation('article');
 
@@ -113,7 +115,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             to={articleDetailsPath}
                             target={target}
                         >
-                            <Button theme={ButtonTheme.OUTLINE}>
+                            <Button
+                                theme={ButtonTheme.OUTLINE}
+                                onClick={onOpenCb}
+                            >
                                 {t('read')}
                             </Button>
                         </AppLink>
@@ -129,6 +134,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             to={articleDetailsPath}
             target={target}
+            onClick={onOpenCb}
         >
             <Card>
                 <div className={cls.imageWrapper}>

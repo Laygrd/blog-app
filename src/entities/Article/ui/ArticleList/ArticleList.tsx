@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { HTMLAttributeAnchorTarget, memo, useCallback, FC, useRef, useMemo } from 'react';
+import { HTMLAttributeAnchorTarget, memo, useCallback, FC, useRef, useMemo, useEffect } from 'react';
 import { GridComponents, Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
 
@@ -19,7 +19,10 @@ interface ArticleListProps {
    view?: ArticleListView;
    target?: HTMLAttributeAnchorTarget;
    onScrollEnd?: () => void;
+   onOpenArticle?: (index: number) => void;
+   scrollToIndex?: number;
 }
+
 
 const INITIAL_TILE_SKELETONS_COUNT = 8;
 const LIST_SKELETONS_COUNT = 3;
@@ -35,13 +38,32 @@ export const ArticleList = (props: ArticleListProps) => {
         view = ArticleListView.TILE,
         target,
         onScrollEnd,
+        onOpenArticle,
+        scrollToIndex,
     } = props;
 
     const { t } = useTranslation('article', {keyPrefix: 'ArticleList'});
     const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
 
+    // cb for scroll restoration
+    const onOpenHandler = useCallback((index: number) => () => {
+        onOpenArticle?.(index)
+    }, [onOpenArticle]);
+
+    useEffect(() => {
+        if (view === ArticleListView.TILE) {
+            const timerId = setTimeout(() => {
+                virtuosoGridRef.current?.scrollToIndex(scrollToIndex ? scrollToIndex : 0)
+            }, 0);
+
+            return () => {
+                clearTimeout(timerId);
+            }
+        };
+    }, [scrollToIndex, view]);
 
     const renderArticleCard = useCallback((index, articleData: Article) => {
+
         return (
             <ArticleListItem
                 key={articleData.id}
@@ -49,9 +71,10 @@ export const ArticleList = (props: ArticleListProps) => {
                 view={view}
                 isLoading={false}
                 target={target}
+                onOpenCb={onOpenHandler(index)}
             />
         )
-    }, [view, target]);
+    }, [view, target, onOpenHandler]);
 
     const renderArticleCardSkeleton = useCallback((index: number) => {
         return (
@@ -171,6 +194,7 @@ export const ArticleList = (props: ArticleListProps) => {
                         Header,
                         Footer
                     }}
+                    initialTopMostItemIndex={scrollToIndex ? scrollToIndex : 0}
                 />
             </div>
         )
@@ -193,6 +217,7 @@ export const ArticleList = (props: ArticleListProps) => {
                     exit: (velocity) => Math.abs(velocity) < 30,
                 }}
                 useWindowScroll={false}
+                
             />
         </div>
     )
