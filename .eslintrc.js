@@ -20,6 +20,7 @@ module.exports = {
         '@typescript-eslint',
         'react-hooks',
         'i18next',
+        'laygrd-plugin'
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -52,6 +53,7 @@ module.exports = {
         'i18next/no-literal-string': ['error', {markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'target']}],
         'react/display-name': 'off',
         'no-undef': 'off',
+        'laygrd-plugin/fsd-relative-path': 'error',
     },
     globals: {
         __IS_DEV__: true,

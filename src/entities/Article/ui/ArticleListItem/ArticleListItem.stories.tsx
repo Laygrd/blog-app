@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Article, ArticleListView } from 'entities/Article';
+import { Article, ArticleListView } from '../../model/types/Article';
 import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
 import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
 import { ArticleListItem } from './ArticleListItem';
