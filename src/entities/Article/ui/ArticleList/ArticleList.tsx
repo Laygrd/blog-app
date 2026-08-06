@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
-import { HTMLAttributeAnchorTarget, memo, useCallback, FC, useRef, useMemo, useEffect } from 'react';
+import { HTMLAttributeAnchorTarget, memo, useCallback, FC, useRef, useMemo, useEffect, ReactNode, ComponentType } from 'react';
 import { GridComponents, Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
-
-import { ArticlesPageFilters } from 'pages/ArticlesPage';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -21,6 +19,7 @@ interface ArticleListProps {
    onScrollEnd?: () => void;
    onOpenArticle?: (index: number) => void;
    scrollToIndex?: number;
+   Header?: ComponentType;
 }
 
 
@@ -40,6 +39,7 @@ export const ArticleList = (props: ArticleListProps) => {
         onScrollEnd,
         onOpenArticle,
         scrollToIndex,
+        Header
     } = props;
 
     const { t } = useTranslation('article', {keyPrefix: 'ArticleList'});
@@ -86,11 +86,6 @@ export const ArticleList = (props: ArticleListProps) => {
             />
         )
     }, [view]);
-
-    // virtuoso components
-
-    const Header = memo(() => <ArticlesPageFilters />);
-    Header.displayName = 'Header';
 
     const Footer = memo(() => {
         if (!isLoading) return null;
@@ -141,7 +136,7 @@ export const ArticleList = (props: ArticleListProps) => {
                 { children }
             </div>
         ),
-    }), [Footer, Header, ScrollSeekPlaceholder]);
+    }), [Header, Footer, ScrollSeekPlaceholder]);
 
     const showInitialTileSkeletons = isLoading && articles.length === 0;
 
@@ -172,7 +167,7 @@ export const ArticleList = (props: ArticleListProps) => {
     if (!isLoading && articles.length === 0) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className])}>
-                <ArticlesPageFilters />
+                { Header && <Header />}
                 <Text
                     className={cls.emptyArticles}
                     title={t('emptyArticlesList')}

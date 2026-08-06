@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { ComponentType, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { ArticleList, ArticleListView} from 'entities/Article';
+import { ArticleList} from 'entities/Article';
 import { Page } from 'widgets/Page';
 
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
@@ -12,6 +12,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchArticlesNextPart } from '../../model/services/fetchArticlesNextPart/fetchArticlesNextPart';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
@@ -84,6 +85,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                     onScrollEnd={onLoadNextPart}
                     onOpenArticle={onSaveLastVisitedArticle}
                     scrollToIndex={scrollToIndex}
+                    Header={ArticlesPageFilters as ComponentType}
                 />
             </Page>
         </DynamicReducerLoader>
