@@ -13,14 +13,14 @@ jobs:
         strategy:
             matrix:
                 node-version: [ 17.4.0 ]
-        services:
-          docker:
-            image: docker:27-dind
-            options: >-
-              --privileged
-              --entrypoint /usr/local/bin/dockerd-entrypoint.sh
-              -e DOCKER_TLS_CERTDIR=/certs
-              -e DOCKER_HOST=unix:///var/run/docker.sock
+        # services:
+        #   docker:
+        #     image: docker:27-dind
+        #     options: >-
+        #       --privileged
+        #       --entrypoint /usr/local/bin/dockerd-entrypoint.sh
+        #       -e DOCKER_TLS_CERTDIR=/certs
+        #       -e DOCKER_HOST=unix:///var/run/docker.sock
       
         steps:
           - uses: actions/checkout@v2
@@ -42,10 +42,10 @@ jobs:
           - name: Unit testing
             run: npm run test:unit
           
-          - name: Install Google Chrome
-            run: |
-              sudo apt-get update
-              sudo apt-get install -y google-chrome-stable
+          # - name: Install Google Chrome
+          #   run: |
+          #     sudo apt-get update
+          #     sudo apt-get install -y google-chrome-stable
 
           - name: Build storybook
             run: npm run storybook:build
