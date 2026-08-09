@@ -5,9 +5,9 @@ import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
 import { classNames } from "shared/lib/classNames/classNames";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems/getSidebarItems";
-import { SidebarItem } from "../SidebarItem/SidebarItem";
 import cls from "./Sidebar.module.scss";
 import { VStack } from "shared/ui/Stack";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 
 interface SidebarProps {
