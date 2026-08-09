@@ -24,6 +24,7 @@ import { Text, TextTheme } from "shared/ui/Text/Text";
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { ProfilePageHeader } from "./ProfilePageHeader/ProfilePageHeader";
 import cls from './ProfilePage.module.scss';
+import { VStack } from "shared/ui/Stack";
 
 
 const reducers: ReducersList = {
@@ -89,40 +90,39 @@ const ProfilePage = () => {
     }, [dispatch]);
 
     return (
-        <DynamicReducerLoader
-            reducers={reducers}
-            removeAfterUnmount
-        >
-            <Page className={cls.ProfilePage}>
-                <ProfilePageHeader />
+        <DynamicReducerLoader reducers={reducers} removeAfterUnmount >
+            <Page>
+                <VStack max>
+                    <ProfilePageHeader />
 
-                <div className={cls.errors}>
-                    {
-                        profileValidateErrors?.length &&
-                        profileValidateErrors.map((error) => (
-                            <Text
-                                key={error}
-                                text={validateErrorsMapping[error]}
-                                theme={TextTheme.ERROR}
-                            />
-                        ))
-                    }
-                </div>
+                    <div>
+                        {
+                            profileValidateErrors?.length &&
+                            profileValidateErrors.map((error) => (
+                                <Text
+                                    key={error}
+                                    text={validateErrorsMapping[error]}
+                                    theme={TextTheme.ERROR}
+                                />
+                            ))
+                        }
+                    </div>
 
-                <ProfileCard
-                    formProfileData={profileData}
-                    isLoading={profileIsLoading}
-                    error={profileError}
-                    readonly={profileReadonly}
-                    onChangeUsername={onChangeUsername}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangeAge={onChangeAge}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeCountry={onChangeCountry}
-                    onChangeCity={onChangeCity}
-                    onChangeCurrency={onChangeCurrency}
-                />
+                    <ProfileCard
+                        formProfileData={profileData}
+                        isLoading={profileIsLoading}
+                        error={profileError}
+                        readonly={profileReadonly}
+                        onChangeUsername={onChangeUsername}
+                        onChangeFirstname={onChangeFirstname}
+                        onChangeLastname={onChangeLastname}
+                        onChangeAge={onChangeAge}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeCountry={onChangeCountry}
+                        onChangeCity={onChangeCity}
+                        onChangeCurrency={onChangeCurrency}
+                    />
+                </VStack>
             </Page>
         </DynamicReducerLoader>
     )

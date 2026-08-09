@@ -17,7 +17,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import EditIcon from 'shared/assets/icons/edit-line-icon.svg';
 import SaveIcon from 'shared/assets/icons/save-icon.svg';
 import CancelIcon from 'shared/assets/icons/cancel-icon.svg';
-import cls from "./ProfilePageHeader.module.scss";
+import { HStack } from "shared/ui/Stack";
 
 
 interface ProfilePageheaderProps {
@@ -52,7 +52,7 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
 
     if (isLoading) {
         return (
-            <div className={ classNames(cls.ProfilePageHeader, {}, [className]) }>
+            <div className={ classNames('', {}, [className]) }>
                 <Skeleton width={'50%'} height={40}/>
             </div>
         )
@@ -60,20 +60,21 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
 
 
     return(
-        <div className={ classNames(cls.ProfilePageHeader, {}, [className]) }>
+        <HStack 
+            className={ classNames('', {}, [className]) }
+            justify={'between'}
+            max
+        >
             <Text
                 title={`${t('ProfileCard.header')} ${profileData?.username}`}
             />
 
             {authData?.id == profileData?.id &&
-                <div
-                    className={cls.editBtns}
-                >
+                <>
                     {
                         readonly ?
                             (
                                 <Button
-                                    className={cls.btn}
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onEdit}
                                 >   
@@ -83,9 +84,8 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
                             )
                             :
                             (
-                                <>
+                                <HStack gap={'4'}>
                                     <Button
-                                        className={cls.btn}
                                         theme={ButtonTheme.OUTLINE}
                                         onClick={onUpdateProfile}
                                         disabled={isLoading}
@@ -94,7 +94,6 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
                                         {t('ProfileCard.saveBtn')}
                                     </Button>
                                     <Button
-                                        className={cls.btn}
                                         theme={ButtonTheme.OUTLINE}
                                         onClick={onCancelEdit}
                                         disabled={isLoading}
@@ -102,11 +101,11 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
                                         <CancelIcon />
                                         {t('ProfileCard.cancelBtn')}
                                     </Button>
-                                </>
+                                </HStack>
                             )
                     }
-                </div>
+                </>
             }
-        </div>
+        </HStack>
     );
 };

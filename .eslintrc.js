@@ -50,7 +50,16 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'no-param-reassign': 'off',
-        'i18next/no-literal-string': ['error', {markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'target']}],
+        'i18next/no-literal-string': [
+            'error', 
+            {
+                markupOnly: true, 
+                ignoreAttribute: [
+                    'data-testid', 'to', 'target',
+                    'justify', 'align', 'direction', 'gap',
+                ]
+            }
+        ],
         'react/display-name': 'off',
         'no-undef': 'off',
         'laygrd-plugin/fsd-relative-path': 'error',

@@ -22,7 +22,7 @@ const profileData: Profile = {
 }
 
 export default {
-    title: 'pages/ProfilePage',
+    title: 'pages/ProfilePage/ProfilePage',
     component: ProfilePage,
     argTypes: {
         backgroundColor: { control: 'color' },

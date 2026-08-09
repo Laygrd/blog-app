@@ -2,11 +2,14 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Country, CountrySelect } from "entities/Country";
 import { Currency, CurrencySelect } from "entities/Currency";
+
 import { Text } from "shared/ui/Text/Text";
 import { Input, InputTheme } from "shared/ui/Input/Input";
 import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
 import { classNames } from "shared/lib/classNames/classNames";
 import { SelectTheme } from "shared/ui/Select/Select";
+import { HStack, VStack } from "shared/ui/Stack";
+
 import { Profile } from "../../model/types/ProfileSchema";
 import { AvatarModal } from "../AvatarModal/AvatarModal";
 import { ProfileCardSkeleton } from "./ProfileCardSkeleton";
@@ -67,7 +70,6 @@ export const ProfileCard = (props: ProfileCardProps) =>{
         content = (
             <>
                 <Avatar
-                    className={classNames(cls.input, {}, [cls.avatar])}
                     src={formProfileData?.avatar}
                     theme={AvatarTheme.ROUNDED}
                     size={200}
@@ -75,15 +77,10 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                     onEdit={onAvatarModal}
                 />
 
-                <div
-                    className={cls.infoColumns}
-                >
-                    <div
-                        className={cls.mainInfo}
-                    >
+                <HStack align={'start'} gap={'32'}>
+                    <VStack gap={'16'}>
                         <Text text={t('ProfileCard.mainInfo')}/>
                         <Input
-                            className={cls.input}
                             id="profileCard.userName"
                             placeholder={t('ProfileCard.userName')}
                             value={ formProfileData?.username }
@@ -92,7 +89,6 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             theme={InputTheme.UNDERLINE}
                         />
                         <Input
-                            className={cls.input}
                             id="profileCard.firstName"
                             placeholder={t('ProfileCard.firstName')}
                             value={ formProfileData?.firstname }
@@ -101,7 +97,6 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             theme={InputTheme.UNDERLINE}
                         />
                         <Input
-                            className={cls.input}
                             id="profileCard.lastName"
                             placeholder={t('ProfileCard.lastName')}
                             value={ formProfileData?.lastname }
@@ -110,7 +105,6 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             theme={InputTheme.UNDERLINE}
                         />
                         <Input
-                            className={cls.input}
                             id="profileCard.age"
                             placeholder={t('ProfileCard.age')}
                             value={ formProfileData?.age }
@@ -118,13 +112,10 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             onChange={onChangeAge}
                             theme={InputTheme.UNDERLINE}
                         />
-                    </div>
-                    <div
-                        className={cls.regionalInfo}
-                    >
+                    </VStack>
+                    <VStack gap={'16'}>
                         <Text text={t('ProfileCard.regionalInfo')}/>
                         <CountrySelect
-                            className={cls.input}
                             id="profileCard.country"
                             value={ formProfileData?.country }
                             readOnly={readonly}
@@ -133,7 +124,6 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             
                         />
                         <Input
-                            className={cls.input}
                             id="profileCard.city"
                             placeholder={t('ProfileCard.city')}
                             value={ formProfileData?.city }
@@ -142,15 +132,14 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             theme={InputTheme.UNDERLINE}
                         />
                         <CurrencySelect
-                            className={cls.input}
                             id="profileCard.currency"
                             value={ formProfileData?.currency }
                             readOnly={readonly}
                             onChange={onChangeCurrency}
                             theme={SelectTheme.UNDERLINE}
                         />
-                    </div>
-                </div>
+                    </VStack>
+                </HStack>
                 {
                     isAvatarModal && 
                     <AvatarModal 
@@ -164,13 +153,14 @@ export const ProfileCard = (props: ProfileCardProps) =>{
         )
     };
 
-    // avatar >
-    // InfoCols > main + regional
-    // modal >
-
     return(
-        <div className={ classNames(cls.ProfileCard, {}, [className]) }>
+        <VStack 
+            className={ classNames(cls.ProfileCard, {}, [className]) }
+            align={'center'}
+            gap={'32'}
+            max
+        >
             {content}
-        </div>
+        </VStack>
     );
 };

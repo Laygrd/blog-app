@@ -5,7 +5,7 @@ export default {
     title: 'shared/[FTName]',
     component: [FTName],
     argTypes: {
-       backgroundColor: { control: 'color' },
+        backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof [FTName]>;
 

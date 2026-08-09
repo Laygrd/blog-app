@@ -7,6 +7,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems/getSidebarItems";
 import { SidebarItem } from "../SidebarItem/SidebarItem";
 import cls from "./Sidebar.module.scss";
+import { VStack } from "shared/ui/Stack";
 
 
 interface SidebarProps {
@@ -35,9 +36,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             data-testid='sidebar'
             className={ classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className]) }
         >
-            <div className={cls.links}>
+            <VStack gap={'16'} className={cls.links}>
                 { itemsList }
-            </div>
+            </VStack>
 
             <div className={cls.switchers}>
                 <ThemeSwitcher />

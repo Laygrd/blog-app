@@ -1,35 +1,4 @@
 .ProfileCard {
-    padding: 6px;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-top: 20px;
-    height: 480px;
-    justify-content: center;
-}
-
-.infoColumns {
-    display: flex;
-    width: 75%;
-    flex-direction: row;
-    gap: 8px;
-    margin-top: 20px;
-}
-
-.mainInfo {
-    flex: 1;
-}
-
-.regionalInfo {
-    flex: 1;
-}
-
-.input {
-    margin-bottom: 8px;
-}
-
-// only for skeleton (isLoading)
-.colTitle {
-    margin-bottom: 4px;
+    height: 100%;
 }
