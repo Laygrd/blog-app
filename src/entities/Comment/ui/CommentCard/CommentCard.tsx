@@ -2,6 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { RouterPaths } from 'shared/config/router/routerVars';
 import { CommentCardSkeleton } from './CommentCardSkeleton';
 import { Comment } from '../../model/types/comment';
@@ -26,25 +27,28 @@ export const CommentCard = (props: CommentCardProps) => {
     }
 
     return (
-        <div className={classNames(cls.CommentCard, {}, [className])}>
-            <AppLink
-                to={`${RouterPaths.profiles}${comment?.user.id}`}
-                className={cls.header}
-            >
-                <Avatar
-                    src={comment?.user.avatarUrl || '' }
-                    size={30}
-                    theme={AvatarTheme.ROUNDED}
-                    border={false}
-                />
-                <Text
-                    title={comment?.user.username}
-                />
+        <VStack className={classNames(cls.CommentCard, {}, [className])} max >
+
+            <AppLink to={`${RouterPaths.profiles}${comment?.user.id}`} >
+
+                <HStack gap={'4'}>
+                    <Avatar
+                        src={comment?.user.avatarUrl || '' }
+                        size={30}
+                        theme={AvatarTheme.ROUNDED}
+                        border={false}
+                    />
+                    <Text
+                        title={comment?.user.username}
+                    />
+                </HStack>
+
             </AppLink>
+
             <Text
                 className={cls.commentText}
                 text={comment?.text}
             />
-        </div>
+        </VStack>
     );
 }

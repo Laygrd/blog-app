@@ -29,11 +29,9 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 import { articleDetailsPageReducer } from '../../model/slice';
-import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-
-
-
+import cls from './ArticleDetailsPage.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 
 interface ArticleDetailsPageProps {
@@ -89,36 +87,43 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id}/>
-                { !articleLoadingError && 
-                    <>
-                        <Text
-                            size={TextSize.L}
-                            className={cls.comments}
-                            title={t('recommendationsBlock')}
-                        />
-                        <ArticleList 
-                            className={cls.recommendations}
-                            articles={recommendations}
-                            isLoading={recommendationsIsLoading}
-                            target={'_blank'}
-                        />
-                        <Text
-                            size={TextSize.L}
-                            className={cls.comments}
-                            title={t('commentsBlock')}
-                        />
-                        <AddCommentForm
-                            onSendComment={onSendComment}
-                        />
-                        <CommentList
-                            className={cls.comments}
-                            comments={comments}
-                            isLoading={commentsIsLoading}
-                        />
-                    </>
-                }
+                <VStack gap={'32'} max>
+                    <ArticleDetailsPageHeader />
+                    <ArticleDetails id={id}/>
+                    { !articleLoadingError && 
+                        <>
+                            <VStack max gap={'16'}>
+                                <Text
+                                    size={TextSize.L}
+                                    className={cls.comments}
+                                    title={t('recommendationsBlock')}
+                                />
+                                <ArticleList 
+                                    className={cls.recommendations}
+                                    articles={recommendations}
+                                    isLoading={recommendationsIsLoading}
+                                    target={'_blank'}
+                                />
+
+                            </VStack>
+                            <VStack max gap={'16'}>
+                                <Text
+                                    size={TextSize.L}
+                                    className={cls.comments}
+                                    title={t('commentsBlock')}
+                                />
+                                <AddCommentForm
+                                    onSendComment={onSendComment}
+                                />
+                            </VStack>
+                            <CommentList
+                                className={cls.comments}
+                                comments={comments}
+                                isLoading={commentsIsLoading}
+                            />
+                        </>
+                    }
+                </VStack>
             </Page>
         </DynamicReducerLoader>
     );

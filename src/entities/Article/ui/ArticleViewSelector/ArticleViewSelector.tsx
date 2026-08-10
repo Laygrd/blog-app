@@ -4,6 +4,7 @@ import TileViewIcon from 'shared/assets/icons/tile-view-icon.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { ArticleListView } from '../../model/types/Article';
 import cls from './ArticleViewSelector.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 
 interface ArticleViewSelectorProps {
@@ -32,7 +33,10 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
 
 
     return (
-        <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+        <HStack
+            className={classNames(cls.ArticleViewSelector, {}, [className])}
+            gap={'4'}
+        >
             {viewTypes.map((viewType) => (
                 <Button
                     key={viewType.type}
@@ -43,6 +47,6 @@ export const ArticleViewSelector = (props: ArticleViewSelectorProps) => {
                     {viewType.icon}
                 </Button>
             ))}
-        </div>
+        </HStack>
     );
 }

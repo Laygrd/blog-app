@@ -1,17 +1,30 @@
 import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import cls from './ArticleDetails.module.scss';
+import { HStack, VStack } from "shared/ui/Stack";
 
 
 export const ArticleDetailsSkeleton = () => {
     return (
-        <>
-            <Skeleton className={cls.avatar} width={200} height={200} border={'50%'}/>
-            <Skeleton className={cls.header} width={'30%'} height={24} />
-            <Skeleton className={cls.title} width={'50%'} height={35} />
-            <Skeleton className={cls.subtitle} width={'40%'} height={27} />
-            <Skeleton className={cls.block} width={'100%'} height={200} />
-            <Skeleton className={cls.block} width={'100%'} height={200} />
-            <Skeleton className={cls.block} width={'100%'} height={200} />
+        <>  
+            <HStack justify={'center'} max>
+                <Skeleton width={200} height={200} border={'50%'}/>
+            </HStack>
+
+            <VStack gap={'32'} max>
+                <VStack gap={'4'} justify={'start'} max>
+                    <Skeleton width={'20%'} height={24} />
+                    <Skeleton width={'20%'} height={24} />
+                    <Skeleton width={'20%'} height={24} />
+                </VStack>
+
+                <Skeleton width={'50%'} height={72} />
+
+                <VStack gap={'16'} max>
+                    <Skeleton width={'100%'} height={150} />
+                    <Skeleton width={'100%'} height={150} />
+                    <Skeleton width={'100%'} height={150} />
+                </VStack>
+            </VStack>
+            
         </>
     );
 }

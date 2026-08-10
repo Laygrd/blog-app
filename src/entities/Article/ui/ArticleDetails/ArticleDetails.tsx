@@ -10,6 +10,9 @@ import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RouterPaths } from 'shared/config/router/routerVars';
+
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
 import {
@@ -22,8 +25,7 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 import cls from './ArticleDetails.module.scss';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RouterPaths } from 'shared/config/router/routerVars';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 
 interface ArticleDetailsProps {
@@ -68,56 +70,61 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = ( <ArticleDetailsSkeleton />)
     } else if (error) {
         content = (
-            <div
-                className={cls.errorMessage}
-            >{t('errors.FAILED_TO_FETCH_ARTICLE')}</div>
+            <VStack align={'center'} justify={'center'} max>
+                {t('errors.FAILED_TO_FETCH_ARTICLE')}
+            </VStack>
         )
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack justify={'center'} max>
                     <Avatar
                         size={200}
                         theme={AvatarTheme.ROUNDED}
                         src={data?.img}
                     />
-                </div>
+                </HStack>
 
-                <div className={cls.header}>
-                    <AppLink
-                        className={cls.user}
-                        to={`${RouterPaths.profiles}${data?.user.id}`}
-                    >
-                        <Avatar
-                            size={24}
-                            border={false}
-                            theme={AvatarTheme.ROUNDED}
-                            src={data?.user.avatarUrl}
-                        />
-                        <Text text={data?.user.username}/>
-                    </AppLink>
+                <VStack gap={'32'} max>
 
-                    <div className={cls.info}>
-                        <EyeIcon className={cls.icon}/>
-                        <Text text={String(data?.views)}/>
-                    </div>
+                    <VStack gap={'4'}>
+                        <AppLink to={`${RouterPaths.profiles}${data?.user.id}`} >
+                            <HStack>
+                                <Avatar
+                                    size={24}
+                                    border={false}
+                                    theme={AvatarTheme.ROUNDED}
+                                    src={data?.user.avatarUrl}
+                                />
+                                <Text text={data?.user.username}/>
+                            </HStack>
+                        </AppLink>
 
-                    <div className={cls.info}>
-                        <CalendarIcon className={cls.icon}/>
-                        <Text text={String(data?.createdAt)}/>
-                    </div>
-                </div>
+                        <HStack >
+                            <EyeIcon />
+                            <Text text={String(data?.views)}/>
+                        </HStack>
 
-                <Text
-                    className={cls.title}
-                    title={data?.title}
-                    text={data?.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={cls.subtitle}/>  
-                {
-                    data?.blocks.map(renderBlock)
-                }
+                        <HStack >
+                            <CalendarIcon />
+                            <Text text={String(data?.createdAt)}/>
+                        </HStack>
+                    </VStack>
+
+                    <Text
+                        title={data?.title}
+                        text={data?.subtitle}
+                        size={TextSize.L}
+                    />
+
+                    <VStack gap={'16'} max>
+                        {
+                            data?.blocks.map(renderBlock)
+                        }
+                    </VStack>
+
+                </VStack>
+                
             </>
         )
     }

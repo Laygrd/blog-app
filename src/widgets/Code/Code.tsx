@@ -28,7 +28,7 @@ export const Code = memo((props: CodeProps) => {
     return (
         <div className={classNames(cls.Code, {}, [className])}>
             <pre>
-                <code>
+                <code className={cls.codeContent}>
                     {text}
                 </code>
             </pre>
