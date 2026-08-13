@@ -7,7 +7,7 @@ import { getUserAuthData, userActions } from "entities/User";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
-import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Text, TextSize, TextTheme } from "shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RouterPaths } from "shared/config/router/routerVars";
 
@@ -36,6 +36,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <header className={ classNames(cls.Navbar, {}, [className]) }>
                 <Text
                     className={cls.appName}
+                    size={TextSize.M}
                     title={t('Navbar.appName')}
                     theme={TextTheme.INVERTED}
                 />
@@ -61,6 +62,12 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     return (
         <header className={ classNames(cls.Navbar, {}, [className]) }>
+            <Text
+                className={cls.appName}
+                size={TextSize.M}
+                title={t('Navbar.appName')}
+                theme={TextTheme.INVERTED}
+            />
             <div className={cls.links}>
                 <Button
                     className={cls.loginBtn}

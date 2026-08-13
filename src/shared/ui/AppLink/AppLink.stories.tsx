@@ -29,3 +29,19 @@ Inverted.args = {
     theme: AppLinkTheme.INVERTED
 };
 //Inverted.decorators = [RouterDecorator];
+
+export const Outline = Template.bind({});
+Outline.args = {
+    to: '/',
+    children: 'link',
+    theme: AppLinkTheme.OUTLINE
+};
+//Inverted.decorators = [RouterDecorator];
+
+export const OutlineInverted = Template.bind({});
+OutlineInverted.args = {
+    to: '/',
+    children: 'link',
+    theme: AppLinkTheme.OUTLINE_INVERTED
+};
+//Inverted.decorators = [RouterDecorator];

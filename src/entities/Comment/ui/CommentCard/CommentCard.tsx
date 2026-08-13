@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { RouterPaths } from 'shared/config/router/routerVars';
@@ -27,7 +27,11 @@ export const CommentCard = (props: CommentCardProps) => {
     }
 
     return (
-        <VStack className={classNames(cls.CommentCard, {}, [className])} max >
+        <VStack 
+            className={classNames(cls.CommentCard, {}, [className])}
+            role="article"
+            max
+        >
 
             <AppLink to={`${RouterPaths.profiles}${comment?.user.id}`} >
 
@@ -40,6 +44,7 @@ export const CommentCard = (props: CommentCardProps) => {
                     />
                     <Text
                         title={comment?.user.username}
+                        size={TextSize.M}
                     />
                 </HStack>
 
@@ -48,6 +53,7 @@ export const CommentCard = (props: CommentCardProps) => {
             <Text
                 className={cls.commentText}
                 text={comment?.text}
+                size={TextSize.M}
             />
         </VStack>
     );

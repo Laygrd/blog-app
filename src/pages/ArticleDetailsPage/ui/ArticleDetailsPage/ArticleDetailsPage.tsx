@@ -108,7 +108,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                             </VStack>
                             <VStack max gap={'16'}>
                                 <Text
-                                    size={TextSize.L}
+                                    size={TextSize.M}
                                     className={cls.comments}
                                     title={t('commentsBlock')}
                                 />

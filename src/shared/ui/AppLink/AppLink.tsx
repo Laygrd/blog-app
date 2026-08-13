@@ -6,6 +6,8 @@ import cls from "./AppLink.module.scss";
 export enum AppLinkTheme {
     PRIMARY = 'primary',
     INVERTED = 'inverted',
+    OUTLINE = 'outline',
+    OUTLINE_INVERTED = 'outline_inverted'
 };
 
 interface AppLinkProps extends LinkProps {

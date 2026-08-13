@@ -1,13 +1,16 @@
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
-import { ReactNode } from 'react';
 
 
+// flex options
 export type FlexJustify = 'start' | 'end' | 'between' | 'center';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
 export type FlexGap = '4' | '8' | '16' | '32';
+export type ContainerTag = 'div' | 'header' | 'footer' | 'article' | 'section';
 
+// mappers
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,
     center: cls.justifyCenter,
@@ -33,7 +36,11 @@ const gapClasses: Record<FlexGap, string> = {
     32: cls.gap32,
 };
 
-export interface FlexProps {
+// helper for semantics
+type DivElementType = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+
+export interface FlexProps extends DivElementType {
    className?: string;
    children: ReactNode;
    justify?: FlexJustify;
@@ -41,6 +48,7 @@ export interface FlexProps {
    direction: FlexDirection;
    gap?: FlexGap;
    max?: boolean;
+   ContainerTag?: ContainerTag;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -52,6 +60,8 @@ export const Flex = (props: FlexProps) => {
         direction = 'row',
         gap = '8',
         max = false,
+        ContainerTag = 'div',
+        ...otherProps
     } = props;
 
     const mods: Mods = {
@@ -67,8 +77,8 @@ export const Flex = (props: FlexProps) => {
     ];
 
     return (
-        <div className={classNames(cls.Flex, mods, classes)}>
+        <ContainerTag className={classNames(cls.Flex, mods, classes)} {...otherProps}>
             { children }
-        </div>
+        </ContainerTag>
     );
 }

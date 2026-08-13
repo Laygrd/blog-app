@@ -15,105 +15,77 @@ export default {
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
 
-export const WithTitleAndText = Template.bind({});
-WithTitleAndText.args = {
+export const Primary = Template.bind({});
+Primary.args = {
     title: 'title',
     text: 'text',
 };
 
-export const WithOnlyTitle = Template.bind({});
-WithOnlyTitle.args = {
+export const OnlyTitle = Template.bind({});
+OnlyTitle.args = {
     title: 'title',
 };
 
-export const WithOnlyText = Template.bind({});
-WithOnlyText.args = {
+export const OnlyText = Template.bind({});
+OnlyText.args = {
     text: 'text',
 };
 
-export const WithTitleAndTextDark = Template.bind({});
-WithTitleAndTextDark.args = {
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
     title: 'title',
     text: 'text',
 };
-WithTitleAndTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const WithOnlyTitleDark = Template.bind({});
-WithOnlyTitleDark.args = {
+export const OnlyTitleDark = Template.bind({});
+OnlyTitleDark.args = {
     title: 'title',
 };
-WithOnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const WithOnlyTextDark = Template.bind({});
-WithOnlyTextDark.args = {
+export const OnlyTextDark = Template.bind({});
+OnlyTextDark.args = {
     text: 'text',
 };
-WithOnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
+OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 
-export const ErrorWithTitleAndText = Template.bind({});
-ErrorWithTitleAndText.args = {
+export const Error = Template.bind({});
+Error.args = {
     theme: TextTheme.ERROR,
     title: 'title',
     text: 'text',
 };
-ErrorWithTitleAndText.decorators = [];
-
-export const ErrorWithOnlyTitle = Template.bind({});
-ErrorWithOnlyTitle.args = {
-    theme: TextTheme.ERROR,
-    title: 'title',
-};
-ErrorWithOnlyTitle.decorators = [];
-
-export const ErrorWithOnlyText = Template.bind({});
-ErrorWithOnlyText.args = {
-    theme: TextTheme.ERROR,
-    text: 'text',
-};
-ErrorWithOnlyText.decorators = [];
+Error.decorators = [];
 
 
-export const InvertedWithTitleAndText = Template.bind({});
-InvertedWithTitleAndText.args = {
+export const Inverted = Template.bind({});
+Inverted.args = {
     theme: TextTheme.INVERTED,
     title: 'title',
     text: 'text',
 };
-InvertedWithTitleAndText.decorators = [];
-
-export const InvertedWithOnlyTitle = Template.bind({});
-InvertedWithOnlyTitle.args = {
-    theme: TextTheme.INVERTED,
-    title: 'title',
-};
-InvertedWithOnlyTitle.decorators = [];
-
-export const InvertedWithOnlyText = Template.bind({});
-InvertedWithOnlyText.args = {
-    theme: TextTheme.INVERTED,
-    text: 'text',
-};
-InvertedWithOnlyText.decorators = [];
+Inverted.decorators = [];
 
 // align
 
-export const LeftAlign = Template.bind({});
-LeftAlign.args = {
+export const PrimaryLeftAlign = Template.bind({});
+PrimaryLeftAlign.args = {
     title: 'title',
     text: 'text',
     align: TextAlign.LEFT
 };
 
-export const CenterAlign = Template.bind({});
-CenterAlign.args = {
+export const PrimaryCenterAlign = Template.bind({});
+PrimaryCenterAlign.args = {
     title: 'title',
     text: 'text',
     align: TextAlign.CENTER
 };
 
-export const RightAlign = Template.bind({});
-RightAlign.args = {
+export const PrimaryRightAlign = Template.bind({});
+PrimaryRightAlign.args = {
     title: 'title',
     text: 'text',
     align: TextAlign.RIGHT

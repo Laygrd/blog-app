@@ -4,9 +4,9 @@
     width: 230px;
 
     .articleImage {
-        width: 200px;
-        height: 200px;
-        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .created {
@@ -22,10 +22,6 @@
         position: relative;
     }
 
-    .info {
-        display: flex;
-        margin-block: 10px;
-    }
 
     .type p,
     .title p {
@@ -39,7 +35,7 @@
     }
 
     .title p {
-        width: 180px;
+        width: 190px;
     }
 
     &:hover {
@@ -57,29 +53,10 @@
 .ArticleListItem_list {
     width: 100%;
     padding-inline: 250px;
-    padding-bottom: 40px;
 
-    .header {
-        display: flex;
-        margin-bottom: 10px;
-    }
-
-    .user {
-        display: flex;
-        gap: 10px;
-    }
-
-    /* stylelint-disable-next-line no-descending-specificity */
-    .created {
-        margin-left: auto;
-    }
-
-    .title {
-        margin-bottom: 10px;
-    }
-
-    .type {
-        margin-bottom: 20px;
+    .header,
+    .footer {
+        width: 100%;
     }
 
     .articleImage {
@@ -89,22 +66,10 @@
     }
 
     .articleText p {
-        margin-top: 20px;
         overflow: hidden;
         max-height: 150px;
         white-space: wrap;
     }
-
-    .footer {
-        margin-top: 30px;
-        display: flex;
-    }
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-.views {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 3px;
-}
+

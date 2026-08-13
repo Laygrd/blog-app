@@ -1,6 +1,6 @@
+import { memo, useMemo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Text.module.scss";
-import { memo } from "react";
 
 
 export enum TextTheme {
@@ -20,6 +20,15 @@ export enum TextSize {
     M = "text_m",
     L = 'text_l',
     XL = 'text_xl',
+}
+
+type HeaderTagType = 'h1' | 'h2' | 'h3' | 'div';
+
+const headerTagMapper: Record<TextSize, HeaderTagType> = {
+    'text_xl': 'div', // not used yet
+    'text_l': 'h1',
+    'text_m': 'h2',
+    'text_s': 'h3'
 }
 
 interface TextProps {
@@ -42,16 +51,18 @@ export const Text = memo((props: TextProps) =>{
         ...otherProps
     } = props;
 
+    const HeaderTag = headerTagMapper[size];
+
     return(
-        <div 
+        <section 
             className={ classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]]) }
             {...otherProps}
         >
             { 
                 title && 
-                <p className={cls.titleBlock}>
+                <HeaderTag className={cls.titleBlock}>
                     {title}
-                </p>
+                </HeaderTag>
             }
             { 
                 text && 
@@ -59,6 +70,6 @@ export const Text = memo((props: TextProps) =>{
                     {text}
                 </p>
             }
-        </div>
+        </section>
     );
 });

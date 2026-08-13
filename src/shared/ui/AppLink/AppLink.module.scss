@@ -16,3 +16,17 @@
 .inverted {
     color: var(--inverted-primary-color);
 }
+
+.outline {
+    padding: 6px 12px;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.outline_inverted {
+    padding: 6px 12px;
+    color: var(--inverted-primary-color);
+    border: 1px solid var(--inverted-primary-color);
+    border-radius: 4px;
+}

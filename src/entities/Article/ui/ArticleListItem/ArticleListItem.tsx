@@ -2,8 +2,9 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from 'shared/ui/Card/Card';
 import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
-import { Text } from 'shared/ui/Text/Text';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { HStack, VStack } from 'shared/ui/Stack';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { RouterPaths } from 'shared/config/router/routerVars';
@@ -15,7 +16,6 @@ import {
 } from '../../model/types/Article';
 import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
 import cls from './ArticleListItem.module.scss';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 
 interface ArticleListItemProps {
@@ -40,37 +40,25 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls[view], {}, [className])}>
+            <article className={classNames(cls[view], {}, [className])}>
                 <ArticleListItemSkeleton view={view}/>
-            </div>
+            </article>
         )
     };
 
-    // reusable staff
-
     if (!article) {
         return (
-            <div className={classNames(cls[view], {}, [className])}>
-                {t('errors.ARTICLE_NOT_FOUND')}
-            </div>
+            <article className={classNames(cls[view], {}, [className])}>
+                <Text 
+                    theme={TextTheme.ERROR}
+                    text={t('errors.ARTICLE_NOT_FOUND')}
+                    size={TextSize.M}
+                />
+            </article>
         )
     }
 
     const articleDetailsPath = `${RouterPaths.article_details}${article.id}`;
-
-    const viewsBlock = (
-        <div className={cls.views}>
-            {article.views}
-            <EyeIcon />
-        </div>
-    );
-
-    const typeBlock = (
-        <Text
-            className={cls.type}
-            text={article.type.join(', ')}
-        />
-    );
 
 
     if (view == ArticleListView.LIST) {
@@ -79,53 +67,83 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         ) as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <article className={classNames(cls[view], {}, [className])}>
                 <Card>
-                    <div className={cls.header}>
-                        <div className={cls.user}>
-                            {   article.user.avatarUrl &&
-                                <Avatar
-                                    theme={AvatarTheme.ROUNDED}
-                                    size={24} 
-                                    src={article.user.avatarUrl}
-                                    border={false}
-                                />
-                            }
-                            <Text text={article.user.username}/>
-                        </div>
-                        <div className={cls.created}>
-                            {article.createdAt}
-                        </div>
-                    </div>
-                    <Text
-                        className={cls.title}
-                        title={article.title}
-                    />
-                    {typeBlock}
-                    <img
-                        className={cls.articleImage}
-                        src={article.img}
-                    />
-                    <Text
-                        className={cls.articleText}
-                        text={(articleText).paragraphs[0] || ''}
-                    />
-                    <div className={cls.footer}>
-                        <AppLink
-                            to={articleDetailsPath}
-                            target={target}
+                    <VStack gap={'16'} max>
+                        
+                        <HStack
+                            ContainerTag={'header'}
+                            justify={'between'}
+                            max
                         >
-                            <Button
-                                theme={ButtonTheme.OUTLINE}
+                            <HStack gap={'8'}>
+                                {   article.user.avatarUrl &&
+                                    <Avatar
+                                        theme={AvatarTheme.ROUNDED}
+                                        size={24} 
+                                        src={article.user.avatarUrl}
+                                        border={false}
+                                    />
+                                }
+                                <Text text={article.user.username}/>
+                            </HStack>
+                            <time dateTime={article.createdAt}>
+                                {article.createdAt}
+                            </time>
+                        </HStack>
+                        
+                        
+                        <VStack gap={'4'}>
+                            <Text
+                                title={article.title}
+                                size={TextSize.M}
+                            />
+                            <Text
+                                text={article.type.join(', ')}
+                                size={TextSize.M}
+                            />
+                        </VStack>
+                        
+                        <VStack gap={'32'} max>
+                            <img
+                                className={cls.articleImage}
+                                src={article.img}
+                            />
+
+                            <Text
+                                className={cls.articleText}
+                                text={(articleText).paragraphs[0] || ''}
+                                size={TextSize.M}
+                            />
+                        </VStack>
+                        
+                        <HStack
+                            ContainerTag={'footer'}
+                            justify={'between'}
+                            align={'center'}
+                            max
+                        >
+                            <AppLink
+                                theme={AppLinkTheme.OUTLINE}
+                                to={articleDetailsPath} 
+                                target={target} 
                                 onClick={onOpenCb}
                             >
-                                {t('read')}
-                            </Button>
-                        </AppLink>
-                        {viewsBlock}
-                    </div>
+                                { t('read') }
+                            </AppLink>
+                            <HStack gap={'4'} align={"center"} >
+                                <Text
+                                    text={String(article.views)}
+                                    size={TextSize.M}
+                                />
+                                <EyeIcon />
+                            </HStack>
+                        </HStack>
+                        
+
+                    </VStack>
                 </Card>
-            </div>
+            </article>
         );
     }
     // 
@@ -135,26 +153,43 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             to={articleDetailsPath}
             target={target}
             onClick={onOpenCb}
+            role={'article'}
         >
             <Card>
-                <div className={cls.imageWrapper}>
-                    <img 
-                        className={cls.articleImage}
-                        src={article.img}
-                    />
+                <VStack max gap={'8'}>
+
+                    <div className={cls.imageWrapper}>
+                        <img 
+                            className={cls.articleImage}
+                            src={article.img}
+                        />
+                        <Text
+                            className={cls.created}
+                            text={article.createdAt}
+                        />
+                    </div>
+
+                    <HStack justify={'between'} max>
+                        <Text
+                            className={cls.type}
+                            text={article.type.join(', ')}
+                            size={TextSize.M}
+                        />
+                        <HStack gap={'4'} align={"center"} >
+                            <Text
+                                text={String(article.views)} 
+                                size={TextSize.M}
+                            />
+                            <EyeIcon />
+                        </HStack>
+                    </HStack>
+
                     <Text
-                        className={cls.created}
-                        text={article.createdAt}
+                        className={cls.title}
+                        text={article.title}
+                        size={TextSize.M}
                     />
-                </div>
-                <div className={cls.info}>
-                    {typeBlock}
-                    {viewsBlock}
-                </div>
-                <Text
-                    className={cls.title}
-                    text={article.title}
-                />
+                </VStack>
             </Card>
         </AppLink>
     )
