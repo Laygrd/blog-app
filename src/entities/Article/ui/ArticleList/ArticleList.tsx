@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { HTMLAttributeAnchorTarget, memo, useCallback, FC, useRef, useMemo, useEffect, ReactNode, ComponentType } from 'react';
+import { HTMLAttributeAnchorTarget, memo, useCallback, FC, useRef, useMemo, useEffect, ComponentType } from 'react';
 import { GridComponents, Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
 
@@ -66,6 +66,7 @@ export const ArticleList = (props: ArticleListProps) => {
 
         return (
             <ArticleListItem
+                className={cls.listItem}
                 key={articleData.id}
                 article={articleData}
                 view={view}
@@ -79,6 +80,7 @@ export const ArticleList = (props: ArticleListProps) => {
     const renderArticleCardSkeleton = useCallback((index: number) => {
         return (
             <ArticleListItem
+                className={cls.listItem}
                 key={`${index}_skeleton`}
                 article={{id: `${index}_skeleton`} as Article}
                 view={view}

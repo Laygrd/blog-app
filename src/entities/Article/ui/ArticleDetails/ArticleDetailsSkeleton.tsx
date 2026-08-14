@@ -11,7 +11,7 @@ export const ArticleDetailsSkeleton = () => {
 
             <VStack gap={'32'} max>
                 <VStack gap={'4'} justify={'start'} max>
-                    <Skeleton width={'20%'} height={24} />
+                    <Skeleton width={'15%'} height={24} />
                     <Skeleton width={'20%'} height={24} />
                     <Skeleton width={'20%'} height={24} />
                 </VStack>
@@ -19,9 +19,10 @@ export const ArticleDetailsSkeleton = () => {
                 <Skeleton width={'50%'} height={72} />
 
                 <VStack gap={'16'} max>
-                    <Skeleton width={'100%'} height={150} />
-                    <Skeleton width={'100%'} height={150} />
-                    <Skeleton width={'100%'} height={150} />
+                    <Skeleton width={'100%'} height={120} />
+                    <Skeleton width={'100%'} height={170} />
+                    <Skeleton width={'100%'} height={120} />
+                    <Skeleton width={'100%'} height={170} />
                 </VStack>
             </VStack>
             
