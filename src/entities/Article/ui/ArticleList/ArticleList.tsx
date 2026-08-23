@@ -210,7 +210,7 @@ export const ArticleList = (props: ArticleListProps) => {
                 components={GridComponents}
                 listClassName={cls.itemsWrapper}
                 scrollSeekConfiguration={{
-                    enter: (velocity) => Math.abs(velocity) > 200,
+                    enter: (velocity) => Math.abs(velocity) > 450,
                     exit: (velocity) => Math.abs(velocity) < 30,
                 }}
                 useWindowScroll={false}

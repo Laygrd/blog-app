@@ -14,6 +14,7 @@ import { Profile } from "../../model/types/ProfileSchema";
 import { AvatarModal } from "../AvatarModal/AvatarModal";
 import { ProfileCardSkeleton } from "./ProfileCardSkeleton";
 import cls from "./ProfileCard.module.scss";
+import { ListBoxTheme } from "shared/ui/ListBox/ListBox";
 
 
 interface ProfileCardProps {
@@ -120,7 +121,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             value={ formProfileData?.country }
                             readOnly={readonly}
                             onChange={onChangeCountry}
-                            theme={SelectTheme.UNDERLINE}
+                            theme={ListBoxTheme.UNDERLINE}
                             
                         />
                         <Input
@@ -136,7 +137,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             value={ formProfileData?.currency }
                             readOnly={readonly}
                             onChange={onChangeCurrency}
-                            theme={SelectTheme.UNDERLINE}
+                            theme={ListBoxTheme.UNDERLINE}
                         />
                     </VStack>
                 </HStack>

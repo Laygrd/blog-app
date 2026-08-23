@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-import { Select, SelectOption, SelectTheme } from "shared/ui/Select/Select";
 import { Country } from "../../model/types/country";
 import { classNames } from "shared/lib/classNames/classNames";
+import { ListBox, ListBoxItem, ListBoxTheme } from "shared/ui/ListBox/ListBox";
 
 interface CountrySelectProps {
     id?: string;
@@ -10,10 +10,10 @@ interface CountrySelectProps {
     value?: Country;
     onChange?: (value: Country) => void;
     readOnly?: boolean;
-    theme?: SelectTheme;
+    theme?: ListBoxTheme;
 }
 
-const options: SelectOption<Country>[] = [
+const options: ListBoxItem[] = [
     {value: Country.Armenia, content: Country.Armenia},
     {value: Country.Belarus, content: Country.Belarus},
     {value: Country.Georgia, content: Country.Georgia},
@@ -32,7 +32,7 @@ export const CountrySelect = memo((props: CountrySelectProps) =>{
         value,
         onChange,
         readOnly = false,
-        theme = SelectTheme.PRIMARY,
+        theme = ListBoxTheme.UNDERLINE,
     } = props;
 
     const onChangeHandler = useCallback((value: string) => {
@@ -40,11 +40,20 @@ export const CountrySelect = memo((props: CountrySelectProps) =>{
     }, [onChange])
 
     return(
-        <Select
-            id={id}
+        // <Select
+        //     id={id}
+        //     className={ classNames('', {}, [className]) }
+        //     label={t('CountrySelect.label')}
+        //     options={options}
+        //     value={value}
+        //     readOnly={readOnly}
+        //     onChange={onChangeHandler}
+        //     theme={theme}
+        // />
+        <ListBox
             className={ classNames('', {}, [className]) }
             label={t('CountrySelect.label')}
-            options={options}
+            items={options}
             value={value}
             readOnly={readOnly}
             onChange={onChangeHandler}

@@ -4,6 +4,7 @@ import { CountrySelect } from './CountrySelect';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { SelectTheme } from 'shared/ui/Select/Select';
+import { ListBoxTheme } from 'shared/ui/ListBox/ListBox';
 
 export default {
     title: 'entities/Country/CountrySelect',
@@ -26,11 +27,11 @@ PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Underline = Template.bind({});
 Underline.args = {
-    theme: SelectTheme.UNDERLINE
+    theme: ListBoxTheme.UNDERLINE
 };
 
 export const UnderlineDark = Template.bind({});
 UnderlineDark.args = {
-    theme: SelectTheme.UNDERLINE
+    theme: ListBoxTheme.UNDERLINE
 };
 UnderlineDark.decorators = [ThemeDecorator(Theme.DARK)]
