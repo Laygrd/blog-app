@@ -55,3 +55,31 @@ UnderlineDark.args = {
 };
 UnderlineDark.decorators = [ThemeDecorator(Theme.DARK)]
 
+
+export const DefaultTopDirection = Template.bind({});
+DefaultTopDirection.args = {
+    items: items,
+    onChange: (vlaue) => {},
+    defaultValue: 'Choose one...',
+    direction: 'top',
+};
+DefaultTopDirection.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const DefaultWithLabel = Template.bind({});
+DefaultWithLabel.args = {
+    items: items,
+    onChange: (vlaue) => {},
+    defaultValue: 'Choose one...',
+    label: 'some label'
+};
+DefaultWithLabel.decorators = [ThemeDecorator(Theme.LIGHT)]
+
+export const UnderlineWithLabel = Template.bind({});
+UnderlineWithLabel.args = {
+    theme: ListBoxTheme.UNDERLINE,
+    items: items,
+    onChange: (vlaue) => {},
+    defaultValue: 'Choose one...',
+    label: 'some label'
+};
+UnderlineWithLabel.decorators = [ThemeDecorator(Theme.LIGHT)]

@@ -12,6 +12,8 @@ export enum ListBoxTheme {
     UNDERLINE = 'underline'
 }
 
+export type ListBoxDirection = 'top' | 'bottom';
+
 export interface ListBoxItem {
     value: string;
     content: ReactNode;
@@ -27,6 +29,8 @@ interface ListBoxProps {
     label?: string,
     onChange: (value: string) => void;
     readOnly?: boolean;
+    direction?: ListBoxDirection;
+    fullwidth?: boolean; 
 }
 
 
@@ -40,12 +44,23 @@ export const ListBox = (props: ListBoxProps) => {
         label,
         onChange,
         readOnly,
+        direction = 'bottom',
+        fullwidth = true
     } = props;
     
     return (
         <>
             <HListbox
-                className={classNames(cls.ListBox, {}, [className, cls[theme]])}
+                className={classNames(
+                    cls.ListBox, 
+                    {
+                        [cls.labelled]: label, 
+                        [cls.fullwidth]: fullwidth
+                    }, [
+                        className,
+                        cls[theme]
+                    ]
+                )}
                 as={'div'}
                 value={value}
                 onChange={onChange}
@@ -55,7 +70,7 @@ export const ListBox = (props: ListBoxProps) => {
                 <HListbox.Button className={cls.trigger}>
                     <Button
                         className={cls.triggerBtn}
-                        theme={ButtonTheme.CLEAR}
+                        theme={theme === ListBoxTheme.UNDERLINE ? ButtonTheme.CLEAR : ButtonTheme.OUTLINE}
                         disabled={readOnly}
                     >
                         { value ?? defaultValue }
@@ -63,7 +78,7 @@ export const ListBox = (props: ListBoxProps) => {
                 </HListbox.Button>
 
                 <HListbox.Options
-                    className={cls.options}
+                    className={classNames(cls.options, {}, [cls[direction]])}
                 >
                     { items?.map((item) => (
                         <HListbox.Option 

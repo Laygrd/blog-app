@@ -1,18 +1,9 @@
 .ListBox {
     position: relative;
 
-    &svg {
+    & svg {
         fill: var(--primary-color)
     }
-}
-
-.label {
-    position: absolute;
-    left: 10px;
-    top: 0;
-    font: var(--font-s);
-    color: rgb(from var(--primary-color) r g b / 60%);
-    pointer-events: none;
 }
 
 .trigger {
@@ -24,6 +15,7 @@
 }
 
 .triggerBtn {
+    padding: 6px 12px;
     color: var(--primary-color)
 }
 
@@ -34,22 +26,62 @@
     z-index: 10000;
     box-shadow: 4px 4px 8px var(--listbox-bg-color);
     border-radius: 6px;
+
+    // directions
+    & .top {
+        bottom: 100%;
+    }
+
 }
 
 .item {
     padding: 10px 20px;
 
-    &.active {
+    & .active {
         background-color: var(--secondary-color);
     }
 
-    &.disabled {
+    & .disabled {
         opacity: 0.6;
     }
 }
 
+// themes
+
+.primary {
+    color: var(--primary-color);
+}
+
 .underline {
-    &.ListBox {
+    & .triggerBtn {
+        border-radius: 0;
+        border-inline: none;
+        border-top: none;
+        border-bottom: 1px solid rgb(from var(--primary-color) r g b / 60%);
+    }   
+}
+
+// options
+
+.labelled {
+
+    & .triggerBtn {
+        padding: 16px 30px 4px 11px;
+    }
+
+    .label {
+        position: absolute;
+        left: 10px;
+        top: 0;
+        font: var(--font-s);
+        color: rgb(from var(--primary-color) r g b / 60%);
+        pointer-events: none;
+    }
+}
+
+
+.fullwidth {
+    & .ListBox {
         width: 100%;
     }
 
@@ -59,10 +91,5 @@
 
     & .triggerBtn {
         width: 100%;
-        border-radius: 0;
-        border-inline: none;
-        border-top: none;
-        border-bottom: 1px solid rgb(from var(--primary-color) r g b / 60%);
-        padding: 16px 30px 4px 11px;
-    }   
+    }
 }
