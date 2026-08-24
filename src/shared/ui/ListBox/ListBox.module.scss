@@ -2,7 +2,7 @@
     position: relative;
 
     & svg {
-        fill: var(--primary-color)
+        fill: var(--primary-color);
     }
 }
 
@@ -16,7 +16,7 @@
 
 .triggerBtn {
     padding: 6px 12px;
-    color: var(--primary-color)
+    color: var(--primary-color);
 }
 
 .options {
@@ -31,7 +31,6 @@
     & .top {
         bottom: 100%;
     }
-
 }
 
 .item {
@@ -58,13 +57,12 @@
         border-inline: none;
         border-top: none;
         border-bottom: 1px solid rgb(from var(--primary-color) r g b / 60%);
-    }   
+    }
 }
 
 // options
 
 .labelled {
-
     & .triggerBtn {
         padding: 16px 30px 4px 11px;
     }
@@ -78,7 +76,6 @@
         pointer-events: none;
     }
 }
-
 
 .fullwidth {
     & .ListBox {

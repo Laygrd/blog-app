@@ -102,13 +102,12 @@
     }
 }
 
-.disabled:not(.clear, .clear-inverted) {
-    opacity: 0.4;
-}
-
 .disabled {
     &.clear {
         color: rgb(from var(--primary-color) r g b / 60%);
     }
 }
 
+.disabled:not(.clear, .clear-inverted) {
+    opacity: 0.4;
+}
