@@ -60,6 +60,10 @@ dl
     list-style: none;
 }
 
+:where(li[class]) {
+    list-style: none;
+}
+
 :where(address[class]) {
     font-style: normal;
 }

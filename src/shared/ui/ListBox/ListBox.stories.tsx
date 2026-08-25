@@ -9,6 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        Story => <div style={{padding: 300}}><Story /></div>
+    ]
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox { ...args } />;
@@ -61,7 +64,7 @@ DefaultTopDirection.args = {
     items: items,
     onChange: (vlaue) => {},
     defaultValue: 'Choose one...',
-    direction: 'top',
+    direction: 'top left',
 };
 DefaultTopDirection.decorators = [ThemeDecorator(Theme.LIGHT)]
 

@@ -1,10 +1,11 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '../Button/Button';
 import { HStack } from '../Stack';
 import CheckIcon from '../../assets/icons/check.svg';
 import cls from './ListBox.module.scss';
+import { DropdownDirection } from 'shared/types/ui';
 
 
 export enum ListBoxTheme {
@@ -12,7 +13,6 @@ export enum ListBoxTheme {
     UNDERLINE = 'underline'
 }
 
-export type ListBoxDirection = 'top' | 'bottom';
 
 export interface ListBoxItem {
     value: string;
@@ -29,10 +29,16 @@ interface ListBoxProps {
     label?: string,
     onChange: (value: string) => void;
     readOnly?: boolean;
-    direction?: ListBoxDirection;
+    direction?: DropdownDirection;
     fullwidth?: boolean; 
 }
 
+export const mapDirectionClass: Record<DropdownDirection, string> = {
+    'top left': cls.topLeftDirection,
+    'top right': cls.topRightDirection,
+    'bottom right': cls.bottomRightDirection,
+    'bottom left': cls.bottomLeftDirection,
+}
 
 export const ListBox = (props: ListBoxProps) => {
     const {
@@ -44,10 +50,12 @@ export const ListBox = (props: ListBoxProps) => {
         label,
         onChange,
         readOnly,
-        direction = 'bottom',
+        direction = 'bottom left',
         fullwidth = true
     } = props;
     
+    const optionsClasses = useMemo(() => [ mapDirectionClass[direction] ], [direction]);
+
     return (
         <>
             <HListbox
@@ -78,7 +86,7 @@ export const ListBox = (props: ListBoxProps) => {
                 </HListbox.Button>
 
                 <HListbox.Options
-                    className={classNames(cls.options, {}, [cls[direction]])}
+                    className={classNames(cls.options, {}, optionsClasses)}
                 >
                     { items?.map((item) => (
                         <HListbox.Option 

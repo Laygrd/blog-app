@@ -9,7 +9,8 @@
     "login": "Login",
     "logout": "Logout",
     "appName": "Blog App",
-    "createNewArticleLink": "New article"
+    "createNewArticleLink": "New article",
+    "profile": "Profile"
   },
   "Sidebar": {
     "main_page": "Main",

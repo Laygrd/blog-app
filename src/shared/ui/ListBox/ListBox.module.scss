@@ -1,5 +1,6 @@
 .ListBox {
     position: relative;
+    width: fit-content;
 
     & svg {
         fill: var(--primary-color);
@@ -20,27 +21,22 @@
 }
 
 .options {
-    min-width: 100%;
     position: absolute;
     background-color: var(--listbox-bg-color);
     z-index: 10000;
-    box-shadow: 4px 4px 8px var(--listbox-bg-color);
+    box-shadow: 2px 2px 6px rgb(from var(--primary-color) r g b / 20%);
     border-radius: 6px;
-
-    // directions
-    & .top {
-        bottom: 100%;
-    }
 }
 
 .item {
     padding: 10px 20px;
 
-    & .active {
+    &.active {
         background-color: var(--secondary-color);
+        border-radius: 6px;
     }
 
-    & .disabled {
+    &.disabled {
         opacity: 0.6;
     }
 }
@@ -78,7 +74,7 @@
 }
 
 .fullwidth {
-    & .ListBox {
+    &.ListBox {
         width: 100%;
     }
 
@@ -89,4 +85,25 @@
     & .triggerBtn {
         width: 100%;
     }
+}
+
+// directions
+.topLeftDirection {
+    bottom: 100%;
+    left: 0;
+}
+
+.topRightDirection {
+    bottom: 100%;
+    right: 0;
+}
+
+.bottomRightDirection {
+    top: 100%;
+    right: 0;
+}
+
+.bottomLeftDirection {
+    top: 100%;
+    left: 0;
 }

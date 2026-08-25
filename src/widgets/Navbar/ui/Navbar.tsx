@@ -10,6 +10,9 @@ import cls from "./Navbar.module.scss";
 import { Text, TextSize, TextTheme } from "shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RouterPaths } from "shared/config/router/routerVars";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
+import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
+import { HStack } from "shared/ui/Stack";
 
 
 interface NavbarProps {
@@ -47,15 +50,32 @@ export const Navbar = ({ className }: NavbarProps) => {
                 >
                     {t('Navbar.createNewArticleLink')}
                 </AppLink>
-                <div className={cls.links}>
-                    <Button
-                        className={cls.loginBtn}
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                        onClick={onLogout}
-                    >
-                        {t('Navbar.logout')}
-                    </Button>
-                </div>
+                <HStack
+                    className={cls.links}
+                    align={'center'}
+                    justify={'center'}
+                >
+                    <Dropdown
+                        direction={'bottom right'}
+                        trigger={
+                            <Avatar
+                                size={30}
+                                src={authData.avatarUrl}
+                                theme={AvatarTheme.ROUNDED}
+                            />
+                        }
+                        items={[
+                            {
+                                content: t('Navbar.profile'),
+                                href: RouterPaths.profiles + authData.id
+                            },
+                            {
+                                content: t('Navbar.logout'),
+                                onClick: onLogout,
+                            }
+                        ]}
+                    />
+                </HStack>
             </header>
         );
     };
