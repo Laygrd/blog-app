@@ -4,9 +4,7 @@ import { Article, ArticleListView } from '../../model/types/Article';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
 import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
-import { ArticleList } from './ArticleListOld';
-
-
+import { ArticleList } from './ArticleList';
 
 
 export default {

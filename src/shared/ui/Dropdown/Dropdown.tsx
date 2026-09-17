@@ -76,7 +76,10 @@ export const Dropdown = (props: DropdownProps) => {
 
                     return (
                         // eslint-disable-next-line react/jsx-key
-                        <Menu.Item as={Fragment} disabled={item.disabled}>
+                        <Menu.Item 
+                            as={Fragment}
+                            disabled={item.disabled}
+                        >
                             { content }
                         </Menu.Item>
                     )

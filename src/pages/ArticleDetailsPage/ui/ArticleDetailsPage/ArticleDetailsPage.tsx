@@ -33,6 +33,8 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import cls from './ArticleDetailsPage.module.scss';
 import { VStack } from 'shared/ui/Stack';
 
+import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
+
 
 interface ArticleDetailsPageProps {
    className?: string;
@@ -54,9 +56,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleDetailsComments.selectAll);
     const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
 
-    const recommendations = useSelector(getArticleDetailsRecommendations.selectAll);
-    const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading)
-    const recommendationsError = useSelector(getArticleDetailsRecommendationsError);
+    // const recommendations = useSelector(getArticleDetailsRecommendations.selectAll);
+    // const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading)
+    // const recommendationsError = useSelector(getArticleDetailsRecommendationsError);
 
     const onSendComment = useCallback((text: string) => {
         dispatch(addCommentForArticle(text))
@@ -92,7 +94,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     <ArticleDetails id={id}/>
                     { !articleLoadingError && 
                         <>
-                            <VStack max gap={'16'}>
+                            {/* <VStack max gap={'16'}>
                                 <Text
                                     size={TextSize.L}
                                     className={cls.comments}
@@ -105,7 +107,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                                     target={'_blank'}
                                 />
 
-                            </VStack>
+                            </VStack> */}
+                            <ArticleRecommendationsList />
                             <VStack max gap={'16'}>
                                 <Text
                                     size={TextSize.M}

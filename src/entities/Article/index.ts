@@ -18,8 +18,12 @@ export { getArticleDetailsData } from './model/selectors/getArticleDetailsData/g
 export { getArticleDetailsError } from './model/selectors/getArticleDetailsError/getArticleDetailsError';
 //export { getArticleDetailsIsLoading } from './model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 
-// export { ArticleList } from './ui/ArticleList/ArticleListOld';
+
 export { ArticleList } from './ui/ArticleList/ArticleList';
+
+// for recommendations list only. old static version without virtuoso
+export { ArticleListVirtOff } from './ui/ArticleList/ArticleListOld'; 
+
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';

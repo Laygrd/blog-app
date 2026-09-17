@@ -16,7 +16,7 @@ interface ArticleListProps {
    target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleList = (props: ArticleListProps) => {
+export const ArticleListVirtOff = (props: ArticleListProps) => {
     const {
         className,
         articles,

@@ -1,5 +1,3 @@
-// ArticleDetailsView tile variant
-
 .ArticleListItem_tile {
     width: 230px;
 
@@ -44,29 +42,5 @@
 
         transform: scale(1.01);
         transition: transform 0.2s;
-    }
-}
-
-// ArticleDetailsView list variant
-
-.ArticleListItem_list {
-    width: 100%;
-    padding-inline: 250px;
-
-    .header,
-    .footer {
-        width: 100%;
-    }
-
-    .articleImage {
-        width: 100%;
-        height: 350px;
-        object-fit: contain;
-    }
-
-    .articleText p {
-        overflow: hidden;
-        max-height: 150px;
-        white-space: wrap;
     }
 }

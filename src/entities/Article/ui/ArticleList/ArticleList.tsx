@@ -10,6 +10,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 
 
+
 interface ArticleListProps {
    className?: string;
    articles: Article[];
@@ -39,7 +40,8 @@ export const ArticleList = (props: ArticleListProps) => {
         onScrollEnd,
         onOpenArticle,
         scrollToIndex,
-        Header
+        Header,
+        ...otherProps
     } = props;
 
     const { t } = useTranslation('article', {keyPrefix: 'ArticleList'});
@@ -140,7 +142,8 @@ export const ArticleList = (props: ArticleListProps) => {
         ),
     }), [Header, Footer, ScrollSeekPlaceholder]);
 
-    const showInitialTileSkeletons = isLoading && articles.length === 0;
+    const showInitialTileSkeletons = isLoading && articles?.length === 0;
+
 
     const tileDisplayData = useMemo(() => {
         if (showInitialTileSkeletons) {
@@ -180,7 +183,7 @@ export const ArticleList = (props: ArticleListProps) => {
 
     if (view === ArticleListView.LIST) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className])}>
+            <div className={classNames(cls.ArticleList, {}, [className])} {...otherProps}>
                 <Virtuoso
                     style={{height: '100%', width: '100%'}}
                     data={articles}
@@ -198,7 +201,7 @@ export const ArticleList = (props: ArticleListProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className])}>
+        <div className={classNames(cls.ArticleList, {}, [className])} {...otherProps}>
             <VirtuosoGrid 
                 className={cls.tileList}
                 ref={virtuosoGridRef}

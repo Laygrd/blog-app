@@ -8,6 +8,7 @@ import { $api } from "shared/api/api";
 import { createReducerManager } from "./reducerManager";
 import { NavigateOptions } from "react-router";
 import { To } from 'history';
+import { rtkApi } from "shared/api/rtkApi";
 
 
 export function createReduxStore(
@@ -19,7 +20,8 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        ui: uiReducer
+        ui: uiReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const reducerManager = createReducerManager(rootReducers)
@@ -36,7 +38,7 @@ export function createReduxStore(
                     navigate: navigate
                 }
             }
-        })
+        }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore
