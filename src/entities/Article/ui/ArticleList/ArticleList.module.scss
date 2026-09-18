@@ -1,56 +1,176 @@
 .ArticleList {
-    height: 100%;
-    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
     padding-bottom: 20px;
 }
 
 .listItem {
-    margin-bottom: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.listItemWrapper {
+    width: 100%;
+    padding-bottom: 32px;
+    box-sizing: border-box;
 }
 
 .emptyArticles {
+    display: flex;
     width: 100%;
     height: 60vh;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.tileList {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+/*
+ * Важно:
+ * VirtuosoGrid рендерит List как контейнер для всех виртуализованных Item.
+ * Flexbox позволяет менять ширину Item через media queries.
+ */
 .itemsWrapper {
     display: flex !important;
-    flex-wrap: wrap !important;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: stretch;
     gap: 30px;
-    padding: 30px;
     width: 100%;
+    min-width: 0;
+    padding: 30px;
     box-sizing: border-box;
-    justify-content: flex-start;
 }
 
+/*
+ * 4 карточки:
+ *
+ * (100% - 3 * 30px) / 4
+ * = 25% - 22.5px
+ */
 .gridListItem {
     display: flex;
-    flex: none;
+    flex: 0 0 calc(25% - 22.5px);
+    width: calc(25% - 22.5px);
+    min-width: 0;
+    height: 300px;
     box-sizing: border-box;
-    width: calc(25% - 30px);
 }
 
-.tileSkeletonWrapper {
-    width: calc(25% - 30px);
+.gridListItem > * {
+    width: 100%;
+    min-width: 0;
+}
+
+.scrollSeekPlaceholder {
     display: flex;
-    flex: none;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
+/*
+ * Footer VirtuosoGrid.
+ * Он не является частью основного flex-контейнера карточек,
+ * поэтому для него задаём собственную сетку.
+ */
 .tileSkeletonsFooter {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     width: 100%;
     padding: 30px;
+    box-sizing: border-box;
+}
 
-    & > * {
-        width: calc(25% - 30px);
-        flex: none;
+.tileSkeletonWrapper {
+    display: flex;
+    flex: 0 0 calc(25% - 22.5px);
+    width: calc(25% - 22.5px);
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.tileSkeletonWrapper > * {
+    width: 100%;
+}
+
+/* 3 карточки */
+@media (max-width: 1200px) {
+    .itemsWrapper {
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .gridListItem {
+        flex-basis: calc(33.333333% - 16px);
+        width: calc(33.333333% - 16px);
+    }
+
+    .tileSkeletonsFooter {
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .tileSkeletonWrapper {
+        flex-basis: calc(33.333333% - 16px);
+        width: calc(33.333333% - 16px);
+    }
+}
+
+/* 2 карточки */
+@media (max-width: 900px) {
+    .itemsWrapper {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .gridListItem {
+        flex-basis: calc(50% - 10px);
+        width: calc(50% - 10px);
+    }
+
+    .tileSkeletonsFooter {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .tileSkeletonWrapper {
+        flex-basis: calc(50% - 10px);
+        width: calc(50% - 10px);
+    }
+}
+
+/* 1 карточка */
+@media (max-width: 600px) {
+    .itemsWrapper {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .gridListItem {
+        flex-basis: 100%;
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+    }
+
+    .tileSkeletonsFooter {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .tileSkeletonWrapper {
+        flex-basis: 100%;
+        width: 100%;
     }
 }

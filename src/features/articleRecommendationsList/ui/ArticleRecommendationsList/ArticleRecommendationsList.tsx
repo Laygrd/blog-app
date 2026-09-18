@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ArticleListVirtOff } from 'entities/Article';
+import { ArticleList, ArticleListVirtOff } from 'entities/Article';
 
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { VStack } from 'shared/ui/Stack';
@@ -48,11 +48,19 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
                 size={TextSize.L}
                 title={t('recommendationsBlock')}
             />
-            <ArticleListVirtOff
+            {/* <ArticleListVirtOff
                 articles={articles}
                 isLoading={isLoading}
                 target={'_blank'}
-            />
+            /> */}
+
+            <div style={{ height: 320, width: '100%', overflowY: 'scroll' }}>
+                <ArticleList
+                    articles={articles}
+                    isLoading={isLoading}
+                    target={'_blank'}
+                />
+            </div>
         </VStack>
     );
 });
