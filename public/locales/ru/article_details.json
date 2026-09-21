@@ -1,7 +1,11 @@
 {
     "backLink": "<< Назад к статьям",
     "editBtn": "Редактировать",
-    "recommendationsBlock": "Смотрите также",
+    "recommendationsList": {
+        "title": "Смотрите также",
+        "error": "Произошла ошибка при загрузке рекоммендаций: {{ error }}",
+        "retry": "Повторить попытку"
+    },
     "commentsBlock": "Комментарии",
     "emptyCommentList": "Комментариев пока нет",
     "errors": {

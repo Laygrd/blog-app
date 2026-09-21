@@ -2,6 +2,11 @@
     "backLink": "<< Back to articles",
     "editBtn": "Edit",
     "recommendationsBlock": "See also",
+    "recommendationsList": {
+        "title": "See also",
+        "error": "Error while loading recommendations: {{ error }}",
+        "retry": "Повторить попытку"
+    },
     "commentsBlock": "Comments",
     "emptyCommentList": "Comments not found yet",
     "errors": {
