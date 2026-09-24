@@ -137,3 +137,5 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         </DynamicReducerLoader>
     );
 });
+
+ArticleDetails.displayName = 'ArticleDetails';

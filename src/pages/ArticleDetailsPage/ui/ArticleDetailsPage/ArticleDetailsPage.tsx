@@ -1,32 +1,17 @@
 import { useParams } from 'react-router-dom';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Page } from "widgets/Page";
-import { AddCommentForm } from 'features/addCommentForm';
-import { ArticleDetails, ArticleList, getArticleDetailsError } from 'entities/Article';
-import { CommentList } from 'entities/Comment';
+import { ArticleDetails, getArticleDetailsError } from 'entities/Article';
+
 
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextSize } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
-import { getArticleDetailsComments } from '../../model/slice/articleDetailsCommentsSlice';
-import {
-    getArticleDetailsCommentsIsLoading,
-} from '../../model/selectors/comments/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading';
-
-import {  getArticleDetailsRecommendations } from '../../model/slice/ArticleDetailsRecommendationsSlice';
-import { getArticleDetailsRecommendationsIsLoading } from 
-    '../../model/selectors/recommendations/getArticleDetailsRecommendationsIsLoading/getArticleDetailsRecommendationsIsLoading';
-import { getArticleDetailsRecommendationsError } from 
-    '../../model/selectors/recommendations/getArticleDetailsRecommendationsError/getArticleDetailsRecommendationsError';
-
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
@@ -34,6 +19,7 @@ import cls from './ArticleDetailsPage.module.scss';
 import { VStack } from 'shared/ui/Stack';
 
 import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 
 
 interface ArticleDetailsPageProps {
@@ -50,22 +36,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const dispatch = useAppDispatch();
 
     const { id } = useParams<{ id: string }>();
-
     const articleLoadingError = useSelector(getArticleDetailsError);
 
-    const comments = useSelector(getArticleDetailsComments.selectAll);
-    const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
-
-    // const recommendations = useSelector(getArticleDetailsRecommendations.selectAll);
-    // const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading)
-    // const recommendationsError = useSelector(getArticleDetailsRecommendationsError);
-
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text))
-    }, [dispatch])
 
     useInitialEffect(() => {
-        dispatch(fetchCommentsByArticleId(id));
         dispatch(fetchArticleRecommendations());
     })
 
@@ -94,36 +68,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     <ArticleDetails id={id}/>
                     { !articleLoadingError && 
                         <>
-                            {/* <VStack max gap={'16'}>
-                                <Text
-                                    size={TextSize.L}
-                                    className={cls.comments}
-                                    title={t('recommendationsBlock')}
-                                />
-                                <ArticleList 
-                                    className={cls.recommendations}
-                                    articles={recommendations}
-                                    isLoading={recommendationsIsLoading}
-                                    target={'_blank'}
-                                />
-
-                            </VStack> */}
                             <ArticleRecommendationsList />
-                            <VStack max gap={'16'}>
-                                <Text
-                                    size={TextSize.M}
-                                    className={cls.comments}
-                                    title={t('commentsBlock')}
-                                />
-                                <AddCommentForm
-                                    onSendComment={onSendComment}
-                                />
-                            </VStack>
-                            <CommentList
-                                className={cls.comments}
-                                comments={comments}
-                                isLoading={commentsIsLoading}
-                            />
+                            <ArticleDetailsComments id={id}/>
                         </>
                     }
                 </VStack>

@@ -1,28 +1,17 @@
-import { useTranslation } from 'react-i18next';
-import { ComponentType, memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ArticleList} from 'entities/Article';
+
 import { Page } from 'widgets/Page';
 
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Text } from 'shared/ui/Text/Text';
+import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { fetchArticlesNextPart } from '../../model/services/fetchArticlesNextPart/fetchArticlesNextPart';
-import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
-import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
-import { getArticlesPageLastVisitedIndex } 
-    from '../../model/selectors/getArticlesPageLastVisitedIndex/getArticlesPageLastVisitedIndex';
-import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
+import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 import cls from './ArticlesPage.module.scss';
-
 
 
 interface ArticlesPageProps {
@@ -37,21 +26,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
-    const { t } = useTranslation('article');
-
-    const isLoading = useSelector(getArticlesPageIsLoading);
-    const error = useSelector(getArticlesPageError);
-    const view = useSelector(getArticlesPageView);
-    const articles = useSelector(getArticles.selectAll);
-    const scrollToIndex = useSelector(getArticlesPageLastVisitedIndex);
-
-    const onLoadNextPart = useCallback(() => {
-        dispatch(fetchArticlesNextPart());
-    }, [dispatch]);
-
-    const onSaveLastVisitedArticle = useCallback((index: number) => {
-        dispatch(articlesPageActions.setLastVisitedIndex(index))
-    }, [dispatch])
 
     useInitialEffect(() => {
         dispatch(initArticlesPage(searchParams))
@@ -64,29 +38,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 //onScrollEnd={!error ? onLoadNextPart : undefined}
                 //restoreScroll
             >
-                
-                {error && 
-                    <div className={cls.errorBlock}>
-                        <Text title={t(error)}/>
-                        <Button
-                            theme={ButtonTheme.OUTLINE}
-                            onClick={onLoadNextPart}
-                        >
-                            {t('retryBtn')}
-                        </Button>
-                    </div>
-                }
-
-                <ArticleList
-                    //className={cls.articlesList}
-                    isLoading={isLoading}
-                    articles={articles}
-                    view={view}
-                    onScrollEnd={onLoadNextPart}
-                    onOpenArticle={onSaveLastVisitedArticle}
-                    scrollToIndex={scrollToIndex}
-                    Header={ArticlesPageFilters as ComponentType}
-                />
+                <ArticlesInfiniteList />
             </Page>
         </DynamicReducerLoader>
     );

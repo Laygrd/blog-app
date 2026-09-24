@@ -47,6 +47,12 @@
       "userId": 1,
       "text": "123",
       "id": "cIibdoo"
+    },
+    {
+      "articleId": "2",
+      "userId": 1,
+      "text": "testing new feature",
+      "id": "dHoNyzz"
     }
   ],
   "users": [

@@ -39,7 +39,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
 
     return (
         <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
-            <HStack className={classNames('', {}, [className])} max>
+            <HStack className={classNames('', {}, [className])} max gap={'16'}>
                 <Input
                     id='addCommentForm'
                     onChange={onChangeText}

@@ -9,7 +9,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { useGetArticlesRecommendationsList } from '../../api/recommendationsApi';
+import { useGetArticlesRecommendationsList } from '../../api/articleRecommendationsApi';
 
 
 interface ArticleRecommendationsListProps {
@@ -85,3 +85,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         </VStack>
     );
 });
+
+ArticleRecommendationsList.displayName = 'ArticleRecommendationsList';
+
