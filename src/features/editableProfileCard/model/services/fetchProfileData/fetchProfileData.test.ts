@@ -1,8 +1,9 @@
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchProfileData } from "./fetchProfileData"
-import { Profile, ValidateProfileDataError } from "../../types/ProfileSchema";
+import { Profile } from 'entities/Profile'
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
+import { ValidateProfileDataError } from "../../types/EditableProfileCardSchema";
 
 const profileData: Profile = {
     username: "",

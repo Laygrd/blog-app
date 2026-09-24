@@ -5,9 +5,10 @@ import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorato
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import avatar from 'shared/assets/tests/avatar_default.jpg';
-import { Profile, ValidateProfileDataError } from 'entities/Profile';
+import { Profile } from 'entities/Profile';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { ValidateProfileDataError } from 'features/editableProfileCard';
 
 
 const profileData: Profile = {

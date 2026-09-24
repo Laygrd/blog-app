@@ -1,40 +1,38 @@
-import { useCallback } from "react";
-import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
-import { 
-    getProfileData,
-    getProfileIsLoading,
-    getProfileReadonly,
-    profileActions,
-    updateProfileData 
-} from "entities/Profile";
-import { getUserAuthData } from "entities/User";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Text } from "shared/ui/Text/Text";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import { classNames } from "shared/lib/classNames/classNames";
-import EditIcon from 'shared/assets/icons/edit-line-icon.svg';
+import { useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
+import { getUserAuthData } from 'entities/User';
+
+import { HStack } from 'shared/ui/Stack';
+import { Text } from 'shared/ui/Text/Text';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import SaveIcon from 'shared/assets/icons/save-icon.svg';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import EditIcon from 'shared/assets/icons/edit-line-icon.svg';
 import CancelIcon from 'shared/assets/icons/cancel-icon.svg';
-import { HStack } from "shared/ui/Stack";
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+
+import { profileActions } from '../../model/slice/profileSlice';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 
 
-interface ProfilePageheaderProps {
-    className?: string;
+interface EditableProfileCardHeaderProps {
+   className?: string;
 }
 
-export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
-    const {
-        className,
-    } = props;
-
+export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
+    const { className } = props;
     const { t } = useTranslation('profilePage');
 
     const readonly = useSelector(getProfileReadonly);
     const isLoading = useSelector(getProfileIsLoading);
-    const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
+    const authData = useSelector(getUserAuthData);
 
     const dispatch = useAppDispatch();
 
@@ -58,8 +56,7 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
         )
     }
 
-
-    return(
+    return (
         <HStack 
             className={ classNames('', {}, [className]) }
             justify={'between'}
@@ -108,4 +105,4 @@ export const ProfilePageHeader = (props: ProfilePageheaderProps) =>{
             }
         </HStack>
     );
-};
+}

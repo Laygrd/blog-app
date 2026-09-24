@@ -24,6 +24,7 @@
         "INCORRECT_USERNAME": "Incorrect username",
         "INCORRECT_USER_DATA": "Incorrect firstname or lastname",
         "INCORRECT_AGE": "Incorrect age",
-        "INCORRECT_REGIONAL_DATA": "Incorrect optional data"
+        "INCORRECT_REGIONAL_DATA": "Incorrect optional data",
+        "ID_MISSING": "Missing profile ID"
     }
 }
