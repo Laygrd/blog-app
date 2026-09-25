@@ -80,6 +80,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
                     articles={articles}
                     isLoading={isLoading}
                     target={'_blank'}
+                    virtualized={false}
                 />
             </div>
         </VStack>

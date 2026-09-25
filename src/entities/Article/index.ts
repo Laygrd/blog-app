@@ -22,8 +22,6 @@ export { getArticleDetailsError } from './model/selectors/getArticleDetailsError
 export { ArticleList } from './ui/ArticleList/ArticleList';
 
 // for recommendations list only. old static version without virtuoso
-export { ArticleListVirtOff } from './ui/ArticleList/ArticleListOld'; 
-
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';

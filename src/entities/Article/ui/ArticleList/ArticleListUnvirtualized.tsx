@@ -4,19 +4,11 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { Article, ArticleListView } from '../../model/types/Article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleListProps } from './ArticleList';
 import cls from './ArticleList.module.scss';
 
-// old variant. Require <Page /> with onScrollEnd prop 
 
-interface ArticleListProps {
-   className?: string;
-   articles: Article[];
-   isLoading?: boolean;
-   view?: ArticleListView;
-   target?: HTMLAttributeAnchorTarget;
-}
-
-export const ArticleListVirtOff = (props: ArticleListProps) => {
+export const ArticleListUnvirtualized = (props: ArticleListProps) => {
     const {
         className,
         articles,
@@ -51,7 +43,7 @@ export const ArticleListVirtOff = (props: ArticleListProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className])}>
+        <div className={classNames(cls.ArticleListUnvirtualized, {}, [className])}>
             {   
                 articles.length > 0 &&
                 articles.map((articleData) => renderArticleCard(articleData))
