@@ -1,4 +1,4 @@
-import { memo, useMemo } from "react";
+import { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Text.module.scss";
 
@@ -38,6 +38,7 @@ interface TextProps {
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
+    'data-testid'?: string;
 }
 
 export const Text = memo((props: TextProps) =>{
@@ -48,6 +49,7 @@ export const Text = memo((props: TextProps) =>{
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M,
+        'data-testid': dataTestId = 'Text',
         ...otherProps
     } = props;
 
@@ -56,17 +58,24 @@ export const Text = memo((props: TextProps) =>{
     return(
         <section 
             className={ classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]]) }
+            data-testid={dataTestId}
             {...otherProps}
         >
             { 
                 title && 
-                <HeaderTag className={cls.titleBlock}>
+                <HeaderTag
+                    className={cls.titleBlock}
+                    data-testid={`${dataTestId}.Header`}
+                >
                     {title}
                 </HeaderTag>
             }
             { 
                 text && 
-                <p className={cls.textBlock}>
+                <p
+                    className={cls.textBlock}
+                    data-testid={`${dataTestId}.Paragraph`}
+                >
                     {text}
                 </p>
             }

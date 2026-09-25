@@ -88,6 +88,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             readOnly={readonly}
                             onChange={onChangeUsername}
                             theme={InputTheme.UNDERLINE}
+                            data-testid='ProfileCard.username'
                         />
                         <Input
                             id="profileCard.firstName"
@@ -96,6 +97,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             readOnly={readonly}
                             onChange={onChangeFirstname}
                             theme={InputTheme.UNDERLINE}
+                            data-testid='ProfileCard.firstname'
                         />
                         <Input
                             id="profileCard.lastName"
@@ -104,6 +106,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             readOnly={readonly}
                             onChange={onChangeLastname}
                             theme={InputTheme.UNDERLINE}
+                            data-testid='ProfileCard.lastname'
                         />
                         <Input
                             id="profileCard.age"
@@ -112,6 +115,7 @@ export const ProfileCard = (props: ProfileCardProps) =>{
                             readOnly={readonly}
                             onChange={onChangeAge}
                             theme={InputTheme.UNDERLINE}
+                            data-testid='ProfileCard.age'
                         />
                     </VStack>
                     <VStack gap={'16'}>

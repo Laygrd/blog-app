@@ -26,7 +26,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 
 interface EditableProfileCardProps {
     className?: string;
-    id?: string;
+    id: string;
 }
 
 const reducers: ReducersList = {
@@ -92,8 +92,8 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     }, [dispatch]);
 
     return (
-        <DynamicReducerLoader reducers={reducers} removeAfterUnmount >
-            <VStack max className={classNames('', {}, [className])}>
+        <DynamicReducerLoader reducers={reducers} removeAfterUnmount>
+            <VStack max className={classNames('', {}, [className])} data-testid='EditableProfileCard'>
                 <EditableProfileCardHeader />
                 <VStack max align='center'>
                     {
@@ -103,6 +103,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                                 key={error}
                                 text={validateErrorsMapping[error]}
                                 theme={TextTheme.ERROR}
+                                data-testid='EditableProfileCard.ErrorMessageBlock'
                             />
                         ))
                     }

@@ -75,7 +75,7 @@ export const ListBox = (props: ListBoxProps) => {
                 disabled={readOnly}
             >
                 { label && <span className={cls.label}>{label}</span>}
-                <HListbox.Button className={cls.trigger}>
+                <HListbox.Button className={cls.trigger} as={'div'}>
                     <Button
                         className={cls.triggerBtn}
                         theme={theme === ListBoxTheme.UNDERLINE ? ButtonTheme.CLEAR : ButtonTheme.OUTLINE}

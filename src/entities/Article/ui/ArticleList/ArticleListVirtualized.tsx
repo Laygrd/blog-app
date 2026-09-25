@@ -252,7 +252,7 @@ export const ArticleListVirtualized = (props: ArticleListProps) => {
 
     if (!isLoading && articles.length === 0) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className])}>
+            <div className={classNames(cls.ArticleListVirtualized, {}, [className])}>
                 {Header && <Header />}
                 <Text className={cls.emptyArticles} title={t('emptyArticlesList')} />
             </div>
@@ -265,7 +265,7 @@ export const ArticleListVirtualized = (props: ArticleListProps) => {
                 value={{ isLoading, view, renderSkeleton: renderArticleCardSkeleton }}
             >
                 <div
-                    className={classNames(cls.ArticleList, {}, [className])}
+                    className={classNames(cls.ArticleListVirtualized, {}, [className])}
                     {...otherProps}
                 >
                     <Virtuoso

@@ -29,18 +29,6 @@ export const loginByUsername = createAsyncThunk<
             localStorage.setItem(USER_LOCALSTORAGE_KEY, stringifiedData);
             dispatch(userActions.setAuthData(response.data)); // pass sucessfully recieved data to User slice
 
-            // fix later
-            // token immitation
-            // if (extra.api){
-            //     extra.api.defaults.headers = {
-            //         ...extra.api.defaults.headers,
-            //         // @ts-ignore
-            //         authorization: stringifiedData
-            //     }
-            // }
-            // fix later
-
-            //dispatch(fetchProfileData())
             return response.data;
         } catch (error) {
             console.log(error);
