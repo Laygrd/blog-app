@@ -51,32 +51,37 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     const debouncedFetchData = useDebounce(fetchData, 300);
 
     const onViewChange = useCallback((newView: ArticleListView) => {
+        if (newView === view) return;
         dispatch(articlesPageActions.setView(newView));
-    }, [dispatch]);
+    }, [dispatch, view]);
     
     const onSortChange = useCallback((newSort: ArticleSortField) => {
+        if (newSort === sort) return;
         dispatch(articlesPageActions.setSort(newSort));
         dispatch(articlesPageActions.setPage(1));
         fetchData();
-    }, [dispatch, fetchData]);
+    }, [dispatch, fetchData, sort]);
 
     const onOrderChange = useCallback((newOrder: SortOrder) => {
+        if (newOrder === order) return;
         dispatch(articlesPageActions.setOrder(newOrder));
         dispatch(articlesPageActions.setPage(1));
         fetchData();
-    }, [dispatch, fetchData]);
+    }, [dispatch, fetchData, order]);
 
     const onSearchChange = useCallback((newSearch: string) => {
+        if (newSearch === search) return;
         dispatch(articlesPageActions.setSearch(newSearch));
         dispatch(articlesPageActions.setPage(1));
         debouncedFetchData();
-    }, [dispatch, debouncedFetchData]);
+    }, [dispatch, debouncedFetchData, search]);
 
     const onTypeChange = useCallback((newType: ArticleType) => {
+        if (newType === type) return;
         dispatch(articlesPageActions.setType(newType));
         dispatch(articlesPageActions.setPage(1));
         fetchData();
-    }, [dispatch, fetchData]);
+    }, [dispatch, fetchData, type]);
 
 
     return (

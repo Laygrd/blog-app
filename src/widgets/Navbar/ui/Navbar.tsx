@@ -1,18 +1,22 @@
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import { LoginModal } from "features/AuthByUsername";
+
 import { getUserAuthData, userActions } from "entities/User";
+
+import { HStack } from "shared/ui/Stack";
+import { Dropdown } from "shared/ui/Dropdown/Dropdown";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./Navbar.module.scss";
+import { RouterPaths } from "shared/config/router/routerVars";
+import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
 import { Text, TextSize, TextTheme } from "shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { RouterPaths } from "shared/config/router/routerVars";
-import { Dropdown } from "shared/ui/Dropdown/Dropdown";
-import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
-import { HStack } from "shared/ui/Stack";
+
+import cls from "./Navbar.module.scss";
 
 
 interface NavbarProps {
@@ -30,8 +34,8 @@ export const Navbar = ({ className }: NavbarProps) => {
     const onCloseAuthModal = useCallback(() => setIsAuthModal(false), []);
     const onLogout = useCallback(() => {
         dispatch(userActions.clearAuthData())
-        navigate('/'); // go to main page after logout
-    }, [dispatch, navigate]);
+        // navigate('/'); // go to main page after logout
+    }, [dispatch]);
 
 
     if (authData) {

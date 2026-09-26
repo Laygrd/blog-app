@@ -19,6 +19,11 @@ import { getArticlesPageLastVisitedIndex }
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import cls from './ArticlesInfiniteList.module.scss';
 
+import { getArticlesPageType } from '../../model/selectors/getArticlesPageType/getArticlesPageType';
+import { getArticlesPageSearch } from '../..//model/selectors/getArticlesPageSearch/getArticlesPageSearch';
+import { getArticlesPageSort } from '../..//model/selectors/getArticlesPageSort/getArticlesPageSort';
+import { getArticlesPageOrder } from '../..//model/selectors/getArticlesPageOrder/getArticlesPageOrder';
+
 
 interface ArticlesInfiniteListProps {
    className?: string;
@@ -34,6 +39,14 @@ export const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
     const view = useSelector(getArticlesPageView);
     const articles = useSelector(getArticles.selectAll);
     const scrollToIndex = useSelector(getArticlesPageLastVisitedIndex);
+
+    // filter params for generating virtualizationKey
+    const articleType = useSelector(getArticlesPageType);
+    const search = useSelector(getArticlesPageSearch);
+    const sort = useSelector(getArticlesPageSort);
+    const order = useSelector(getArticlesPageOrder);
+
+    const virtualizationKey = `${articleType}:${search}:${sort}:${order}`
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchArticlesNextPart());
@@ -65,6 +78,7 @@ export const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
                 onOpenArticle={onSaveLastVisitedArticle}
                 scrollToIndex={scrollToIndex}
                 Header={ArticlesPageFilters as ComponentType}
+                virtualizationKey={virtualizationKey}
             />
         </div>
     );

@@ -12,6 +12,13 @@ export {
 } from './model/selectors/getUserInited/getUserInited';
 
 export {
+    getUserRoles,
+    getUserIsAdmin,
+    getUserIsManager,
+} from './model/selectors/roleSelectors/roleSelectors';
+
+export {
+    UserRole,
     User,
-    UserSchema
+    UserSchema,
 } from './model/types/UserSchema';

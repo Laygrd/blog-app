@@ -1,11 +1,14 @@
-import { HTMLAttributeAnchorTarget, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
-import { Article, ArticleListView } from '../../model/types/Article';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ArticleListProps } from './ArticleList';
-import cls from './ArticleList.module.scss';
+
+import { Article, ArticleListView } from '../../../model/types/Article';
+import { ArticleListItem } from '../../ArticleListItem/ArticleListItem';
+import { ArticleListProps } from '../ArticleList';
+
+import cls from './ArticleListUnvirtualized.module.scss';
 
 
 export const ArticleListUnvirtualized = (props: ArticleListProps) => {
@@ -33,7 +36,7 @@ export const ArticleListUnvirtualized = (props: ArticleListProps) => {
 
     if (!isLoading && articles.length === 0) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className])}>
+            <div className={classNames(cls.ArticleListUnvirtualized, {}, [className])}>
                 <Text
                     className={cls.emptyArticles}
                     title={t('emptyArticlesList')}

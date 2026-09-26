@@ -1,7 +1,9 @@
 import { ComponentType, HTMLAttributeAnchorTarget } from "react";
+import { ArticleListUnvirtualized } from "./ArticleListUnvirtualized/ArticleListUnvirtualized";
+import { ArticleListVirtualizedTileView } from "./ArticleListVirtualizedTileView/ArticleListVirtualizedTileView";
+import { ArticleListVirtualizedListView } from "./ArticleListVirtualizedListView/ArticleListVirtualizedListView";
 import { Article, ArticleListView } from "../../model/types/Article";
-import { ArticleListVirtualized } from "./ArticleListVirtualized";
-import { ArticleListUnvirtualized } from "./ArticleListUnvirtualized";
+
 
 export interface ArticleListProps {
     className?: string;
@@ -14,6 +16,7 @@ export interface ArticleListProps {
     scrollToIndex?: number;
     Header?: ComponentType;
     virtualized?: boolean;
+    virtualizationKey?: string;
 }
 
 export const ArticleList = (props: ArticleListProps) => {
@@ -28,23 +31,10 @@ export const ArticleList = (props: ArticleListProps) => {
         scrollToIndex,
         Header,
         virtualized=true,
+        virtualizationKey,
     } = props;
 
-    if (virtualized) {
-        return (
-            <ArticleListVirtualized
-                className={className}
-                articles={articles}
-                isLoading={isLoading}
-                view={view}
-                target={target}
-                onScrollEnd={onScrollEnd}
-                onOpenArticle={onOpenArticle}
-                scrollToIndex={scrollToIndex}
-                Header={Header}
-            />
-        )
-    } else {
+    if (!virtualized) {
         return (
             <ArticleListUnvirtualized 
                 className={className}
@@ -55,4 +45,33 @@ export const ArticleList = (props: ArticleListProps) => {
             />
         )
     }
+
+    if (view === ArticleListView.TILE) {
+        return (
+            <ArticleListVirtualizedTileView
+                className={className}
+                articles={articles}
+                isLoading={isLoading}
+                target={target}
+                onScrollEnd={onScrollEnd}
+                onOpenArticle={onOpenArticle}
+                scrollToIndex={scrollToIndex}
+                Header={Header}
+                virtualizationKey={virtualizationKey}
+            />
+        )
+    }
+
+    return (
+        <ArticleListVirtualizedListView
+            className={className}
+            articles={articles}
+            isLoading={isLoading}
+            target={target}
+            onScrollEnd={onScrollEnd}
+            onOpenArticle={onOpenArticle}
+            scrollToIndex={scrollToIndex}
+            Header={Header} 
+        />
+    )
 }

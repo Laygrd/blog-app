@@ -60,14 +60,14 @@
       "id": 1,
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatarUrl": "https://s0.rbk.ru/v6_top_pics/media/img/0/01/754598856071010.jpeg"
     },
     {
       "id": 2,
       "username": "laygord",
       "password": "laygord",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatarUrl": "https://static.vecteezy.com/system/resources/thumbnails/011/961/865/small/programmer-icon-line-color-illustration-vector.jpg"
     }
   ],
