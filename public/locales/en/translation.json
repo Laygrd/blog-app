@@ -10,7 +10,8 @@
     "logout": "Logout",
     "appName": "Blog App",
     "createNewArticleLink": "New article",
-    "profile": "Profile"
+    "profile": "Profile",
+    "admin": "Admin"
   },
   "Sidebar": {
     "main_page": "Main",

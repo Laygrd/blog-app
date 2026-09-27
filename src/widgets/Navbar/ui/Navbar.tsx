@@ -1,11 +1,10 @@
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { LoginModal } from "features/AuthByUsername";
 
-import { getUserAuthData, userActions } from "entities/User";
+import { getUserAuthData, getUserIsAdmin, getUserIsManager, userActions } from "entities/User";
 
 import { HStack } from "shared/ui/Stack";
 import { Dropdown } from "shared/ui/Dropdown/Dropdown";
@@ -28,7 +27,10 @@ export const Navbar = ({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false);
     const dispatch = useDispatch();
     const authData = useSelector(getUserAuthData);
-    const navigate = useNavigate();
+
+    const isAdmin = useSelector(getUserIsAdmin);
+    const isManager = useSelector(getUserIsManager);
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     const onOpenAuthModal = useCallback(() => setIsAuthModal(true), []);
     const onCloseAuthModal = useCallback(() => setIsAuthModal(false), []);
@@ -69,6 +71,12 @@ export const Navbar = ({ className }: NavbarProps) => {
                             />
                         }
                         items={[
+                            ...( isAdminPanelAvailable ? [
+                                {
+                                    content: t('Navbar.admin'),
+                                    href: RouterPaths.admin_panel
+                                }
+                            ] : []),
                             {
                                 content: t('Navbar.profile'),
                                 href: RouterPaths.profiles + authData.id

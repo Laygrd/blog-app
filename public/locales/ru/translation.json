@@ -10,7 +10,8 @@
     "logout": "Выйти",
     "appName": "Blog App",
     "createNewArticleLink": "Новая статья",
-    "profile": "Профиль"
+    "profile": "Профиль",
+    "admin": "Админка"
   },
   "Sidebar": {
     "main_page": "Главная",

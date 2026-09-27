@@ -67,7 +67,7 @@
       "id": 2,
       "username": "laygord",
       "password": "laygord",
-      "roles": ["ADMIN"],
+      "roles": ["USER"],
       "avatarUrl": "https://static.vecteezy.com/system/resources/thumbnails/011/961/865/small/programmer-icon-line-color-illustration-vector.jpg"
     }
   ],

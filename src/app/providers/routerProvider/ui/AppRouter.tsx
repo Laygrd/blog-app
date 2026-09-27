@@ -3,6 +3,8 @@ import { AppRouteProps, RouterConfig } from "../lib/routerConfig";
 import { memo, Suspense, useCallback } from "react";
 import { PageLoader } from "widgets/PageLoader";
 import { RequireAuth } from "./RequireAuth";
+import { RequireRoles } from "./RequireRoles";
+
 
 const AppRouter = () => {
     const renderWithAuthWrapper = useCallback((route: AppRouteProps) => {
@@ -16,7 +18,14 @@ const AppRouter = () => {
             <Route
                 key={route.path}
                 path={route.path}
-                element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+                element={route.authOnly 
+                    ? <RequireAuth>
+                        <RequireRoles roles={route.roles}>
+                            {element} 
+                        </RequireRoles>
+                    </RequireAuth> 
+                    : element
+                }
             />
         )
     }, []);
