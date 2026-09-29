@@ -53,6 +53,18 @@
       "userId": 1,
       "text": "testing new feature",
       "id": "dHoNyzz"
+    },
+    {
+      "articleId": "2",
+      "userId": 1,
+      "text": "новый комментарий",
+      "id": "Z5V4dwt"
+    },
+    {
+      "articleId": "2",
+      "userId": 1,
+      "text": "новый комментарий2",
+      "id": "AdRMp0y"
     }
   ],
   "users": [
@@ -60,14 +72,18 @@
       "id": 1,
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatarUrl": "https://s0.rbk.ru/v6_top_pics/media/img/0/01/754598856071010.jpeg"
     },
     {
       "id": 2,
       "username": "laygord",
       "password": "laygord",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatarUrl": "https://static.vecteezy.com/system/resources/thumbnails/011/961/865/small/programmer-icon-line-color-illustration-vector.jpg"
     }
   ],
