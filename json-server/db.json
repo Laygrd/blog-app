@@ -65,6 +65,12 @@
       "userId": 1,
       "text": "новый комментарий2",
       "id": "AdRMp0y"
+    },
+    {
+      "articleId": "2",
+      "userId": 1,
+      "text": "новый комментарий3",
+      "id": "a-h2fCP"
     }
   ],
   "users": [

@@ -2,6 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
 import { Article, ArticleListView, ArticleSortField, ArticleType } from 'entities/Article';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 
 const article = {
     "id": "1",
@@ -56,11 +58,11 @@ export default {
 
 const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <ArticlesPageFilters { ...args } />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Primary = Template.bind({});
+Primary.args = {
 
 };
-Default.decorators = [StoreDecorator({
+Primary.decorators = [StoreDecorator({
     articlesPage: {
         entities: articles_entities, 
         ids: articles_id, 
@@ -72,3 +74,23 @@ Default.decorators = [StoreDecorator({
         order: 'asc'
     }
 })];
+
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
+
+};
+PrimaryDark.decorators = [
+    StoreDecorator({
+        articlesPage: {
+            entities: articles_entities, 
+            ids: articles_id, 
+            isLoading: false, 
+            view: ArticleListView.TILE, 
+            type: ArticleType.ALL,
+            search: '',
+            sort: ArticleSortField.TITLE,
+            order: 'asc'
+        }
+    }),
+    ThemeDecorator(Theme.DARK)
+];

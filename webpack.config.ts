@@ -5,6 +5,7 @@ import { BuildEnv, BuildMode, BuildOptions, BuildPaths } from './config/build/ty
 
 export default (env: BuildEnv) => {
     const mode: BuildMode = env.mode || 'development';
+    const withAnalyzer: boolean = env.withAnalyzer || false;
     const port: number = env.port || 3000;
     const apiUrl = env.apiUrl || 'http://localhost:8000';
 
@@ -22,6 +23,7 @@ export default (env: BuildEnv) => {
 
     const buildOptions: BuildOptions = {
         mode,
+        withAnalyzer,
         paths,
         isDev,
         port,

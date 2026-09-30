@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ArticleEditPage from './ArticleEditPage';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 
 export default {
     title: 'pages/ArticleEditPage/ArticleEditPage',
@@ -11,8 +12,10 @@ export default {
 
 const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage { ...args } />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Primary = Template.bind({});
+Primary.args = { };
+Primary.decorators = [StoreDecorator({})];
 
-};
-Default.decorators = [];
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {};
+PrimaryDark.decorators = [StoreDecorator({})];

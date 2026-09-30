@@ -10,6 +10,7 @@ export interface ArticleListProps {
     articles: Article[];
     isLoading?: boolean;
     view?: ArticleListView;
+    direction?: 'vertical' | 'horizontal',
     target?: HTMLAttributeAnchorTarget;
     onScrollEnd?: () => void;
     onOpenArticle?: (index: number) => void;
@@ -25,6 +26,7 @@ export const ArticleList = (props: ArticleListProps) => {
         articles,
         isLoading,
         view,
+        direction = 'vertical',
         target,
         onScrollEnd,
         onOpenArticle,
@@ -41,6 +43,7 @@ export const ArticleList = (props: ArticleListProps) => {
                 articles={articles}
                 isLoading={isLoading}
                 view={view}
+                direction={direction}
                 target={target}
             />
         )

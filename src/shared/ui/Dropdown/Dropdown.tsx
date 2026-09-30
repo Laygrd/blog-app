@@ -1,7 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
-import { Fragment } from 'react/jsx-runtime';
 import { Menu } from '@headlessui/react'
-import { ReactNode, useMemo } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Dropdown.module.scss';
 import { DropdownDirection } from 'shared/types/ui';

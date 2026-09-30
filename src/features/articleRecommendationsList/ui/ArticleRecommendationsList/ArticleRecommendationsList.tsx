@@ -72,7 +72,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         >
             <Text
                 size={TextSize.L}
-                title={t('recommendationsBlock')}
+                title={t('recommendationsList.title')}
             />
 
             <div style={{ height: 320, width: '100%', overflowY: 'scroll' }}>
@@ -81,6 +81,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
                     isLoading={isLoading}
                     target={'_blank'}
                     virtualized={false}
+                    direction='horizontal'
                 />
             </div>
         </VStack>

@@ -17,7 +17,18 @@ export const buildScssLoader = (isDev: boolean) => {
                     },
                 },
             },
-            'sass-loader',
+            {
+                loader: 'sass-loader',
+                options: {
+                    sassOptions: {
+                        // Отключает предупреждения об устаревании из зависимостей (node_modules)
+                        quietDeps: true,
+                        // Опционально: можно точечно заглушить конкретные категории предупреждений
+                        silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions'],
+                    },
+                }
+            }
+            
         ],
     };
 };

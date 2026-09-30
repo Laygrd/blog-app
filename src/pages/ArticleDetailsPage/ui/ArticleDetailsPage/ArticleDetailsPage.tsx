@@ -46,7 +46,16 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     if ( __PROJECT__ === 'storybook') {
         return (
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <ArticleDetails id={"1"}/>
+                <VStack gap={'32'} max>
+                    <ArticleDetailsPageHeader />
+                    <ArticleDetails id={"1"}/>
+                    { !articleLoadingError && 
+                        <>
+                            <ArticleRecommendationsList />
+                            <ArticleDetailsComments id={"1"}/>
+                        </>
+                    }
+                </VStack>
             </Page>
         );
     }

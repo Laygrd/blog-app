@@ -74,6 +74,12 @@ module.exports = {
             rules: {
                 "i18next/no-literal-string": "off"
             }
+        },
+        {
+            files: ['**/src/**/*.stories.{ts,tsx}'],
+            rules: {
+                "max-len": "off"
+            }
         }
     ]
 };

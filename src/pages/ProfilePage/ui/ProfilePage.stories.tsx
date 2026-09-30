@@ -1,17 +1,20 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ProfilePage from './ProfilePage';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import avatar from 'shared/assets/tests/avatar_default.jpg';
+import { ValidateProfileDataError } from 'features/editableProfileCard';
+
 import { Profile } from 'entities/Profile';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ValidateProfileDataError } from 'features/editableProfileCard';
+
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import avatar from 'shared/assets/tests/avatar_default.jpg';
+
+import ProfilePage from './ProfilePage';
 
 
 const profileData: Profile = {
+    id: '1',
     username: 'username1',
     firstname: 'firstname1',
     lastname: 'lastname1',
@@ -19,7 +22,7 @@ const profileData: Profile = {
     city: 'default_city',
     country: Country.Not_set,
     currency: Currency.Not_set,
-    avatar
+    avatar,
 }
 
 export default {
@@ -45,9 +48,9 @@ Primary.decorators = [
     })
 ];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {};
+PrimaryDark.decorators = [
     StoreDecorator({
         profile: {
             form: profileData,
@@ -58,9 +61,36 @@ Dark.decorators = [
     ThemeDecorator(Theme.DARK)
 ];
 
-export const PrimaryError = Template.bind({});
-PrimaryError.args = {};
-PrimaryError.decorators = [
+export const CanEdit = Template.bind({});
+CanEdit.args = {};
+CanEdit.decorators = [
+    StoreDecorator({
+        profile: {
+            form: profileData,
+            data: profileData,
+            readonly: true,
+        },
+        user: { authData: {id: '1'}}
+    })
+];
+
+export const CanEditDark = Template.bind({});
+CanEditDark.args = {};
+CanEditDark.decorators = [
+    StoreDecorator({
+        profile: {
+            form: profileData,
+            data: profileData,
+            readonly: true,
+        },
+        user: { authData: {id: '1'}}
+    }), 
+    ThemeDecorator(Theme.DARK)
+];
+
+export const Error = Template.bind({});
+Error.args = {};
+Error.decorators = [
     StoreDecorator({
         profile: {
             form: {...profileData, username: ''},
@@ -71,9 +101,9 @@ PrimaryError.decorators = [
     })
 ];
 
-export const DarkError= Template.bind({});
-DarkError.args = {};
-DarkError.decorators = [
+export const ErrorDark= Template.bind({});
+ErrorDark.args = {};
+ErrorDark.decorators = [
     StoreDecorator({
         profile: {
             form: {...profileData, username: ''},

@@ -4,7 +4,7 @@ import { CommentList } from 'entities/Comment';
 import { AddCommentForm } from 'features/addCommentForm';
 import { VStack } from 'shared/ui/Stack';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { useCallback } from 'react';
+import { Suspense, useCallback } from 'react';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -41,7 +41,7 @@ export const ArticleDetailsComments = (props: ArticleDetailsCommentsProps) => {
             <VStack max gap={'16'}>
                 <Text
                     size={TextSize.M}
-                    title={t('commentsBlock')}
+                    title={t('AddCommentForm.title')}
                 />
                 <AddCommentForm
                     onSendComment={onSendComment}

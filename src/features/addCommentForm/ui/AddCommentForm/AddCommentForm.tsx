@@ -28,7 +28,7 @@ const AddCommentForm = (props: AddCommentFormProps) => {
     const dispatch = useAppDispatch();
     const text = useSelector(getAddCommentFormText);
 
-    const onChangeText = useCallback((text) => {
+    const onChangeText = useCallback((text: string) => {
         dispatch(addCommentFormActions.setText(text))
     }, [dispatch]);
 

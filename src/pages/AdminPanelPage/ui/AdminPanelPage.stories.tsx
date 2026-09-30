@@ -1,19 +1,19 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ForbiddenPage from './ForbiddenPage';
+import AdminPanelPage from './AdminPanelPage';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 
 
 export default {
-    title: 'pages/ForbiddenPage/ForbiddenPage',
-    component: ForbiddenPage,
+    title: 'pages/AdminPanelPage/AdminPanelPage',
+    component: AdminPanelPage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ForbiddenPage>;
+} as ComponentMeta<typeof AdminPanelPage>;
 
-const Template: ComponentStory<typeof ForbiddenPage> = (args) => <ForbiddenPage />;
+const Template: ComponentStory<typeof AdminPanelPage> = (args) => <AdminPanelPage />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

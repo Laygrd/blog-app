@@ -6,7 +6,9 @@
         "error": "Произошла ошибка при загрузке рекоммендаций: {{ error }}",
         "retry": "Повторить попытку"
     },
-    "commentsBlock": "Комментарии",
+    "AddCommentForm": {
+        "title": "Комментарии"
+    },
     "emptyCommentList": "Комментариев пока нет",
     "errors": {
         "INCORRECT_ARTICLE_ID": "Передан неверный ID статьи",

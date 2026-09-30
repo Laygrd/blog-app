@@ -17,6 +17,7 @@ export const ArticleListUnvirtualized = (props: ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleListView.TILE,
+        direction,
         target,
     } = props;
 
@@ -46,7 +47,7 @@ export const ArticleListUnvirtualized = (props: ArticleListProps) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleListUnvirtualized, {}, [className])}>
+        <div className={classNames(cls.ArticleListUnvirtualized, {}, [className, cls[direction!]])}>
             {   
                 articles.length > 0 &&
                 articles.map((articleData) => renderArticleCard(articleData))

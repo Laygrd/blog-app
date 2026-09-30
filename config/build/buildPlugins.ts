@@ -7,7 +7,7 @@ import { BuildOptions } from './types/config';
 import CopyPlugin from 'copy-webpack-plugin';
 
 export function buildPlugins(buildOptions: BuildOptions): webpack.WebpackPluginInstance[] {
-    const { paths, isDev, apiUrl, project } = buildOptions;
+    const { paths, isDev, apiUrl, project, withAnalyzer } = buildOptions;
 
     const plugins = [
         new HtmlWebpackPlugin({
@@ -36,8 +36,11 @@ export function buildPlugins(buildOptions: BuildOptions): webpack.WebpackPluginI
     // only on devserver
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin({overlay: false}));
-        plugins.push(new BundleAnalyzerPlugin({openAnalyzer: false}))
     };
+
+    if (withAnalyzer) {
+        plugins.push(new BundleAnalyzerPlugin({openAnalyzer: true}))
+    }
 
     return plugins;
 }

@@ -13,6 +13,16 @@ const ProfilePage = () => {
     const { id } = useParams<{id: string}>();
     const { t } = useTranslation('profilePage');
 
+    if (__PROJECT__ === 'storybook') {
+        return (
+            <Page>
+                <VStack max>
+                    <EditableProfileCard id={"1"} />
+                </VStack>
+            </Page>
+        )
+    }
+
     if (!id) {
         return (
             <Page>

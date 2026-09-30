@@ -2,13 +2,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Article, ArticleListView } from '../../model/types/Article';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { ContainerDecorator } from 'shared/config/storybook/decorators/ContainerDecorator';
 import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
 import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
 import { ArticleList } from './ArticleList';
 
 
 export default {
-    title: 'entities/Article/ArticleList(Old)',
+    title: 'entities/Article/ArticleList',
     component: ArticleList,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -52,6 +53,15 @@ const articles_list = [
     {...article, id: "7"},
     {...article, id: "8"},
     {...article, id: "9"},
+    {...article, id: "10"},
+    {...article, id: "11"},
+    {...article, id: "12"},
+    {...article, id: "13"},
+    {...article, id: "14"},
+    {...article, id: "15"},
+    {...article, id: "16"},
+    {...article, id: "17"},
+    {...article, id: "18"},
 ];
 
 const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList { ...args } />;
@@ -60,7 +70,8 @@ export const PrimaryList = Template.bind({});
 PrimaryList.args = {
     articles: articles_list,
     view: ArticleListView.LIST,
-    isLoading: false
+    isLoading: false,
+    virtualized: false,
 };
 PrimaryList.decorators = [];
 
@@ -68,15 +79,18 @@ export const PrimaryTile = Template.bind({});
 PrimaryTile.args = {
     articles: articles_list,
     view: ArticleListView.TILE,
-    isLoading: false
+    isLoading: false,
+    virtualized: false,
 };
 PrimaryTile.decorators = [];
+
 
 export const DarkList = Template.bind({});
 DarkList.args = {
     articles: articles_list,
     view: ArticleListView.LIST,
-    isLoading: false
+    isLoading: false,
+    virtualized: false,
 };
 DarkList.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -84,15 +98,18 @@ export const DarkTile = Template.bind({});
 DarkTile.args = {
     articles: articles_list,
     view: ArticleListView.TILE,
-    isLoading: false
+    isLoading: false,
+    virtualized: false,
 };
 DarkTile.decorators = [ThemeDecorator(Theme.DARK)];
+
 
 export const PrimaryListIsLoading = Template.bind({});
 PrimaryListIsLoading.args = {
     articles: [],
     view: ArticleListView.LIST,
-    isLoading: true
+    isLoading: true,
+    virtualized: false,
 };
 PrimaryListIsLoading.decorators = [];
 
@@ -100,15 +117,18 @@ export const PrimaryTileIsLoading = Template.bind({});
 PrimaryTileIsLoading.args = {
     articles: [],
     view: ArticleListView.TILE,
-    isLoading: true
+    isLoading: true,
+    virtualized: false,
 };
 PrimaryTileIsLoading.decorators = [];
+
 
 export const DarkListIsLoading = Template.bind({});
 DarkListIsLoading.args = {
     articles: [],
     view: ArticleListView.LIST,
-    isLoading: true
+    isLoading: true,
+    virtualized: false,
 };
 DarkListIsLoading.decorators = [ThemeDecorator(Theme.DARK)];
 
@@ -116,6 +136,27 @@ export const DarkTileIsLoading = Template.bind({});
 DarkTileIsLoading.args = {
     articles: [],
     view: ArticleListView.TILE,
-    isLoading: true
+    isLoading: true,
+    virtualized: false,
 };
 DarkTileIsLoading.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const VirtualizedList = Template.bind({});
+VirtualizedList.args = {
+    articles: articles_list,
+    view: ArticleListView.LIST,
+    isLoading: false,
+    virtualized: true,
+    virtualizationKey: 'some_key',
+};
+VirtualizedList.decorators = [ContainerDecorator({height: '700px'})];
+
+export const VirtualizedTile = Template.bind({});
+VirtualizedTile.args = {
+    articles: articles_list,
+    view: ArticleListView.TILE,
+    isLoading: false,
+    virtualized: true,
+    virtualizationKey: 'some_key',
+};
+VirtualizedTile.decorators = [ContainerDecorator({height: '700px'})];

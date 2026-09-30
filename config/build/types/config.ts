@@ -11,12 +11,14 @@ export interface BuildPaths {
 
 export interface BuildEnv {
     mode: BuildMode;
+    withAnalyzer?: boolean;
     port: number;
     apiUrl?: string;
 };
 
 export interface BuildOptions {
     mode: BuildMode;
+    withAnalyzer: boolean;
     paths: BuildPaths;
     isDev: boolean;
     port: number;

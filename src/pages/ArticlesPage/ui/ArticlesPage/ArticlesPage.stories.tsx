@@ -71,38 +71,38 @@ PrimaryTile.decorators = [StoreDecorator({
     articlesPage: {entities: articles_entities, ids: articles_id, isLoading: false, view: ArticleListView.TILE}
 })];
 
-export const PrimaryListIsLoading = Template.bind({});
-PrimaryListIsLoading.args = {};
-PrimaryListIsLoading.decorators = [StoreDecorator({
+export const IsLoadingList = Template.bind({});
+IsLoadingList.args = {};
+IsLoadingList.decorators = [StoreDecorator({
     articlesPage: {entities: {}, ids: [], isLoading: true, view: ArticleListView.LIST}
 })];
 
-export const PrimaryTileIsLoading = Template.bind({});
-PrimaryTileIsLoading.args = {};
-PrimaryTileIsLoading.decorators = [StoreDecorator({
+export const IsLoadingTile = Template.bind({});
+IsLoadingTile.args = {};
+IsLoadingTile.decorators = [StoreDecorator({
     articlesPage: {entities: {}, ids: [], isLoading: true, view: ArticleListView.TILE}
 })];
 
-export const DarkList = Template.bind({});
-DarkList.args = {};
-DarkList.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+export const PrimaryListDark = Template.bind({});
+PrimaryListDark.args = {};
+PrimaryListDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     articlesPage: {entities: articles_entities, ids: articles_id, isLoading: false, view: ArticleListView.LIST}
 })];
 
-export const DarkTile = Template.bind({});
-DarkTile.args = {};
-DarkTile.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+export const PrimaryTileDark = Template.bind({});
+PrimaryTileDark.args = {};
+PrimaryTileDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     articlesPage: {entities: articles_entities, ids: articles_id, isLoading: false, view: ArticleListView.TILE}
 })];
 
-export const DarkListIsLoading = Template.bind({});
-DarkListIsLoading.args = {};
-DarkListIsLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+export const IsLoadingListDark = Template.bind({});
+IsLoadingListDark.args = {};
+IsLoadingListDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     articlesPage: {entities: {}, ids: [], isLoading: true, view: ArticleListView.LIST}
 })];
 
-export const DarkTileIsLoading = Template.bind({});
-DarkTileIsLoading.args = {};
-DarkTileIsLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+export const IsLoadingTileDark = Template.bind({});
+IsLoadingTileDark.args = {};
+IsLoadingTileDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     articlesPage: {entities: {}, ids: [], isLoading: true, view: ArticleListView.TILE}
 })];

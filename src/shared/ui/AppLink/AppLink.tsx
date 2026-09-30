@@ -1,4 +1,5 @@
-import { memo, ReactNode } from "react";
+/* eslint-disable react/prop-types */
+import { forwardRef, memo, ReactNode } from "react";
 import { Link, LinkProps } from 'react-router-dom';
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./AppLink.module.scss";
@@ -16,7 +17,7 @@ interface AppLinkProps extends LinkProps {
     children?: ReactNode;
 };
 
-export const AppLink = memo((props: AppLinkProps) => {
+export const AppLink = memo(forwardRef<HTMLAnchorElement, AppLinkProps>((props, ref) => {
     const { 
         className,
         to,
@@ -24,6 +25,7 @@ export const AppLink = memo((props: AppLinkProps) => {
         theme = AppLinkTheme.PRIMARY,
         ...otherProps
     } = props;
+
     return (
         <Link
             to={to}
@@ -33,4 +35,4 @@ export const AppLink = memo((props: AppLinkProps) => {
             {children}
         </Link>
     );
-});
+}));
