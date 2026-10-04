@@ -1,4 +1,5 @@
-export { ProfileSchema, ValidateProfileDataError } from './model/types/EditableProfileCardSchema';
+export type { ProfileSchema } from './model/types/EditableProfileCardSchema';
+export { ValidateProfileDataError } from './model/consts/consts';
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
 export { profileReducer } from './model/slice/profileSlice';
 

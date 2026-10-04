@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
-import { Article } from "entities/Article";
-
+import type { Article } from "entities/Article";
 
 
 export const fetchArticleRecommendations = 
@@ -32,4 +31,4 @@ createAsyncThunk<
             return rejectWithValue('errors.FAILED_TO_FETCH_ARTICLES');
         }
     }
-)
+);

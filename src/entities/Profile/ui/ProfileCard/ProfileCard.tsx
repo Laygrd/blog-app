@@ -7,14 +7,13 @@ import { Text } from "shared/ui/Text/Text";
 import { Input, InputTheme } from "shared/ui/Input/Input";
 import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
 import { classNames } from "shared/lib/classNames/classNames";
-import { SelectTheme } from "shared/ui/Select/Select";
 import { HStack, VStack } from "shared/ui/Stack";
+import { ListBoxTheme } from "shared/ui/ListBox/ListBox";
 
-import { Profile } from "../../model/types/ProfileSchema";
+import type { Profile } from "../../model/types/ProfileSchema";
 import { AvatarModal } from "../AvatarModal/AvatarModal";
 import { ProfileCardSkeleton } from "./ProfileCardSkeleton";
 import cls from "./ProfileCard.module.scss";
-import { ListBoxTheme } from "shared/ui/ListBox/ListBox";
 
 
 interface ProfileCardProps {

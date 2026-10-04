@@ -1,9 +1,9 @@
-import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
-//import { Select, SelectOption, SelectTheme } from "shared/ui/Select/Select";
-import { Currency } from "../../model/types/currency";
+import { useTranslation } from "react-i18next";
 import { classNames } from "shared/lib/classNames/classNames";
 import { ListBox, ListBoxItem, ListBoxTheme } from "shared/ui/ListBox/ListBox";
+import { Currency } from "../../model/consts/currency";
+
 
 interface CurrencySelectProps {
     id?: string;

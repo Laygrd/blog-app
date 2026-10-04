@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider"
+import type { StateSchema } from "app/providers/StoreProvider"
 import { getArticlesPageSort } from "./getArticlesPageSort"
 import { ArticleSortField } from "entities/Article";
 

@@ -1,6 +1,6 @@
-import { StateSchema } from "app/providers/StoreProvider"
+import type { StateSchema } from "app/providers/StoreProvider"
 import { getArticlesPageType } from "./getArticlesPageType"
-import { ArticleSortField, ArticleType } from "entities/Article";
+import { ArticleType } from "entities/Article";
 
 
 describe('getArticlesPageType.test', () => {

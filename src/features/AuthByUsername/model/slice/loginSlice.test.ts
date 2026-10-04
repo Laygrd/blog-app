@@ -1,4 +1,4 @@
-import { LoginSchema } from "../types/LoginSchema";
+import type { LoginSchema } from "../types/LoginSchema";
 import { loginActions, loginReducer } from "./loginSlice";
 import { loginByUsername } from "../services/loginByUsername";
 

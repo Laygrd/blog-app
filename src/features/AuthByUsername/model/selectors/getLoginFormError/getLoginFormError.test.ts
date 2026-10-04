@@ -1,5 +1,6 @@
-import { StateSchema } from "app/providers/StoreProvider"
-import { getLoginFormError } from "./getLoginFormError"
+import type { StateSchema } from "app/providers/StoreProvider";
+import { getLoginFormError } from "./getLoginFormError";
+
 
 describe('getLoginFormError.test', () => {
     test('should return value from state', () => {
@@ -16,4 +17,4 @@ describe('getLoginFormError.test', () => {
 
         expect(getLoginFormError(state as StateSchema)).toEqual(undefined);
     });
-})
+});

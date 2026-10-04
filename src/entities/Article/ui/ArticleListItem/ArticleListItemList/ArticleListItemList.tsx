@@ -11,7 +11,8 @@ import { Card } from "shared/ui/Card/Card";
 import { RouterPaths } from "shared/config/router/routerVars";
 import { classNames } from "shared/lib/classNames/classNames";
 
-import { Article, ArticleBlockType, ArticleTextBlock } from "../../../model/types/Article";
+import { Article, ArticleTextBlock } from "../../../model/types/Article";
+import { ArticleBlockType } from '../../../model/consts/consts';
 import cls from './ArticleListItemList.module.scss';
 
 

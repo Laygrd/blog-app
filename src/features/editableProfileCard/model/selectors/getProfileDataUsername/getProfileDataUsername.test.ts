@@ -1,7 +1,7 @@
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
 import { getProfileDataUsername } from "./getProfileDataUsername"
-import { StateSchema } from "app/providers/StoreProvider"
+import type { StateSchema } from "app/providers/StoreProvider"
 
 describe('getProfileDataUsername.test', () => {
 

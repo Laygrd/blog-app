@@ -1,5 +1,6 @@
-import { StateSchema } from "app/providers/StoreProvider"
-import { getLoginFormIsLoading } from "./getLoginFormIsLoading"
+import type { StateSchema } from "app/providers/StoreProvider";
+import { getLoginFormIsLoading } from "./getLoginFormIsLoading";
+
 
 describe('getLoginFormIsLoading.test', () => {
     test('should return value from state', () => {
@@ -16,4 +17,4 @@ describe('getLoginFormIsLoading.test', () => {
 
         expect(getLoginFormIsLoading(state as StateSchema)).toEqual(false);
     });
-})
+});

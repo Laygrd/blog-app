@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
-import { Comment } from 'entities/Comment';
+import type { Comment } from 'entities/Comment';
+
 
 export const fetchCommentsByArticleId = 
 createAsyncThunk<
@@ -35,4 +36,4 @@ createAsyncThunk<
             return rejectWithValue('errors.FAILED_TO_FETCH_ARTICLE_COMMENTS');
         }
     }
-)
+);

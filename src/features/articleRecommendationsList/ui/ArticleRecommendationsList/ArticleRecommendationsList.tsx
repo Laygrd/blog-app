@@ -89,4 +89,3 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
 });
 
 ArticleRecommendationsList.displayName = 'ArticleRecommendationsList';
-

@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider"
+import type { StateSchema } from "app/providers/StoreProvider"
 import { ArticleListView } from "entities/Article";
 import { getArticlesPageView } from "./getArticlesPageView"
 

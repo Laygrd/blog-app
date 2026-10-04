@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { Modal, ModalProps } from "shared/ui/Modal/Modal";
 import { Loader } from "shared/ui/Loader/Loader";
-import { AvatarFormAsync } from "../AvatarForm/AvatarForm.async";
 import { classNames } from "shared/lib/classNames/classNames";
+import { AvatarFormAsync } from "../AvatarForm/AvatarForm.async";
 import cls from "./AvatarModal.module.scss";
 
 

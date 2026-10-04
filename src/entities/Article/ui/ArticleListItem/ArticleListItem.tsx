@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { Article, ArticleListView } from '../../model/types/Article';
+import type { Article } from '../../model/types/Article';
+import { ArticleListView } from '../../model/consts/consts';
 import { ArticleListItemList } from './ArticleListItemList/ArticleListItemList';
 import { ArticleListItemTile } from './ArticleListItemTile/ArticleListItemTile';
 

@@ -1,6 +1,6 @@
+import { type Article, ArticleListView } from "entities/Article";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchArticles } from "./fetchArticles"
-import { Article, ArticleListView } from "entities/Article";
 
 
 const article = {
@@ -81,4 +81,4 @@ describe('fetchArticles.test', () => {
         expect(result.payload).toBe('errors.FAILED_TO_FETCH_ARTICLES');
     });
 
-})
+});

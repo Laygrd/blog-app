@@ -1,5 +1,6 @@
-import { getAddCommentFormText } from "./getAddCommentFormText"
-import { StateSchema } from "app/providers/StoreProvider"
+import { getAddCommentFormText } from "./getAddCommentFormText";
+import type { StateSchema } from "app/providers/StoreProvider";
+
 
 describe('getAddCommentFormText.test', () => {
 

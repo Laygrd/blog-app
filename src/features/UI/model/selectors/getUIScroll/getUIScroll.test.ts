@@ -1,5 +1,6 @@
-import { StateSchema } from "app/providers/StoreProvider";
+import type { StateSchema } from "app/providers/StoreProvider";
 import { getUIScroll } from "./getUIScroll";
+
 
 describe('getUIScroll.test', () => {
     test('should return scroll from state', () => {

@@ -1,6 +1,6 @@
-import { Comment } from "entities/Comment";
+import type { Comment } from "entities/Comment";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import { fetchCommentsByArticleId } from "./fetchCommentsByArticleId"
+import { fetchCommentsByArticleId } from "./fetchCommentsByArticleId";
 
 
 const comments: Comment[] = [
@@ -55,4 +55,4 @@ describe('fetchCommentsByArticleId.test', () => {
         expect(result.payload).toBe('errors.INCORRECT_ARTICLE_ID');
     });
 
-})
+});

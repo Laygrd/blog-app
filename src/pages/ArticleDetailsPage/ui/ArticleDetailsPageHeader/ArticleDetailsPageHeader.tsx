@@ -1,12 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { getArticleDetailsData } from 'entities/Article';
+
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RouterPaths } from 'shared/config/router/routerVars';
+
 import { getCanEditArticle } from '../../model/selectors/article/getCanEditArticle/getCanEditArticle';
 import cls from './ArticleDetailsPageHeader.module.scss';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { getArticleDetailsData } from 'entities/Article';
 
 
 interface ArticleDetailsPageHeaderProps {
@@ -47,4 +49,4 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
             }
         </div>
     );
-}
+};

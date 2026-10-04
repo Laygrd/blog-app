@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleDetailsComments } from './ArticleDetailsComments';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { SuspenseDecorator } from 'shared/config/storybook/decorators/SuspenseDecorator';
-import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
+import { ArticleDetailsComments } from './ArticleDetailsComments';
+
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsComments',

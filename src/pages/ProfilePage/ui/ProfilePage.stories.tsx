@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ValidateProfileDataError } from 'features/editableProfileCard';
 
-import { Profile } from 'entities/Profile';
+import type { Profile } from 'entities/Profile';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 

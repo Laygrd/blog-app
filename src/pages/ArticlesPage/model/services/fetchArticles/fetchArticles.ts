@@ -1,13 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
-import { Article, ArticleType } from "entities/Article";
+import { type Article, ArticleType } from "entities/Article";
+import { addQueryParams } from "shared/url/addQueryParams/addQueryParams";
+
+import { getArticlesPageSort } from "../../selectors/getArticlesPageSort/getArticlesPageSort";
+import { getArticlesPageType } from "../../selectors/getArticlesPageType/getArticlesPageType";
+import { getArticlesPageOrder } from "../../selectors/getArticlesPageOrder/getArticlesPageOrder";
 import { getArticlesPageLimit } from "../../selectors/getArticlesPageLimit/getArticlesPageLimit";
 import { getArticlesPageNumber } from "../../selectors/getArticlesPageNumber/getArticlesPageNumber";
-import { getArticlesPageSort } from "../../selectors/getArticlesPageSort/getArticlesPageSort";
-import { getArticlesPageOrder } from "../../selectors/getArticlesPageOrder/getArticlesPageOrder";
 import { getArticlesPageSearch } from "../../selectors/getArticlesPageSearch/getArticlesPageSearch";
-import { addQueryParams } from "shared/url/addQueryParams/addQueryParams";
-import { getArticlesPageType } from "../../selectors/getArticlesPageType/getArticlesPageType";
 
 
 interface FetchArticlesOptions {
@@ -68,4 +69,4 @@ createAsyncThunk<
             return rejectWithValue('errors.FAILED_TO_FETCH_ARTICLES');
         }
     }
-)
+);

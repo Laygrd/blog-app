@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ForbiddenPage from './ForbiddenPage';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import ForbiddenPage from './ForbiddenPage';
 
 
 export default {

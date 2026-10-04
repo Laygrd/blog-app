@@ -1,5 +1,6 @@
 import { getCounter } from "./getCounter"
-import { StateSchema } from "app/providers/StoreProvider"
+import type { StateSchema } from "app/providers/StoreProvider"
+
 
 describe('getCounter.test', () => {
     test('should return counter state', () => {
@@ -10,4 +11,4 @@ describe('getCounter.test', () => {
         };
         expect(getCounter(state as StateSchema)).toEqual({ value: 0})
     })
-})
+});

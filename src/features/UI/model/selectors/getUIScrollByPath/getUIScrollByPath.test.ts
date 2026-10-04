@@ -1,5 +1,6 @@
-import { StateSchema } from "app/providers/StoreProvider";
+import type { StateSchema } from "app/providers/StoreProvider";
 import { getUIScrollByPath } from "./getUIScrollByPath";
+
 
 describe('getUIScrollByPath.test', () => {
     test('should return scroll from state', () => {
@@ -20,4 +21,4 @@ describe('getUIScrollByPath.test', () => {
 
         expect(getUIScrollByPath(state as StateSchema, 'main')).toBe(0);
     });
-})
+});

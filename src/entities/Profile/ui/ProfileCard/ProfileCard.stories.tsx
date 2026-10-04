@@ -1,12 +1,13 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ProfileCard } from './ProfileCard';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import avatar from 'shared/assets/tests/avatar_default.jpg';
-import { Profile } from '../../model/types/ProfileSchema';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+
+import { Theme } from 'app/providers/ThemeProvider';
+import avatar from 'shared/assets/tests/avatar_default.jpg';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+
+import type { Profile } from '../../model/types/ProfileSchema';
+import { ProfileCard } from './ProfileCard';
 
 
 const profileData: Profile = {

@@ -1,4 +1,4 @@
-import { AddCommentFormSchema } from "../types/addCommentForm";
+import type { AddCommentFormSchema } from "../types/addCommentForm";
 import { addCommentFormActions, addCommentFormReducer } from './addCommentFormSlice'
 
 

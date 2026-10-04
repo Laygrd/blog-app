@@ -82,4 +82,4 @@ export const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
             />
         </div>
     );
-}
+};

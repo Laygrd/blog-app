@@ -22,4 +22,4 @@ export const CommentCardSkeleton = () => {
             />
         </VStack>
     )
-}
+};

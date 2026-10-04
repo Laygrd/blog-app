@@ -1,11 +1,13 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import { Text } from "shared/ui/Text/Text";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { Input } from "shared/ui/Input/Input";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { classNames } from "shared/lib/classNames/classNames";
+
 import cls from "./AvatarForm.module.scss";
-import { useState } from "react";
 
 
 export interface AvatarFormProps {

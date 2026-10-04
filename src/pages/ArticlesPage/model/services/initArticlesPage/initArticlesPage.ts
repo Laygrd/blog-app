@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
-import { articlesPageActions } from "../../slice/articlesPageSlice";
-import { fetchArticles } from "../fetchArticles/fetchArticles";
-import { getArticlesPageInited } from "../../selectors/getArticlesPageInited/getArticlesPageInited";
-import { SortOrder } from "shared/types";
 import { ArticleSortField, ArticleType } from "entities/Article";
+import type { SortOrder } from "shared/types";
+import { fetchArticles } from "../fetchArticles/fetchArticles";
+import { articlesPageActions } from "../../slice/articlesPageSlice";
+import { getArticlesPageInited } from "../../selectors/getArticlesPageInited/getArticlesPageInited";
 
 
 export const initArticlesPage = 
@@ -44,4 +44,4 @@ createAsyncThunk<
 
 
     }
-)
+);

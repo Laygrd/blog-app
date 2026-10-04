@@ -1,6 +1,7 @@
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { ArticleBlockType, ArticleType } from '../../consts/consts';
 import { fetchArticleById } from "./fetchArticleById"
-import { Article, ArticleBlockType, ArticleType } from '../../types/Article';
+import type { Article} from '../../types/Article';
 
 
 const article: Article = {

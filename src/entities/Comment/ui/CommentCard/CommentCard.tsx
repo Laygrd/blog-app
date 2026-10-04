@@ -5,7 +5,7 @@ import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
 import { RouterPaths } from 'shared/config/router/routerVars';
 import { CommentCardSkeleton } from './CommentCardSkeleton';
-import { Comment } from '../../model/types/comment';
+import type { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
 
 
@@ -57,4 +57,4 @@ export const CommentCard = (props: CommentCardProps) => {
             />
         </VStack>
     );
-}
+};

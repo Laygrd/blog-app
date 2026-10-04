@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkAPIOptions } from "app/providers/StoreProvider";
-import { Comment } from "entities/Comment";
+import type { Comment } from "entities/Comment";
 import { getUserAuthData } from "entities/User";
 import { getArticleDetailsData } from "entities/Article";
 import { fetchCommentsByArticleId } from "../fetchCommentsByArticleId/fetchCommentsByArticleId";
@@ -41,4 +41,4 @@ export const addCommentForArticle = createAsyncThunk<
             return rejectWithValue('errors.ADD_COMMENT_REQUEST_FAILED');
         }
     }
-)
+);

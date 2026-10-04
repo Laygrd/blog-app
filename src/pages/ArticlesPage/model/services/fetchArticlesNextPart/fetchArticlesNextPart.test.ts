@@ -1,7 +1,7 @@
+import { ArticleListView } from "entities/Article";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchArticlesNextPart } from "./fetchArticlesNextPart";
 import { fetchArticles } from "../fetchArticles/fetchArticles";
-import { ArticleListView } from "entities/Article";
 
 
 jest.mock('../fetchArticles/fetchArticles');
@@ -55,4 +55,4 @@ describe('fetchArticlesNextPart.test', () => {
 
     });
 
-})
+});

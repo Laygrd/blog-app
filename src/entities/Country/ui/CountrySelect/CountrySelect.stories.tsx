@@ -1,10 +1,9 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CountrySelect } from './CountrySelect';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { SelectTheme } from 'shared/ui/Select/Select';
 import { ListBoxTheme } from 'shared/ui/ListBox/ListBox';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { CountrySelect } from './CountrySelect';
+
 
 export default {
     title: 'entities/Country/CountrySelect',

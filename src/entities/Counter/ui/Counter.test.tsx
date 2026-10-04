@@ -3,6 +3,7 @@ import { componentRender } from 'shared/lib/tests/componentRender/componentRende
 import { Counter } from "./Counter";
 import userEvent from '@testing-library/user-event';
 
+
 describe('widgets/Counter', () => {
     test('default render', () => {
         componentRender(<Counter />)
@@ -38,4 +39,4 @@ describe('widgets/Counter', () => {
         componentRender(<Counter />);
         expect(screen.getByTestId('counter-value')).toHaveTextContent('0');
     });
-})
+});

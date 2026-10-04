@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/ui/Stack';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Comment } from '../../model/types/comment';
+import type { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
 
 

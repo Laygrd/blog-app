@@ -1,8 +1,9 @@
 import { validateProfileData } from "./validateProfileData"
-import { Profile } from 'entities/Profile'
+import type { Profile } from 'entities/Profile'
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
-import { ValidateProfileDataError } from "../../types/EditableProfileCardSchema";
+import { ValidateProfileDataError } from "../../consts/consts";
+
 
 const profileData: Profile = {
     username: "username1",

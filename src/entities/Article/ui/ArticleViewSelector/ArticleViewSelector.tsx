@@ -2,9 +2,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import ListViewIcon from 'shared/assets/icons/list-view-icon.svg';
 import TileViewIcon from 'shared/assets/icons/tile-view-icon.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { ArticleListView } from '../../model/types/Article';
-import cls from './ArticleViewSelector.module.scss';
 import { HStack } from 'shared/ui/Stack';
+import { ArticleListView } from '../../model/consts/consts';
+import cls from './ArticleViewSelector.module.scss';
 
 
 interface ArticleViewSelectorProps {

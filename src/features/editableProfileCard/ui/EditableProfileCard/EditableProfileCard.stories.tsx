@@ -2,11 +2,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { EditableProfileCard } from './EditableProfileCard';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ProfileSchema } from '../../model/types/EditableProfileCardSchema';
+import type { ProfileSchema } from '../../model/types/EditableProfileCardSchema';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+
 
 export default {
     title: 'features/EditableProfileCard/EditableProfileCard',

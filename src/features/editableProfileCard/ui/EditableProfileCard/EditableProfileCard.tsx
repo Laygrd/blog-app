@@ -15,7 +15,7 @@ import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/Dynami
 
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
-import { ValidateProfileDataError } from '../../model/types/EditableProfileCardSchema';
+import { ValidateProfileDataError } from '../../model/consts/consts';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

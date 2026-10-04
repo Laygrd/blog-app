@@ -2,7 +2,8 @@ import { ComponentType, HTMLAttributeAnchorTarget } from "react";
 import { ArticleListUnvirtualized } from "./ArticleListUnvirtualized/ArticleListUnvirtualized";
 import { ArticleListVirtualizedTileView } from "./ArticleListVirtualizedTileView/ArticleListVirtualizedTileView";
 import { ArticleListVirtualizedListView } from "./ArticleListVirtualizedListView/ArticleListVirtualizedListView";
-import { Article, ArticleListView } from "../../model/types/Article";
+import { ArticleListView } from '../../model/consts/consts';
+import { Article } from "../../model/types/Article";
 
 
 export interface ArticleListProps {

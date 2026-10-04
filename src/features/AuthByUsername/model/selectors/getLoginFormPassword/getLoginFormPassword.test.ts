@@ -1,5 +1,6 @@
-import { StateSchema } from "app/providers/StoreProvider"
-import { getLoginFormPassword } from "./getLoginFormPassword"
+import type { StateSchema } from "app/providers/StoreProvider";
+import { getLoginFormPassword } from "./getLoginFormPassword";
+
 
 describe('getLoginFormPassword.test', () => {
     test('should return value from state', () => {
@@ -16,4 +17,4 @@ describe('getLoginFormPassword.test', () => {
 
         expect(getLoginFormPassword(state as StateSchema)).toEqual('');
     });
-})
+});

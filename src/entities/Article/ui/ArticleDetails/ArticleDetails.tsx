@@ -20,7 +20,8 @@ import {
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/Article';
+import type { ArticleBlock } from '../../model/types/Article';
+import { ArticleBlockType } from '../../model/consts/consts';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';

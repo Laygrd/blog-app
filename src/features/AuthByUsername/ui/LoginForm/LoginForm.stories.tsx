@@ -1,9 +1,8 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import LoginForm from './LoginForm';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import LoginForm from './LoginForm';
 
 
 export default {
@@ -81,4 +80,4 @@ PendingDark.decorators = [
             isLoading: true,
         }
     })
-]
+];

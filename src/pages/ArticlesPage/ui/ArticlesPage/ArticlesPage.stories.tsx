@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Article, ArticleListView } from 'entities/Article';
+import { type Article, ArticleListView } from 'entities/Article';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';

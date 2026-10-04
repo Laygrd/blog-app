@@ -1,10 +1,10 @@
 import { Country } from "entities/Country";
 import { Currency } from "entities/Currency";
-import { Profile } from "entities/Profile";
+import type { Profile } from "entities/Profile";
 import { profileActions, profileReducer } from "./profileSlice";
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
-import { ProfileSchema } from "../types/EditableProfileCardSchema";
+import type { ProfileSchema } from "../types/EditableProfileCardSchema";
 
 const profileData: Profile = {
     id: '1',

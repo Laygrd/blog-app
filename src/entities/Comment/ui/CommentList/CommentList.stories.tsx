@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CommentList } from './CommentList';
 import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
-import { Comment } from '../../model/types/comment';
+import { CommentList } from './CommentList';
+import type { Comment } from '../../model/types/comment';
+
 
 export default {
     title: 'entities/Comment/CommentList',

@@ -1,6 +1,6 @@
-import { Comment } from "entities/Comment";
+import type { Comment } from "entities/Comment";
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import { addCommentForArticle } from "./addCommentForArticle"
+import { addCommentForArticle } from "./addCommentForArticle";
 
 
 const comment: Comment = {
@@ -71,4 +71,4 @@ describe('addCommentForArticle.test', () => {
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toBe('errors.ADD_COMMENT_INCORRECT_OR_MISSING_DATA');
     });
-})
+});

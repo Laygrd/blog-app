@@ -17,8 +17,9 @@ export {
     getUserIsManager,
 } from './model/selectors/roleSelectors/roleSelectors';
 
-export {
-    UserRole,
+export type  {
     User,
     UserSchema,
 } from './model/types/UserSchema';
+
+export { UserRole } from './model/consts/consts';

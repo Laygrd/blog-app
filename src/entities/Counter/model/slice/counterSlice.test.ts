@@ -1,5 +1,6 @@
 import { counterActions, counterReducer } from "./counterSlice"
-import { CounterSchema } from "../types/CounterSchema";
+import type { CounterSchema } from "../types/CounterSchema";
+
 
 describe('CounterSlice.test', () => {
     test('should decrement work', () => {

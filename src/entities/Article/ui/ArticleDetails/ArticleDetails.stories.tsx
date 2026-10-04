@@ -1,11 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Article } from '../../model/types/Article';
-import { ArticleBlockType, ArticleType } from '../../model/types/Article';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+
 import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+
 import { ArticleDetails } from './ArticleDetails';
+import type { Article } from '../../model/types/Article';
+import { ArticleBlockType, ArticleType } from '../../model/consts/consts';
 
 
 export default {

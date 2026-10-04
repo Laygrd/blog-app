@@ -3,9 +3,10 @@ import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ProfileSchema } from '../../model/types/EditableProfileCardSchema';
+import type { ProfileSchema } from '../../model/types/EditableProfileCardSchema';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+
 
 export default {
     title: 'features/EditableProfileCard/EditableProfileCardHeader',

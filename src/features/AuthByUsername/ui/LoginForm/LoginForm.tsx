@@ -1,19 +1,21 @@
-import { memo, Reducer, useCallback } from "react";
+import { memo, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { loginActions, loginReducer } from "../../model/slice/loginSlice";
-import { loginByUsername } from "../../model/services/loginByUsername";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
+
 import { Input } from "shared/ui/Input/Input";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { classNames } from "shared/lib/classNames/classNames";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
+
+import { loginByUsername } from "../../model/services/loginByUsername";
+import { loginActions, loginReducer } from "../../model/slice/loginSlice";
+import { getLoginFormError } from "../../model/selectors/getLoginFormError/getLoginFormError";
 import { getLoginFormUsername } from "../../model/selectors/getLoginFormUsername/getLoginFormUsername";
 import { getLoginFormPassword } from "../../model/selectors/getLoginFormPassword/getLoginFormPassword";
 import { getLoginFormIsLoading } from "../../model/selectors/getLoginFormIsLoading/getLoginFormIsLoading";
-import { getLoginFormError } from "../../model/selectors/getLoginFormError/getLoginFormError";
-import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
-import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./LoginForm.module.scss";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 
 const initialReducers: ReducersList = {

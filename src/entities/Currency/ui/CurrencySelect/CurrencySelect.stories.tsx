@@ -4,6 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import { Theme } from 'app/providers/ThemeProvider';
 import { ListBoxTheme } from 'shared/ui/ListBox/ListBox';
 
+
 export default {
     title: 'entities/Currency/CurrencySelect',
     component: CurrencySelect,

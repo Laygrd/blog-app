@@ -1,12 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticlesInfiniteList } from './ArticlesInfiniteList';
-import { Article, ArticleListView } from 'entities/Article';
+import { type Article, ArticleListView } from 'entities/Article';
 import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
 import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ContainerDecorator } from 'shared/config/storybook/decorators/ContainerDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+
 
 export default {
     title: 'pages/ArticlesPage/ArticlesInfiniteList',
