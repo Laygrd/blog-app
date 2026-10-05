@@ -5,6 +5,9 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin'
+
+
 
 export function buildPlugins(buildOptions: BuildOptions): webpack.WebpackPluginInstance[] {
     const { paths, isDev, apiUrl, project, withAnalyzer } = buildOptions;
@@ -30,12 +33,35 @@ export function buildPlugins(buildOptions: BuildOptions): webpack.WebpackPluginI
                     to: paths.buildLocales,
                 }
             ]
-        })
+        }),
     ];
 
     // only on devserver
     if (isDev) {
-        plugins.push(new ReactRefreshWebpackPlugin({overlay: false}));
+        
+        let numCyclesDetected = 0;
+        plugins.push(new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+            allowAsyncCycles: false,
+            onStart() {
+                numCyclesDetected = 0;
+            },
+            onDetected({ paths }) {
+                numCyclesDetected++;
+                console.log('\x1b[31m%s\x1b[0m', '\nCIRCULAR DEPENDENCY DETECTED:');
+                console.log(paths.join(' -> '));
+            },
+            onEnd() {
+                if (numCyclesDetected > 0) {
+                    throw new Error(`Detected ${numCyclesDetected} circular dependencies`);
+                }
+            },  
+        }));
+
+        plugins.push(new ReactRefreshWebpackPlugin({
+            overlay: false
+        }));
     };
 
     if (withAnalyzer) {
