@@ -80,6 +80,12 @@ module.exports = {
             rules: {
                 "max-len": "off"
             }
+        },
+        {
+            files: './build/**/*.js',
+            rules: {
+                "max-len": "off"
+            }
         }
     ]
 };
