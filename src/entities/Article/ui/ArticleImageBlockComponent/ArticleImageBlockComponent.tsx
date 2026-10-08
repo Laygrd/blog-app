@@ -31,3 +31,4 @@ export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponen
         </div>
     );
 });
+ArticleImageBlockComponent.displayName = 'ArticleImageBlockComponent';

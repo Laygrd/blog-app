@@ -6,6 +6,7 @@ import { getUserAuthData } from 'entities/User';
 
 import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import SaveIcon from 'shared/assets/icons/save-icon.svg';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -76,7 +77,11 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
                                     onClick={onEdit}
                                     data-testid='EditableProfileCardHeader.EditBtn'
                                 >   
-                                    <EditIcon />
+                                    <Icon
+                                        theme={IconTheme.PIRMARY}
+                                        Svg={ EditIcon }
+                                        excludeFill
+                                    />
                                     {t('ProfileCard.editBtn')}
                                 </Button>
                             )
@@ -89,7 +94,10 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
                                         disabled={isLoading}
                                         data-testid={'EditableProfileCardHeader.SaveBtn'}
                                     >
-                                        <SaveIcon />
+                                        <Icon
+                                            theme={IconTheme.PIRMARY}
+                                            Svg={ SaveIcon }
+                                        />
                                         {t('ProfileCard.saveBtn')}
                                     </Button>
                                     <Button
@@ -98,7 +106,10 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
                                         disabled={isLoading}
                                         data-testid={'EditableProfileCardHeader.CancelBtn'}
                                     >
-                                        <CancelIcon />
+                                        <Icon
+                                            theme={IconTheme.PIRMARY}
+                                            Svg={ CancelIcon }
+                                        />
                                         {t('ProfileCard.cancelBtn')}
                                     </Button>
                                 </HStack>

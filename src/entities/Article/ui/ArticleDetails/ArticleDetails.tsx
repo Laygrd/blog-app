@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -26,6 +27,7 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 import cls from './ArticleDetails.module.scss';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
 
 
 interface ArticleDetailsProps {
@@ -101,12 +103,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         </AppLink>
 
                         <HStack >
-                            <EyeIcon />
+                            <Icon theme={IconTheme.PIRMARY} Svg={EyeIcon}/>
                             <Text text={String(data?.views)}/>
                         </HStack>
 
                         <HStack >
-                            <CalendarIcon />
+                            <Icon theme={IconTheme.PIRMARY} Svg={CalendarIcon}/>
                             <Text text={String(data?.createdAt)}/>
                         </HStack>
                     </VStack>

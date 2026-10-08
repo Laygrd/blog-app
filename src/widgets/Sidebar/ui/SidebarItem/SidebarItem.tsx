@@ -1,11 +1,13 @@
+import { memo } from "react";
+import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { getUserAuthData } from "entities/User";
+
+import { Icon, IconTheme } from "shared/ui/Icon/Icon";
+import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { SidebarItemType } from '../../model/types/SidebarItemT';
-import { useTranslation } from "react-i18next";
-import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./SidebarItem.module.scss";
-import { memo } from "react";
-import { getUserAuthData } from "entities/User";
-import { useSelector } from "react-redux";
 
 
 interface SidebarItemProps {
@@ -29,10 +31,11 @@ export const SidebarItem = memo(({ itemData, collapsed }: SidebarItemProps) => {
             theme={AppLinkTheme.INVERTED}
             to={itemData.path}
         >
-            <itemData.Icon className={cls.icon}/>
+            <Icon theme={IconTheme.INVERTED_PIRMARY} Svg={itemData.Icon}/>
             <span className={cls.link}>
                 {t(itemData.text)}
             </span>
         </AppLink>
     );
 });
+SidebarItem.displayName = 'SidebarItem';

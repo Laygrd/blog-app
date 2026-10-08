@@ -1,8 +1,10 @@
+import { HStack } from 'shared/ui/Stack';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
 import ListViewIcon from 'shared/assets/icons/list-view-icon.svg';
 import TileViewIcon from 'shared/assets/icons/tile-view-icon.svg';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { HStack } from 'shared/ui/Stack';
+
 import { ArticleListView } from '../../model/consts/consts';
 import cls from './ArticleViewSelector.module.scss';
 
@@ -16,11 +18,11 @@ interface ArticleViewSelectorProps {
 const viewTypes: {type: ArticleListView, icon: JSX.Element}[] = [
     {
         type: ArticleListView.LIST,
-        icon: <ListViewIcon />
+        icon: <Icon theme={ IconTheme.PIRMARY } Svg={ ListViewIcon } />
     },
     {
         type: ArticleListView.TILE,
-        icon: <TileViewIcon />
+        icon: <Icon theme={ IconTheme.PIRMARY } Svg={ TileViewIcon } />
     },
 ];
 

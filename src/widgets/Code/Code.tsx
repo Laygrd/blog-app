@@ -1,7 +1,8 @@
 import { memo, useCallback, useRef, useState } from 'react';
+import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import CopyIcon from 'shared/assets/icons/copy-icon.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import CopyIcon from 'shared/assets/icons/copy-icon.svg';
 import CopySuccessIcon from 'shared/assets/icons/copy-success-icon.svg';
 import cls from './Code.module.scss';
 
@@ -37,7 +38,11 @@ export const Code = memo((props: CodeProps) => {
                 onClick={onCopy}
                 theme={ButtonTheme.ICON}
             >
-                {isCopy ? <CopySuccessIcon /> : <CopyIcon /> }
+                <Icon 
+                    theme={IconTheme.PIRMARY} 
+                    Svg={ isCopy ? CopySuccessIcon : CopyIcon }
+                    excludeFill
+                />
             </Button>
         </div>
     );

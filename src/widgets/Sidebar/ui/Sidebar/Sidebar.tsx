@@ -1,13 +1,14 @@
 import { memo, useMemo, useState } from "react";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { useSelector } from "react-redux";
-import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
+import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+
+import { VStack } from "shared/ui/Stack";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { classNames } from "shared/lib/classNames/classNames";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
 import { getSidebarItems } from "../../model/selectors/getSidebarItems/getSidebarItems";
 import cls from "./Sidebar.module.scss";
-import { VStack } from "shared/ui/Stack";
-import { SidebarItem } from "../SidebarItem/SidebarItem";
 
 
 interface SidebarProps {
@@ -57,3 +58,4 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
         </aside>
     );
 });
+Sidebar.displayName = 'Sidebar';

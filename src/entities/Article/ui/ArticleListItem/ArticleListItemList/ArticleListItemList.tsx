@@ -1,15 +1,16 @@
 import { HTMLAttributeAnchorTarget } from "react";
 import { useTranslation } from "react-i18next";
 
-import EyeIcon from 'shared/assets/icons/eye-icon.svg';
-import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
-import { Text, TextSize } from "shared/ui/Text/Text";
-import { HStack, VStack } from "shared/ui/Stack";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
 import { Card } from "shared/ui/Card/Card";
+import { HStack, VStack } from "shared/ui/Stack";
+import { Text, TextSize } from "shared/ui/Text/Text";
+import { Icon, IconTheme } from "shared/ui/Icon/Icon";
+import EyeIcon from 'shared/assets/icons/eye-icon.svg';
+import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
 import { RouterPaths } from "shared/config/router/routerVars";
 import { classNames } from "shared/lib/classNames/classNames";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 
 import { Article, ArticleTextBlock } from "../../../model/types/Article";
 import { ArticleBlockType } from '../../../model/consts/consts';
@@ -148,7 +149,7 @@ export const ArticleListItemList = (props: ArticleListItemListProps) => {
                                 text={String(article.views)}
                                 size={TextSize.M}
                             />
-                            <EyeIcon />
+                            <Icon theme={IconTheme.PIRMARY} Svg={EyeIcon} />
                         </HStack>
                     </HStack>
                         

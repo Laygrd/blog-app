@@ -8,11 +8,6 @@
     transition: 0.2s opacity;
 }
 
-.icon {
-    color: var(--inverted-primary-color);
-    fill: var(--inverted-primary-color);
-}
-
 .collapsed {
     .link {
         pointer-events: none;

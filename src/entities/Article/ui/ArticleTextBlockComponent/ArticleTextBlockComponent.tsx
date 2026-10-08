@@ -24,3 +24,4 @@ export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentP
         </div>
     );
 })
+ArticleTextBlockComponent.displayName = 'ArticleTextBlockComponent';

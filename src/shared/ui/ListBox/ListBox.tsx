@@ -6,6 +6,7 @@ import { HStack } from '../Stack';
 import CheckIcon from '../../assets/icons/check.svg';
 import cls from './ListBox.module.scss';
 import { DropdownDirection } from 'shared/types/ui';
+import { Icon, IconTheme } from '../Icon/Icon';
 
 
 export enum ListBoxTheme {
@@ -106,7 +107,12 @@ export const ListBox = (props: ListBoxProps) => {
                                     )}
                                 >
                                     <HStack gap={'4'} align={'center'}>
-                                        {selected && <CheckIcon />}
+                                        {selected && 
+                                            <Icon 
+                                                theme={IconTheme.PIRMARY} 
+                                                Svg={CheckIcon}
+                                            />
+                                        }
                                         {item.content}
                                     </HStack>
                                 </li>

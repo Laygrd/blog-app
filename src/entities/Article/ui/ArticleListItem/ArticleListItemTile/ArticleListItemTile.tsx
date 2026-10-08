@@ -11,6 +11,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 import { Article  } from "../../../model/types/Article";
 import cls from './ArticleListItemTile.module.scss';
+import { Icon, IconTheme } from "shared/ui/Icon/Icon";
 
 
 export interface ArticleListItemTileProps {
@@ -84,7 +85,7 @@ export const ArticleListItemTile = (props: ArticleListItemTileProps) => {
                                 text={String(article.views)} 
                                 size={TextSize.M}
                             />
-                            <EyeIcon />
+                            <Icon theme={IconTheme.PIRMARY} Svg={EyeIcon}/>
                         </HStack>
                     </HStack>
 

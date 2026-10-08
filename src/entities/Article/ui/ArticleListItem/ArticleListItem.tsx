@@ -66,4 +66,5 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             />
         )
     }
-})
+});
+ArticleListItem.displayName = 'ArticleListItem';
