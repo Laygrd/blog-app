@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import { ListBox, ListBoxItem, ListBoxTheme } from "shared/ui/ListBox/ListBox";
+import { ListBox, type ListBoxItem, ListBoxTheme } from "shared/ui/Popups";
 import { Country } from "../../model/consts/country";
 
 

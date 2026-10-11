@@ -1094,5 +1094,44 @@
         }
       ]
     }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "userId": "1",
+      "isChecked": false,
+      "title": "Some notification",
+      "description": "SOme notification text",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "isChecked": false,
+      "title": "Some notification2",
+      "description": "SOme notification text2"
+    },
+    {
+      "id": "3",
+      "userId": "2",
+      "isChecked": false,
+      "title": "Some notification3",
+      "description": "SOme notification text3",
+      "href": "http://localhost:3000/admin"
+    },
+    {
+      "id": "4",
+      "userId": "1",
+      "isChecked": false,
+      "title": "Some notification4",
+      "description": "SOme notification text4"
+    },
+    {
+      "id": "5",
+      "userId": "1",
+      "isChecked": false,
+      "title": "Some notification5",
+      "description": "SOme notification text5"
+    }
   ]
 }

@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CurrencySelect } from './CurrencySelect';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ListBoxTheme } from 'shared/ui/ListBox/ListBox';
+import { ListBoxTheme } from 'shared/ui/Popups';
 
 
 export default {

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ListBoxTheme } from 'shared/ui/ListBox/ListBox';
+import { ListBoxTheme } from 'shared/ui/Popups'
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { CountrySelect } from './CountrySelect';
 

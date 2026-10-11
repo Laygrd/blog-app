@@ -1,12 +1,15 @@
 import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '../Button/Button';
-import { HStack } from '../Stack';
-import CheckIcon from '../../assets/icons/check.svg';
-import cls from './ListBox.module.scss';
 import { DropdownDirection } from 'shared/types/ui';
-import { Icon, IconTheme } from '../Icon/Icon';
+
+import { Button, ButtonTheme } from '../../../Button/Button';
+import CheckIcon from '../../../../assets/icons/check.svg';
+import { Icon, IconTheme } from '../../../Icon/Icon';
+import { HStack } from '../../../Stack';
+import cls from './ListBox.module.scss';
+import popupCls from '../../common/popupStyles.module.scss';
+import { mapDirectionClass } from '../../common/consts';
 
 
 export enum ListBoxTheme {
@@ -34,12 +37,6 @@ interface ListBoxProps {
     fullwidth?: boolean; 
 }
 
-export const mapDirectionClass: Record<DropdownDirection, string> = {
-    'top left': cls.topLeftDirection,
-    'top right': cls.topRightDirection,
-    'bottom right': cls.bottomRightDirection,
-    'bottom left': cls.bottomLeftDirection,
-}
 
 export const ListBox = (props: ListBoxProps) => {
     const {
@@ -61,10 +58,10 @@ export const ListBox = (props: ListBoxProps) => {
         <>
             <HListbox
                 className={classNames(
-                    cls.ListBox, 
+                    popupCls.Popup, 
                     {
                         [cls.labelled]: label, 
-                        [cls.fullwidth]: fullwidth
+                        [popupCls.fullwidth]: fullwidth
                     }, [
                         className,
                         cls[theme]
@@ -76,7 +73,7 @@ export const ListBox = (props: ListBoxProps) => {
                 disabled={readOnly}
             >
                 { label && <span className={cls.label}>{label}</span>}
-                <HListbox.Button className={cls.trigger} as={'div'}>
+                <HListbox.Button className={popupCls.trigger} as={'div'}>
                     <Button
                         className={cls.triggerBtn}
                         theme={theme === ListBoxTheme.UNDERLINE ? ButtonTheme.CLEAR : ButtonTheme.OUTLINE}
@@ -101,8 +98,8 @@ export const ListBox = (props: ListBoxProps) => {
                                     className={classNames(
                                         cls.item, 
                                         {
-                                            [cls.active]: active,
-                                            [cls.disabled]: item.disabled
+                                            [popupCls.itemActive]: active,
+                                            [popupCls.itemDisabled]: item.disabled
                                         }, []
                                     )}
                                 >
@@ -123,4 +120,5 @@ export const ListBox = (props: ListBoxProps) => {
             </HListbox>
         </>
     )
+
 }

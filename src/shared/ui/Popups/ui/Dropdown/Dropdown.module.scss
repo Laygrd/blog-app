@@ -1,0 +1,18 @@
+.menu {
+    position: absolute;
+    z-index: 10000;
+    background-color: var(--dropdown-bg-color);
+    box-shadow: 2px 2px 6px rgb(from var(--primary-color) r g b / 40%);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    padding: 10px 20px;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--primary-color);
+}

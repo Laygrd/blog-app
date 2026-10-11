@@ -13,6 +13,11 @@
     "profile": "Профиль",
     "admin": "Админка"
   },
+  "AvatarDropdown": {
+    "admin": "Админка",
+    "profile": "Профиль",
+    "logout": "Выйти"
+  },
   "Sidebar": {
     "main_page": "Главная",
     "about_page": "О нас",
@@ -53,5 +58,8 @@
   },
   "CurrencySelect": {
     "label": "Валюта"
+  },
+  "NotificationList": {
+    "empty": "Пока не поступало уведомлений ;)"
   }
 }

@@ -13,6 +13,11 @@
     "profile": "Profile",
     "admin": "Admin"
   },
+  "AvatarDropdown": {
+    "admin": "Admin",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
   "Sidebar": {
     "main_page": "Main",
     "about_page": "About",
@@ -53,5 +58,8 @@
   },
   "CurrencySelect": {
     "label": "Currency"
+  },
+  "NotificationList": {
+    "empty": "No recieved notifications yet ;)"
   }
 }

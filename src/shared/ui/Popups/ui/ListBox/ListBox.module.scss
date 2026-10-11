@@ -1,20 +1,3 @@
-.ListBox {
-    position: relative;
-    width: fit-content;
-
-    & svg {
-        fill: var(--primary-color);
-    }
-}
-
-.trigger {
-    background: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-}
-
 .triggerBtn {
     padding: 6px 12px;
     color: var(--primary-color);
@@ -30,15 +13,6 @@
 
 .item {
     padding: 10px 20px;
-
-    &.active {
-        background-color: var(--secondary-color);
-        border-radius: 6px;
-    }
-
-    &.disabled {
-        opacity: 0.6;
-    }
 }
 
 // themes
@@ -71,39 +45,4 @@
         color: rgb(from var(--primary-color) r g b / 60%);
         pointer-events: none;
     }
-}
-
-.fullwidth {
-    &.ListBox {
-        width: 100%;
-    }
-
-    & .trigger {
-        width: 100%;
-    }
-
-    & .triggerBtn {
-        width: 100%;
-    }
-}
-
-// directions
-.topLeftDirection {
-    bottom: 100%;
-    left: 0;
-}
-
-.topRightDirection {
-    bottom: 100%;
-    right: 0;
-}
-
-.bottomRightDirection {
-    top: 100%;
-    right: 0;
-}
-
-.bottomLeftDirection {
-    top: 100%;
-    left: 0;
 }

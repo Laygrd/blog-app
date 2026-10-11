@@ -1,10 +1,12 @@
 /* eslint-disable i18next/no-literal-string */
-import { Menu } from '@headlessui/react'
 import { Fragment, ReactNode, useMemo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './Dropdown.module.scss';
+import { Menu } from '@headlessui/react'
 import { DropdownDirection } from 'shared/types/ui';
-import { AppLink } from '../AppLink/AppLink';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from '../../../AppLink/AppLink';
+import cls from './Dropdown.module.scss';
+import popupCls from '../../common/popupStyles.module.scss';
+import { mapDirectionClass } from '../../common/consts';
 
 
 export interface DropdownItem {
@@ -22,12 +24,6 @@ interface DropdownProps {
    fullwidth?: boolean;
 };
 
-export const mapDirectionClass: Record<DropdownDirection, string> = {
-    'top left': cls.topLeftDirection,
-    'top right': cls.topRightDirection,
-    'bottom right': cls.bottomRightDirection,
-    'bottom left': cls.bottomLeftDirection,
-}
 
 export const Dropdown = (props: DropdownProps) => {
     const {
@@ -41,8 +37,17 @@ export const Dropdown = (props: DropdownProps) => {
     const menuClasses = useMemo(() => [ mapDirectionClass[direction] ], [direction]);
 
     return (
-        <Menu as={'div'} className={classNames(cls.Dropdown, {[cls.fullwidth]: fullwidth}, [className])} >
-            <Menu.Button className={cls.trigger} as={'div'}>
+        <Menu 
+            as={'div'}
+            className={classNames(
+                popupCls.Popup,
+                {
+                    [popupCls.fullwidth]: fullwidth
+                },
+                [className]
+            )} 
+        >
+            <Menu.Button className={popupCls.trigger} as={'div'}>
                 { trigger }
             </Menu.Button>
 
@@ -56,7 +61,10 @@ export const Dropdown = (props: DropdownProps) => {
                                 disabled={item.disabled}
                                 className={classNames(
                                     cls.item, 
-                                    { [cls.itemActive]: active, [cls.itemDisabled]: item.disabled },
+                                    {
+                                        [popupCls.itemActive]: active,
+                                        [popupCls.itemDisabled]: item.disabled,
+                                    },
                                     []
                                 )}
                                 onClick={item.onClick}
