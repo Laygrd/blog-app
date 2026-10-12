@@ -11,7 +11,7 @@ import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 
 export default {
-    title: 'features/ArticleRecommendationsList',
+    title: 'features/ArticleRecommendationsList/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -82,6 +82,37 @@ PrimaryDark.parameters = {
                 {...article, id: '3'},
             ],
             
+        },
+    ],
+};
+
+
+export const IsLoading = Template.bind({});
+IsLoading.args = {};
+IsLoading.decorators = [StoreDecorator({})];
+IsLoading.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            delay: 9999999,
+            response: [],
+        },
+    ],
+};
+
+export const IsLoadingDark = Template.bind({});
+IsLoadingDark.args = {};
+IsLoadingDark.decorators = [StoreDecorator({}), ThemeDecorator(Theme.DARK)];
+IsLoadingDark.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            delay: 9999999,
+            response: [],
         },
     ],
 };

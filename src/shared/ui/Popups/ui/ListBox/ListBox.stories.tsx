@@ -4,13 +4,13 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
-    title: 'shared/ListBox',
+    title: 'shared/Popups/ListBox',
     component: ListBox,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        Story => <div style={{padding: 300}}><Story /></div>
+        Story => <div style={{paddingInline: 600, paddingBlock: 300}}><Story /></div>
     ]
 } as ComponentMeta<typeof ListBox>;
 
@@ -24,21 +24,21 @@ const items = [
     { value: '5', content: 'Katelyn Rohan', disabled: false },
 ]
 
-export const Default = Template.bind({});
-Default.args = {
+export const Primary = Template.bind({});
+Primary.args = {
     items: items,
     onChange: (vlaue) => {},
     defaultValue: 'Choose one...'
 };
-Default.decorators = [ThemeDecorator(Theme.LIGHT)]
+Primary.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const DefaultDark = Template.bind({});
-DefaultDark.args = {
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
     items: items,
     onChange: (vlaue) => {},
     defaultValue: 'Choose one...'
 };
-DefaultDark.decorators = [ThemeDecorator(Theme.DARK)]
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Underline = Template.bind({});
 Underline.args = {
@@ -59,23 +59,23 @@ UnderlineDark.args = {
 UnderlineDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 
-export const DefaultTopDirection = Template.bind({});
-DefaultTopDirection.args = {
+export const PrimaryTopDirection = Template.bind({});
+PrimaryTopDirection.args = {
     items: items,
     onChange: (vlaue) => {},
     defaultValue: 'Choose one...',
     direction: 'top left',
 };
-DefaultTopDirection.decorators = [ThemeDecorator(Theme.LIGHT)]
+PrimaryTopDirection.decorators = [ThemeDecorator(Theme.LIGHT)]
 
-export const DefaultWithLabel = Template.bind({});
-DefaultWithLabel.args = {
+export const PrimaryWithLabel = Template.bind({});
+PrimaryWithLabel.args = {
     items: items,
     onChange: (vlaue) => {},
     defaultValue: 'Choose one...',
     label: 'some label'
 };
-DefaultWithLabel.decorators = [ThemeDecorator(Theme.LIGHT)]
+PrimaryWithLabel.decorators = [ThemeDecorator(Theme.LIGHT)]
 
 export const UnderlineWithLabel = Template.bind({});
 UnderlineWithLabel.args = {

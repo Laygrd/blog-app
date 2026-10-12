@@ -7,11 +7,8 @@
     "main_page": "Main",
     "about_page": "About",
     "login": "Login",
-    "logout": "Logout",
     "appName": "Blog App",
-    "createNewArticleLink": "New article",
-    "profile": "Profile",
-    "admin": "Admin"
+    "createNewArticleLink": "New article"
   },
   "AvatarDropdown": {
     "admin": "Admin",

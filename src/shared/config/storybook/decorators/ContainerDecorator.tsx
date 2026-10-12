@@ -4,6 +4,7 @@ import { Story } from "@storybook/react";
 export interface ContainerDecoratorProps {
     height?: string;
     width?: string;
+    bgColor?: string;
 }
 
 export const ContainerDecorator = (props: ContainerDecoratorProps) => (StoryComponent: Story) => {
@@ -11,10 +12,11 @@ export const ContainerDecorator = (props: ContainerDecoratorProps) => (StoryComp
     const { 
         height = '100%',
         width = '100%',
+        bgColor,
     } = props;
 
     return (
-        <div style={{ height, width, display: 'flex', alignItems: 'stretch' }}>
+        <div style={{ height, width, display: 'flex', alignItems: 'stretch', backgroundColor: bgColor }}>
             <StoryComponent />
         </div>
     )

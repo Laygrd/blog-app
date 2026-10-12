@@ -7,11 +7,8 @@
     "main_page": "Главная",
     "about_page": "О нас",
     "login": "Войти",
-    "logout": "Выйти",
     "appName": "Blog App",
-    "createNewArticleLink": "Новая статья",
-    "profile": "Профиль",
-    "admin": "Админка"
+    "createNewArticleLink": "Новая статья"
   },
   "AvatarDropdown": {
     "admin": "Админка",
