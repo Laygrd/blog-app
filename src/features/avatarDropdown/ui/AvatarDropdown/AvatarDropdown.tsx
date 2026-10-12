@@ -47,16 +47,16 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
             items={[
                 ...( isAdminPanelAvailable ? [
                     {
-                        content: t('Navbar.admin'),
+                        content: t('AvatarDropdown.admin'),
                         href: RouterPaths.admin_panel
                     }
                 ] : []),
                 {
-                    content: t('Navbar.profile'),
+                    content: t('AvatarDropdown.profile'),
                     href: RouterPaths.profiles + authData.id
                 },
                 {
-                    content: t('Navbar.logout'),
+                    content: t('AvatarDropdown.logout'),
                     onClick: onLogout,
                 }
             ]}

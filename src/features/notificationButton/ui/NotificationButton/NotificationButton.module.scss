@@ -1,9 +1,17 @@
-.NotificationButton {
-    .notifications {
-        min-height: 150px;
-        max-height: 400px;
-        width: 500px;
-        overflow-y: auto;
-        padding: 8px;
-    }
+.popoverNotifications,
+.drawerNotifications {
+    padding: 8px;
+}
+
+.popoverNotifications {
+    min-height: 150px;
+    max-height: 400px;
+    width: 500px;
+    overflow-y: auto;
+}
+
+.drawerNotifications {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
 }

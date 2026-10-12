@@ -2,6 +2,7 @@ import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState }
 import { classNames, Mods } from "shared/lib/classNames/classNames";
 import cls from "./Modal.module.scss";
 import { Portal } from "../Portal/Portal";
+import { Overlay } from "../Overlay/Overlay";
 
 
 export interface ModalProps {
@@ -85,16 +86,11 @@ export const Modal = ({ className, children, isOpen, onClose, lazy=false }: Moda
     return (
         <Portal>
             <div className={ classNames(cls.Modal, mods, [className]) }>
+                <Overlay onClick={closeHandler}/>
                 <div 
-                    className={cls.overlay}
-                    onClick={closeHandler}
+                    className={cls.content}
                 >
-                    <div 
-                        className={cls.content}
-                        onClick={contentClickHandler}
-                    >
-                        { children }
-                    </div>
+                    { children }
                 </div>
             </div>
         </Portal>

@@ -1,0 +1,52 @@
+.Drawer {
+    position: fixed;
+    display: flex;
+    align-items: flex-end;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    height: 70%;
+    width: 100%;
+    min-height: 150px;
+    bottom: 0;
+
+    transition: 0.3s transform;
+    transform: translateY(100%);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: var(--bg-color);
+    padding: 16px;
+}
+
+.content::before {
+    position: relative;
+    content: '';
+    display: block;
+    width: 150px;
+    height: 10px;
+    background: var(--bg-color);
+    margin: auto;
+    bottom: 40px;
+    border-radius: 8px;
+}
+
+.opened {
+    pointer-events: auto;
+    opacity: 1;
+    z-index: var(--modal-z-index);
+
+    .content {
+        transform: translateY(0%);
+    }
+}
