@@ -17,12 +17,10 @@
     width: 100%;
     min-height: 150px;
     bottom: 0;
-
     transition: 0.3s transform;
     transform: translateY(100%);
     overflow-y: auto;
     overflow-x: hidden;
-
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     background-color: var(--bg-color);
@@ -31,7 +29,7 @@
 
 .content::before {
     position: relative;
-    content: '';
+    content: "";
     display: block;
     width: 150px;
     height: 10px;
@@ -48,5 +46,11 @@
 
     .content {
         transform: translateY(0%);
+    }
+}
+
+.isClosing {
+    .content {
+        transform: translateY(100%);
     }
 }
