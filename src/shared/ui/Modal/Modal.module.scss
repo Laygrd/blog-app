@@ -16,6 +16,7 @@
     transform: scale(0.9);
     transition: 0.1s transform;
     color: var(--primary-color);
+    z-index: var(--modal-content-z-index);
 }
 
 .opened {

@@ -1,7 +1,6 @@
 import { ReactNode, useCallback, useEffect } from 'react';
-import { useDrag } from '@use-gesture/react'
-import { a, useSpring, config } from '@react-spring/web'
 
+import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
@@ -18,7 +17,7 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-export const Drawer = (props: DrawerProps) => {
+const DrawerContent = (props: DrawerProps) => {
     const {
         className,
         children,
@@ -27,7 +26,9 @@ export const Drawer = (props: DrawerProps) => {
         lazy=false
     } = props;
     
-    const [{ y }, api] = useSpring(() => ({ y: height }))
+    const { Gesture, Spring} = useAnimationLibs();
+
+    const [{ y }, api] = Spring.useSpring(() => ({ y: height }))
 
     const openDrawer = useCallback(() => {
         api.start({ y: 0, immediate: false })
@@ -38,7 +39,7 @@ export const Drawer = (props: DrawerProps) => {
             y: height,
             immediate: false,
             config: {
-                ...config.stiff,
+                ...Spring.config.stiff,
                 velocity,
             },
             onRest: (result) => {
@@ -48,9 +49,9 @@ export const Drawer = (props: DrawerProps) => {
                 }
             },
         })
-    }, [api, onClose]);
+    }, [api, onClose, Spring.config.stiff]);
 
-    const bind = useDrag(
+    const bind = Gesture.useDrag(
         ({
             last,
             velocity: [, vy],
@@ -96,7 +97,7 @@ export const Drawer = (props: DrawerProps) => {
         <Portal>
             <div className={classNames(cls.Drawer, {}, [className])} >
                 <Overlay onClick={() => closeDrawer()} />
-                <a.div
+                <Spring.a.div
                     className={cls.sheet}
                     style={{ display, bottom: `calc(-100vh + ${height - 100}px)`, y }}
                     
@@ -106,8 +107,18 @@ export const Drawer = (props: DrawerProps) => {
                         {...bind()}
                     />
                     {children}
-                </a.div>
+                </Spring.a.div>
             </div>
         </Portal>
     );
+};
+
+export const Drawer = (props: DrawerProps) => {
+    const { isLoaded } = useAnimationLibs();
+
+    if (!isLoaded) {
+        return null
+    };
+
+    return <DrawerContent {...props} />
 };

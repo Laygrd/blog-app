@@ -6,24 +6,24 @@
     left: 0;
     display: flex;
     align-items: flex-end;
-    z-index: 900;
+    z-index: var(--drawer-z-index);
 }
 
 .handle {
-  height: 32px;
-  background-color: rgb(from var(--inverted-bg-color) r g b /0.05);
-  border-radius: 8px;
-  margin-bottom: 16px;
+    height: 32px;
+    background-color: rgb(from var(--inverted-bg-color) r g b /5%);
+    border-radius: 8px;
+    margin-bottom: 16px;
 }
 
 .sheet {
-  z-index: var(--modal-z-index);
-  position: fixed;
-  left: 2vw;
-  height: calc(100vh + 100px);
-  width: 96vw;
-  border-radius: 8px 9px 0px;
-  background: var(--bg-color);
-  touch-action: none;
-  padding: 16px;
+    z-index: var(--drawer-content-z-index);
+    position: fixed;
+    left: 2vw;
+    height: calc(100vh + 100px);
+    width: 96vw;
+    border-radius: 8px 9px 0;
+    background: var(--bg-color);
+    touch-action: none;
+    padding: 16px;
 }

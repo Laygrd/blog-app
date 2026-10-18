@@ -23,5 +23,9 @@
     --overlay-color: rgb(0 0 0 / 60%);
 
     // z-indexes
+    --modal-content-z-index: 1100;
     --modal-z-index: 1000;
+    --drawer-content-z-index: 1100;
+    --drawer-z-index: 1000;
+    --overlay-z-index: 800;
 }
