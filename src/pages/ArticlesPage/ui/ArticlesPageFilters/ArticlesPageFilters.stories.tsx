@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ArticlesPageFilters } from './ArticlesPageFilters';
-import { Article, ArticleListView, ArticleSortField, ArticleType } from 'entities/Article';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { Article, ArticleListView, ArticleSortField, ArticleType } from '@/entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 const article = {
     "id": "1",

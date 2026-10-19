@@ -1,9 +1,9 @@
 import { memo, useCallback, useRef, useState } from 'react';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import CopyIcon from 'shared/assets/icons/copy-icon.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import CopySuccessIcon from 'shared/assets/icons/copy-success-icon.svg';
+import { Icon, IconTheme } from '@/shared/ui/Icon/Icon';
+import CopyIcon from '@/shared/assets/icons/copy-icon.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import CopySuccessIcon from '@/shared/assets/icons/copy-success-icon.svg';
 import cls from './Code.module.scss';
 
 

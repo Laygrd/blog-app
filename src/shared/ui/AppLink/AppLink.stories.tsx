@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AppLink, AppLinkTheme } from './AppLink';
-import { RouterDecorator } from 'shared/config/storybook/decorators/RouterDecorator';
+import { RouterDecorator } from '@/shared/config/storybook/decorators/RouterDecorator';
 
 
 export default {

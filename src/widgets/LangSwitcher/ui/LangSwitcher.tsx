@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import LngIcon from 'shared/assets/icons/language-icon.svg';
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { classNames } from "shared/lib/classNames/classNames";
-import { Icon, IconTheme } from "shared/ui/Icon/Icon";
+import LngIcon from '@/shared/assets/icons/language-icon.svg';
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { Icon, IconTheme } from "@/shared/ui/Icon/Icon";
 import cls from "./LangSwitcher.module.scss";
 
 

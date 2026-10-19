@@ -1,11 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import type { Notification } from 'entities/Notification/model/types/notification';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import type { Notification } from '@/entities/Notification/model/types/notification';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { NotificationButton } from './NotificationButton';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import withMock from 'storybook-addon-mock';
-import { ContainerDecorator } from 'shared/config/storybook/decorators/ContainerDecorator';
+import { ContainerDecorator } from '@/shared/config/storybook/decorators/ContainerDecorator';
 
 
 export default {

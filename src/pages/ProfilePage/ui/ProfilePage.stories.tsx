@@ -1,14 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ValidateProfileDataError } from 'features/editableProfileCard';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ValidateProfileDataError } from '@/features/editableProfileCard';
 
-import type { Profile } from 'entities/Profile';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import type { Profile } from '@/entities/Profile';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import avatar from 'shared/assets/tests/avatar_default.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import avatar from '@/shared/assets/tests/avatar_default.jpg';
 
 import ProfilePage from './ProfilePage';
 

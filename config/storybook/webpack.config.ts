@@ -18,7 +18,10 @@ export default ({config}: {config: webpack.Configuration}) => {
     // absolute imports fix
     config.resolve?.modules?.push(path.relative(__dirname, paths.src), 'node_modules'); // was '../../src' before
     config.resolve?.extensions?.push('ts', 'tsx');
-
+    config.resolve!.alias = {
+        ...config.resolve!.alias, // сохраняем существующие алиасы Storybook
+        '@': paths.src,
+    };
     // config.resolve?.modules? = [
     //     path.resolve(__dirname, '../../src'),
     //     'node_modules',

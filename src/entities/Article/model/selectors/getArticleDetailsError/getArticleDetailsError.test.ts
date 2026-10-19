@@ -1,5 +1,5 @@
 import { getArticleDetailsError } from "./getArticleDetailsError"
-import type { StateSchema } from "app/providers/StoreProvider"
+import type { StateSchema } from "@/app/providers/StoreProvider"
 
 describe('getArticleDetailsError.test', () => {
 

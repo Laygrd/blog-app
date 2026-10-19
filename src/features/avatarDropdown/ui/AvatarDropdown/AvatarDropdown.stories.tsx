@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AvatarDropdown } from './AvatarDropdown';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { UserRole } from 'entities/User';
-import Avatar from 'shared/assets/tests/avatar_default.jpg';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { UserRole } from '@/entities/User';
+import Avatar from '@/shared/assets/tests/avatar_default.jpg';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'features/AvatarDropdown/AvatarDropdown',

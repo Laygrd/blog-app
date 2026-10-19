@@ -8,14 +8,14 @@ import {
     ArticleType, 
     ArticleTypeTabs, 
     ArticleViewSelector,
-} from 'entities/Article';
+} from '@/entities/Article';
 
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import type { SortOrder } from 'shared/types';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import type { SortOrder } from '@/shared/types';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';

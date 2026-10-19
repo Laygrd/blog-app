@@ -2,12 +2,12 @@ import { memo, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { Input } from "shared/ui/Input/Input";
-import { Text, TextTheme } from "shared/ui/Text/Text";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { classNames } from "shared/lib/classNames/classNames";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { DynamicReducerLoader, ReducersList } from "shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
+import { Input } from "@/shared/ui/Input/Input";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { DynamicReducerLoader, ReducersList } from "@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader";
 
 import { loginByUsername } from "../../model/services/loginByUsername";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";

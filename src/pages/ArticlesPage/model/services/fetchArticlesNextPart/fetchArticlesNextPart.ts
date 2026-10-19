@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ThunkAPIOptions } from "app/providers/StoreProvider";
+import { ThunkAPIOptions } from "@/app/providers/StoreProvider";
 import { getArticlesPageNumber } from "../../selectors/getArticlesPageNumber/getArticlesPageNumber";
 import { getArticlesPageHasMore } from "../../selectors/getArticlesPageHasMore/getArticlesPageHasMore";
 import { getArticlesPageIsLoading } from "../../selectors/getArticlesPageIsLoading/getArticlesPageIsLoading";

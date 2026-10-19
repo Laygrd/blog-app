@@ -1,7 +1,7 @@
 /* eslint-disable i18next/no-literal-string */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { Button, ButtonTheme } from '../../../Button/Button';
 import { Dropdown } from './Dropdown';
 

@@ -1,7 +1,7 @@
-import { classNames } from "shared/lib/classNames/classNames"
-import { Skeleton } from "shared/ui/Skeleton/Skeleton"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
 import cls from './CommentCard.module.scss';
-import { HStack, VStack } from "shared/ui/Stack";
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 
 export const CommentCardSkeleton = () => {

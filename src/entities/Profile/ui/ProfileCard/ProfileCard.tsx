@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Country, CountrySelect } from "entities/Country";
-import { Currency, CurrencySelect } from "entities/Currency";
+import { Country, CountrySelect } from "@/entities/Country";
+import { Currency, CurrencySelect } from "@/entities/Currency";
 
-import { Text } from "shared/ui/Text/Text";
-import { Input, InputTheme } from "shared/ui/Input/Input";
-import { Avatar, AvatarTheme } from "shared/ui/Avatar/Avatar";
-import { classNames } from "shared/lib/classNames/classNames";
-import { HStack, VStack } from "shared/ui/Stack";
-import { ListBoxTheme } from "shared/ui/Popups";
+import { Text } from "@/shared/ui/Text/Text";
+import { Input, InputTheme } from "@/shared/ui/Input/Input";
+import { Avatar, AvatarTheme } from "@/shared/ui/Avatar/Avatar";
+import { classNames } from "@/shared/lib/classNames/classNames";
+import { HStack, VStack } from "@/shared/ui/Stack";
+import { ListBoxTheme } from "@/shared/ui/Popups";
 
 import type { Profile } from "../../model/types/ProfileSchema";
 import { AvatarModal } from "../AvatarModal/AvatarModal";

@@ -1,5 +1,5 @@
-import { type Article, ArticleListView } from "entities/Article";
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { type Article, ArticleListView } from "@/entities/Article";
+import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
 import { fetchArticles } from "./fetchArticles"
 
 

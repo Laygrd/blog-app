@@ -1,7 +1,7 @@
 import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropdownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DropdownDirection } from '@/shared/types/ui';
 
 import { Button, ButtonTheme } from '../../../Button/Button';
 import CheckIcon from '../../../../assets/icons/check.svg';

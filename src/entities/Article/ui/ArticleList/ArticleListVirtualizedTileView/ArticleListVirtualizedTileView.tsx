@@ -16,8 +16,8 @@ import {
 } from 'react-virtuoso';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text/Text';
 import type { Article } from '../../../model/types/Article';
 import { ArticleListView } from '../../../model/consts/consts';
 import { ArticleListItem } from '../../ArticleListItem/ArticleListItem';

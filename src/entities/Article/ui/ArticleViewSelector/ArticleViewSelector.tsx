@@ -1,9 +1,9 @@
-import { HStack } from 'shared/ui/Stack';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { classNames } from 'shared/lib/classNames/classNames';
-import ListViewIcon from 'shared/assets/icons/list-view-icon.svg';
-import TileViewIcon from 'shared/assets/icons/tile-view-icon.svg';
+import { HStack } from '@/shared/ui/Stack';
+import { Icon, IconTheme } from '@/shared/ui/Icon/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import ListViewIcon from '@/shared/assets/icons/list-view-icon.svg';
+import TileViewIcon from '@/shared/assets/icons/tile-view-icon.svg';
 
 import { ArticleListView } from '../../model/consts/consts';
 import cls from './ArticleViewSelector.module.scss';

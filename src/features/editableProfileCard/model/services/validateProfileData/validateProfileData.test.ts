@@ -1,7 +1,7 @@
 import { validateProfileData } from "./validateProfileData"
-import type { Profile } from 'entities/Profile'
-import { Country } from "entities/Country";
-import { Currency } from "entities/Currency";
+import type { Profile } from '@/entities/Profile'
+import { Country } from "@/entities/Country";
+import { Currency } from "@/entities/Currency";
 import { ValidateProfileDataError } from "../../consts/consts";
 
 

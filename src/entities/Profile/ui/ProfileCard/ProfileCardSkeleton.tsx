@@ -1,5 +1,5 @@
-import { Skeleton } from "shared/ui/Skeleton/Skeleton"
-import { HStack, VStack } from "shared/ui/Stack";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton"
+import { HStack, VStack } from "@/shared/ui/Stack";
 
 
 export const ProfileCardSkeleton = () => {

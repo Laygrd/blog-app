@@ -1,5 +1,5 @@
 import { getAddCommentFormError } from "./getAddCommentFormError";
-import type { StateSchema } from "app/providers/StoreProvider";
+import type { StateSchema } from "@/app/providers/StoreProvider";
 
 
 describe('getAddCommentFormError.test', () => {

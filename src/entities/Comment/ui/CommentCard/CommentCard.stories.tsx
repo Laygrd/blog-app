@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CommentCard } from './CommentCard';
-import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
+import AvatarDefault from '@/shared/assets/tests/avatar_default.jpg';
 
 
 export default {

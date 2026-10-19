@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { RouterPaths } from 'shared/config/router/routerVars';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Avatar, AvatarTheme } from '@/shared/ui/Avatar/Avatar';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { RouterPaths } from '@/shared/config/router/routerVars';
 import { CommentCardSkeleton } from './CommentCardSkeleton';
 import type { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';

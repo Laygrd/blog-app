@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import TestIcon from 'shared/assets/tests/edit-tests-icon.svg';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import TestIcon from '@/shared/assets/tests/edit-tests-icon.svg';
 import { Icon } from './Icon';
 
 export default {

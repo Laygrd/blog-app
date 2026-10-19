@@ -1,17 +1,17 @@
 import { HTMLAttributeAnchorTarget } from "react";
 
-import EyeIcon from 'shared/assets/icons/eye-icon.svg';
-import { Text, TextSize } from "shared/ui/Text/Text";
-import { HStack, VStack } from "shared/ui/Stack";
-import { AppLink } from "shared/ui/AppLink/AppLink";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
-import { Card } from "shared/ui/Card/Card";
-import { RouterPaths } from "shared/config/router/routerVars";
-import { classNames } from "shared/lib/classNames/classNames";
+import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
+import { Text, TextSize } from "@/shared/ui/Text/Text";
+import { HStack, VStack } from "@/shared/ui/Stack";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
+import { Card } from "@/shared/ui/Card/Card";
+import { RouterPaths } from "@/shared/config/router/routerVars";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 import { Article  } from "../../../model/types/Article";
 import cls from './ArticleListItemTile.module.scss';
-import { Icon, IconTheme } from "shared/ui/Icon/Icon";
+import { Icon, IconTheme } from "@/shared/ui/Icon/Icon";
 
 
 export interface ArticleListItemTileProps {

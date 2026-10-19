@@ -1,6 +1,6 @@
 import { CSSProperties, useMemo } from "react";
-import EditIcon from 'shared/assets/icons/edit-line-large-icon.svg';
-import { classNames, Mods } from "shared/lib/classNames/classNames";
+import EditIcon from '@/shared/assets/icons/edit-line-large-icon.svg';
+import { classNames, Mods } from "@/shared/lib/classNames/classNames";
 import cls from "./Avatar.module.scss";
 
 import { Button, ButtonTheme } from "../Button/Button";

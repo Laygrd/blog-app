@@ -2,18 +2,18 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData } from '@/entities/User';
 
-import { HStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text/Text';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import SaveIcon from 'shared/assets/icons/save-icon.svg';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import EditIcon from 'shared/assets/icons/edit-line-icon.svg';
-import CancelIcon from 'shared/assets/icons/cancel-icon.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text/Text';
+import { Icon, IconTheme } from '@/shared/ui/Icon/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import SaveIcon from '@/shared/assets/icons/save-icon.svg';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import EditIcon from '@/shared/assets/icons/edit-line-icon.svg';
+import CancelIcon from '@/shared/assets/icons/cancel-icon.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 import { profileActions } from '../../model/slice/profileSlice';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';

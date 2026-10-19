@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './NotificationItem.module.scss';
-import { Card, CardTheme } from 'shared/ui/Card/Card';
+import { Card, CardTheme } from '@/shared/ui/Card/Card';
 import { Notification } from '../../model/types/notification';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 
 
 interface NotificationItemProps {

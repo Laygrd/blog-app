@@ -1,12 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { Theme } from 'app/providers/ThemeProvider';
-import { Article } from 'entities/Article';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { Article } from '@/entities/Article';
 
-import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
-import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import JSLogo from '@/shared/assets/tests/JavaScript-logo.jpg';
+import AvatarDefault from '@/shared/assets/tests/avatar_default.jpg';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 

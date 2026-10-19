@@ -1,10 +1,10 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NotificationList } from './NotificationList';
 import type { Notification } from '../../model/types/notification';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import withMock from 'storybook-addon-mock';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 
 export default {

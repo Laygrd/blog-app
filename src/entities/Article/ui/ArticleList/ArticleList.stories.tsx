@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
+import { Theme } from '@/app/providers/ThemeProvider';
 
-import JSLogo from 'shared/assets/tests/JavaScript-logo.jpg';
-import AvatarDefault from 'shared/assets/tests/avatar_default.jpg';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { ContainerDecorator } from 'shared/config/storybook/decorators/ContainerDecorator';
+import JSLogo from '@/shared/assets/tests/JavaScript-logo.jpg';
+import AvatarDefault from '@/shared/assets/tests/avatar_default.jpg';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { ContainerDecorator } from '@/shared/config/storybook/decorators/ContainerDecorator';
 
 import { ArticleList } from './ArticleList';
 import type { Article } from '../../model/types/Article';

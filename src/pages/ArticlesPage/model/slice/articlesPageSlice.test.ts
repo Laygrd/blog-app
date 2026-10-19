@@ -1,7 +1,7 @@
 import { ArticlesPageSchema } from "../types/ArticlesPageSchema";
 import { articlesPageActions, articlesPageReducer } from "./articlesPageSlice";
 import { fetchArticles } from "../services/fetchArticles/fetchArticles";
-import { type Article, ArticleListView } from "entities/Article";
+import { type Article, ArticleListView } from "@/entities/Article";
 
 
 const article = {

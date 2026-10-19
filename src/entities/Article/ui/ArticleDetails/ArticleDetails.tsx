@@ -2,17 +2,17 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Avatar, AvatarTheme } from 'shared/ui/Avatar/Avatar';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import EyeIcon from 'shared/assets/icons/eye-icon.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RouterPaths } from 'shared/config/router/routerVars';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Avatar, AvatarTheme } from '@/shared/ui/Avatar/Avatar';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-icon.svg';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { RouterPaths } from '@/shared/config/router/routerVars';
 
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
@@ -27,7 +27,7 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsSkeleton } from './ArticleDetailsSkeleton';
 import cls from './ArticleDetails.module.scss';
-import { Icon, IconTheme } from 'shared/ui/Icon/Icon';
+import { Icon, IconTheme } from '@/shared/ui/Icon/Icon';
 
 
 interface ArticleDetailsProps {

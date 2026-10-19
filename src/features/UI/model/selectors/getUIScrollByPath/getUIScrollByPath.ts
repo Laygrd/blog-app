@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import type { StateSchema } from "app/providers/StoreProvider";
+import type { StateSchema } from "@/app/providers/StoreProvider";
 import { getUIScroll } from '../getUIScroll/getUIScroll';
 
 

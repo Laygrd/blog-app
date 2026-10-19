@@ -1,4 +1,4 @@
-import type { Profile } from 'entities/Profile'
+import type { Profile } from '@/entities/Profile'
 import { ValidateProfileDataError } from '../../consts/consts';
 
 

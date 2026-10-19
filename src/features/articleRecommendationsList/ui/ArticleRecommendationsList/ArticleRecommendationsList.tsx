@@ -1,13 +1,13 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ArticleList } from 'entities/Article';
+import { ArticleList } from '@/entities/Article';
 
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useGetArticlesRecommendationsList } from '../../api/articleRecommendationsApi';
 
