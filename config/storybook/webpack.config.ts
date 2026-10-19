@@ -22,10 +22,6 @@ export default ({config}: {config: webpack.Configuration}) => {
         ...config.resolve!.alias, // сохраняем существующие алиасы Storybook
         '@': paths.src,
     };
-    // config.resolve?.modules? = [
-    //     path.resolve(__dirname, '../../src'),
-    //     'node_modules',
-    // ];
 
     // @ts-ignore
     // eslint-disable-next-line no-param-reassign
