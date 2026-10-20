@@ -9,7 +9,6 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import NotificationsIcon from '@/shared/assets/icons/notifications-icon.svg';
 import cls from './NotificationButton.module.scss';
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 
 
 interface NotificationButtonProps {
@@ -51,14 +50,12 @@ export const NotificationButton = (props: NotificationButtonProps) => {
                         Svg={ NotificationsIcon }
                     />
                 </Button>
-                <AnimationProvider >
-                    <Drawer
-                        isOpen={isOpenDrawer}
-                        onClose={onCloseDrawer}
-                    >
-                        <NotificationList className={cls.drawerNotifications}/>
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer
+                    isOpen={isOpenDrawer}
+                    onClose={onCloseDrawer}
+                >
+                    <NotificationList className={cls.drawerNotifications}/>
+                </Drawer>
             </MobileView>
         </>
     );
