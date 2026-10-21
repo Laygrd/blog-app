@@ -1,0 +1,12 @@
+.StarRating {
+    display: flex;
+    flex-direction: row;
+}
+
+.starIcon {
+    cursor: pointer;
+
+    &.selected {
+        cursor: auto;
+    }
+}

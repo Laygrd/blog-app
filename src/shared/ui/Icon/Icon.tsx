@@ -10,7 +10,7 @@ export const enum IconTheme {
     INVERTED_SECONDARY = 'inverted-secondary',
 }
 
-interface IconProps {
+interface IconProps extends SVGProps<SVGSVGElement>{
     className?: string;
     Svg: FC<SVGProps<SVGSVGElement>>;
     theme?: IconTheme;
@@ -25,6 +25,7 @@ export const Icon = memo((props: IconProps) => {
         theme = IconTheme.PIRMARY,
         excludeColor = false,
         excludeFill = false,
+        ...otherProps
     } = props;
 
     return (
@@ -35,7 +36,8 @@ export const Icon = memo((props: IconProps) => {
                     {[cls.excludeFill]: excludeFill, [cls.excludeColor]: excludeColor}, 
                     [className, cls[theme]]
                 )
-            } 
+            }
+            { ...otherProps }
         />
     );
 });
