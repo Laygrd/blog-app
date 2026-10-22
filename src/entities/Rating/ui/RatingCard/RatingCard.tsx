@@ -1,17 +1,16 @@
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
-import cls from './RatingCard.module.scss';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { BrowserView, MobileView } from 'react-device-detect';
+
 import { Card } from '@/shared/ui/Card/Card';
+import { Text } from '@/shared/ui/Text/Text';
 import { Modal } from '@/shared/ui/Modal/Modal';
 import { Input } from '@/shared/ui/Input/Input';
-import { useCallback, useState } from 'react';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 
 interface RatingCardProps {
@@ -73,7 +72,7 @@ export const RatingCard = (props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card className={classNames('', {}, [className])}>
             <VStack
                 gap={'16'}
                 align={'center'}
