@@ -16,5 +16,9 @@
         "FAILED_TO_FETCH_ARTICLE_COMMENTS": "Failed to fetch article comments",
         "ADD_COMMENT_INCORRECT_OR_MISSING_DATA": "Missng comment text, user data or article ...",
         "ADD_COMMENT_REQUEST_FAILED": "Failed to send comment"
+    },
+    "ArticleRating": {
+        "title": "Rate this article!",
+        "feedbackTitle": "Leave a feedback about this article :)"
     }
 }

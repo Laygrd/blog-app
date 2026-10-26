@@ -58,5 +58,11 @@
   },
   "NotificationList": {
     "empty": "Пока не поступало уведомлений ;)"
+  },
+  "RatingCard": {
+    "modalFeedbackInput": "ваш отзыв здесь...",
+    "cancelBtn": "Отмена",
+    "submitBtn": "Отправить",
+    "alreadyRated": "Спасибо за ваш отзыв!"
   }
 }

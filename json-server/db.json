@@ -1133,5 +1133,57 @@
       "title": "Some notification5",
       "description": "SOme notification text5"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": "4",
+      "feedback": "Хорошая статья!",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": "5",
+      "feedback": "Хорошая статья!",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": 1,
+      "articleId": "5",
+      "rate": 4,
+      "id": "1a8EQC7"
+    },
+    {
+      "userId": 1,
+      "articleId": "7",
+      "rate": 4,
+      "feedback": "Хорошая статья!",
+      "id": "rV-KQFq"
+    },
+    {
+      "userId": 1,
+      "articleId": "3",
+      "rate": 4,
+      "feedback": "Хорошая статья!",
+      "id": "hKr0Q6x"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": "4",
+      "feedback": "Любимый автор!",
+      "userId": "2",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": "5",
+      "feedback": "Любимый автор!",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }

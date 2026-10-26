@@ -58,5 +58,11 @@
   },
   "NotificationList": {
     "empty": "No recieved notifications yet ;)"
+  },
+  "RatingCard": {
+    "modalFeedbackInput": "your comment here...",
+    "cancelBtn": "Cancel",
+    "submitBtn": "Submit",
+    "alreadyRated": "Thank`s for your opinion!"
   }
 }

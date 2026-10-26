@@ -9,7 +9,6 @@ import { Input } from '@/shared/ui/Input/Input';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 
@@ -21,6 +20,7 @@ interface RatingCardProps {
     title?: string;
     feedbackTitle?: string;
     hasFeedback?: boolean;
+    rate?: number;
 }
 
 export const RatingCard = (props: RatingCardProps) => {
@@ -32,12 +32,13 @@ export const RatingCard = (props: RatingCardProps) => {
         title,
         feedbackTitle,
         hasFeedback,
+        rate = 0,
     } = props;
 
     const { t } = useTranslation()
 
     const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
-    const [starCount, setStarCount] = useState<number>(0);
+    const [starCount, setStarCount] = useState<number>(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStarsHandler = useCallback((starCount: number) => {
@@ -67,12 +68,13 @@ export const RatingCard = (props: RatingCardProps) => {
             <Input
                 id={`feedback_input_${id}`}
                 placeholder={t('RatingCard.modalFeedbackInput')}
+                onChange={setFeedback}
             />
         </>
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
+        <Card className={ className } max >
             <VStack
                 gap={'16'}
                 align={'center'}
@@ -80,9 +82,10 @@ export const RatingCard = (props: RatingCardProps) => {
                 max
             >
                 { title &&
-                    <Text title={title} />
+                    <Text title={ starCount ? t('RatingCard.alreadyRated') : title} />
                 }
                 <StarRating
+                    selectedStars={starCount}
                     onSelect={onSelectStarsHandler}
                     size={40}
                 />

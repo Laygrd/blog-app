@@ -1,25 +1,24 @@
-import { useParams } from 'react-router-dom';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
+import { ArticleRating } from '@/features/articleRating';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { Page } from "@/widgets/Page";
 import { ArticleDetails, getArticleDetailsError } from '@/entities/Article';
 
-
+import { VStack } from '@/shared/ui/Stack';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
-import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-
-import { articleDetailsPageReducer } from '../../model/slice';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
-import { VStack } from '@/shared/ui/Stack';
-
-import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 
 interface ArticleDetailsPageProps {
@@ -49,8 +48,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 <VStack gap={'32'} max>
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={"1"}/>
-                    { !articleLoadingError && 
+                    { !articleLoadingError &&
                         <>
+                            <ArticleRating articleId={'1'}/>
                             <ArticleRecommendationsList />
                             <ArticleDetailsComments id={"1"}/>
                         </>
@@ -77,6 +77,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     <ArticleDetails id={id}/>
                     { !articleLoadingError && 
                         <>
+                            <ArticleRating articleId={id} />
                             <ArticleRecommendationsList />
                             <ArticleDetailsComments id={id}/>
                         </>

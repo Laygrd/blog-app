@@ -16,5 +16,9 @@
         "FAILED_TO_FETCH_ARTICLE_COMMENTS": "Ошибка при загрузке комменатриев",
         "ADD_COMMENT_INCORRECT_OR_MISSING_DATA": "Отсутствует текст комментария, данные пользователя или что-то другое ...",
         "ADD_COMMENT_REQUEST_FAILED": "Ошибка при отправке комментария"
+    },
+    "ArticleRating": {
+        "title": "Оцените статью!",
+        "feedbackTitle": "Оставтье свой отзыв о статье :)"
     }
 }

@@ -1,7 +1,6 @@
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Page } from '@/widgets/Page';
-import { RatingCard } from "@/entities/Rating";
 
 
 const MainPage = () => {
@@ -9,7 +8,6 @@ const MainPage = () => {
     return (
         <Page>
             {t('title')}
-            <RatingCard hasFeedback/>
         </Page>
     )
 };

@@ -22,7 +22,7 @@ export const StarRating = (props: StarRatingProps) => {
         selectedStars = 0,
     } = props;
 
-    const [currenStarsCount, setCurrentStarsCount] = useState(0);
+    const [currenStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const mods = useMemo(() => ({
