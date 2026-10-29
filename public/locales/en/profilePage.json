@@ -26,5 +26,9 @@
         "INCORRECT_AGE": "Incorrect age",
         "INCORRECT_REGIONAL_DATA": "Incorrect optional data",
         "ID_MISSING": "Missing profile ID"
+    },
+    "ProfileRating": {
+        "title": "Rate this profile",
+        "feedbackTitle": "Leave a small comment about this profile :)"
     }
 }

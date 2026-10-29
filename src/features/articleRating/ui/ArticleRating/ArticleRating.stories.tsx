@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleRating } from './ArticleRating';
+import ArticleRating from './ArticleRating';
 
 export default {
     title: 'shared/ArticleRating',
@@ -11,8 +11,8 @@ export default {
 
 const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating { ...args } />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Primary = Template.bind({});
+Primary.args = {
 
 };
-Default.decorators = [];
+Primary.decorators = [];

@@ -1179,11 +1179,11 @@
       "profileId": "1"
     },
     {
-      "id": "2",
-      "rate": "5",
-      "feedback": "Любимый автор!",
-      "userId": "1",
-      "profileId": "2"
+      "userId": 1,
+      "profileId": "2",
+      "rate": 5,
+      "feedback": "Лучший автор",
+      "id": "WhawjtI"
     }
   ]
 }

@@ -11,8 +11,8 @@ export default {
 
 const Template: ComponentStory<typeof [FTName]> = (args) => <[FTName] { ...args } />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Primary = Template.bind({});
+Primary.args = {
 
 };
-Default.decorators = [];
+Primary.decorators = [];
