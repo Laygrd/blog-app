@@ -5,3 +5,4 @@ storybook-static/
 .loki/report.html
 .vscode/
 /reports
+.DS_Store
