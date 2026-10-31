@@ -17,7 +17,7 @@ const ArticleRating = (props: ArticleRatingProps) => {
     const { t } = useTranslation('article_details');
     const user = useSelector(getUserAuthData);
 
-    const { data, isLoading } = useGetArticleRating({ userId: user?.id ?? '' , articleId })
+    const { data, isLoading } = useGetArticleRating({ userId: user?.id ?? '' , articleId  })
     const [ rateArticleMutation ] = useRateArticle();
 
     const rateArticleHandler = useCallback((starsCount: number, feedback?: string) => {
