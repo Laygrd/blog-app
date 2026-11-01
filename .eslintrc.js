@@ -63,7 +63,7 @@ module.exports = {
         ],
         'react/display-name': 'off',
         'no-undef': 'off',
-        'laygrd-plugin/fsd-relative-path': 'error',
+        'laygrd-plugin/fsd-relative-path': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

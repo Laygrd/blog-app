@@ -9,17 +9,14 @@
     "start:front:vite": "vite",
     "start": "concurrently \"npm run start:api\" \"npm run start:front\"",
     "start:vite": "concurrently \"npm run start:api\" \"npm run start:front:vite\"",
-
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production apiUrl=https://blog-app-server-swart.vercel.app/",
     "analyze:dev": "webpack --env mode=development --env withAnalyzer=true",
     "analyze:prod": "webpack --env mode=production --env withAnalyzer=true apiUrl=https://blog-app-server-swart.vercel.app/",
-    
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
@@ -75,7 +72,7 @@
     "eslint-plugin-i18next": "5.1.2",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-jsx-a11y": "6.5.1",
-    "eslint-plugin-laygrd-plugin": "^0.0.1",
+    "eslint-plugin-laygrd-plugin": "^0.0.3",
     "eslint-plugin-react": "7.29.2",
     "eslint-plugin-react-hooks": "4.3.0",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
