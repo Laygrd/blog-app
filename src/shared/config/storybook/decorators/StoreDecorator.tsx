@@ -1,3 +1,4 @@
+/* eslint-disable laygrd-plugin/public-api-imports */
 import { Story } from "@storybook/react";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
 import { profileReducer } from "@/features/editableProfileCard";

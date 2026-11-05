@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Code } from '@/widgets/Code/Code';
+import { Code } from '@/widgets/Code';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import type { ArticleCodeBlock } from '../../model/types/Article';
 import cls from './ArticleCodeBlockComponent.module.scss';

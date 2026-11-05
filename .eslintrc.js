@@ -64,6 +64,7 @@ module.exports = {
         'react/display-name': 'off',
         'no-undef': 'off',
         'laygrd-plugin/fsd-relative-path': ['error', { alias: '@' }],
+        'laygrd-plugin/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
