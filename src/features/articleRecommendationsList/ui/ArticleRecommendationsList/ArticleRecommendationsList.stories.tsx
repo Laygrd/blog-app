@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { Article } from '@/entities/Article';
+import { Article } from '@/entities/Article/testing';
 
 import JSLogo from '@/shared/assets/tests/JavaScript-logo.jpg';
 import AvatarDefault from '@/shared/assets/tests/avatar_default.jpg';

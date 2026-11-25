@@ -64,7 +64,9 @@ module.exports = {
         'react/display-name': 'off',
         'no-undef': 'off',
         'laygrd-plugin/fsd-relative-path': ['error', { alias: '@' }],
-        'laygrd-plugin/public-api-imports': ['error', { alias: '@' }],
+        'laygrd-plugin/public-api-imports': ['error',
+            { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'] }
+        ],
     },
     globals: {
         __IS_DEV__: true,

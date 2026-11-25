@@ -1,9 +1,8 @@
-// eslint-disable
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { ArticleType, ArticleBlockType, type Article} from '@/entities/Article';
 
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ArticleType, ArticleBlockType, type Article} from '@/entities/Article/testing';
 import JSLogo from '@/shared/assets/tests/JavaScript-logo.jpg';
 import AvatarDefault from '@/shared/assets/tests/avatar_default.jpg';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';

@@ -1,12 +1,12 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
-// eslint-disable-next-line laygrd-plugin/public-api-imports
-import type { Notification } from '@/entities/Notification/model/types/notification';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { NotificationButton } from './NotificationButton';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import withMock from 'storybook-addon-mock';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { Theme } from '@/app/providers/ThemeProvider';
+import type { Notification } from '@/entities/Notification/testing';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ContainerDecorator } from '@/shared/config/storybook/decorators/ContainerDecorator';
+import { NotificationButton } from './NotificationButton';
 
 
 export default {

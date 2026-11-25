@@ -1,9 +1,11 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ArticleRating from './ArticleRating';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import withMock from 'storybook-addon-mock';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { Theme } from '@/app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import ArticleRating from './ArticleRating';
+
 
 export default {
     title: 'features/ArticleRating/ArticleRating',

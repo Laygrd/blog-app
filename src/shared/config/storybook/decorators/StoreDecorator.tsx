@@ -1,13 +1,15 @@
-/* eslint-disable laygrd-plugin/public-api-imports */
 import { Story } from "@storybook/react";
 import { StateSchema, StoreProvider } from "@/app/providers/StoreProvider";
-import { profileReducer } from "@/features/editableProfileCard";
-import { loginReducer } from "@/features/AuthByUsername/model/slice/loginSlice";
+
+
+import { loginReducer } from "@/features/AuthByUsername/testing";
+import { articlesPageReducer } from "@/pages/ArticlesPage/testing";
+import { articleDetailsReducer } from "@/entities/Article/testing";
+import { profileReducer } from "@/features/editableProfileCard/testing";
+import { addCommentFormReducer } from "@/features/addCommentForm/testing";
+import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage/testing";
+
 import { ReducersList } from "../../../lib/components/DynamicReducerLoader/DynamicReducerLoader";
-import { articleDetailsReducer } from "@/entities/Article/model/slice/articleDetailsSlice";
-import { addCommentFormReducer } from "@/features/addCommentForm/model/slice/addCommentFormSlice";
-import { articlesPageReducer } from "@/pages/ArticlesPage/model/slice/articlesPageSlice";
-import { articleDetailsPageReducer } from "@/pages/ArticleDetailsPage";
 
 
 const defaultAsyncReducers: ReducersList = {

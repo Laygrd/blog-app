@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { ValidateProfileDataError } from '@/features/editableProfileCard';
+import { ValidateProfileDataError } from '@/features/editableProfileCard/testing';
 
-import type { Profile } from '@/entities/Profile';
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
+import type { Profile } from '@/entities/Profile/testing';
+import { Country } from '@/entities/Country/testing';
+import { Currency } from '@/entities/Currency/testing';
 
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
